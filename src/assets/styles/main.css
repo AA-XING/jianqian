@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background: #f3f6fc;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  max-width: 800px;
+}
+
+/* 通用按钮重置 */
+button {
+  font-family: inherit;
+}
