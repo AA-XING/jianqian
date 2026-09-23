@@ -15,13 +15,18 @@
     <AmountRange v-model:min="amountMin" v-model:max="amountMax" />
 
     <button class="btn-calc" @click="onCalculate">
-      🔍 计算
+      捡
     </button>
+
+    <!-- ★ 单场不可单关提示（非阻断） -->
+    <div v-if="singleMatchWarning" class="warning-tip">
+      ⚠️ {{ singleMatchWarning }}
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 import MatchCountSelector from './MatchCountSelector.vue'
 import MatchRow from './MatchRow.vue'
 import AmountRange from './AmountRange.vue'
@@ -40,9 +45,13 @@ const rows = reactive([createEmptyRow()])
 function createEmptyRow() {
   return {
     matchId: null,
+    groupId: null,
+    poolType: null,
+    poolLabel: '',
     matchName: '',
+    bettingSingle: false,
     odds: null,
-    comboType: 'wp',   // ★ 默认胜&平
+    comboType: 'wp',
     odds1: null,
     odds2: null
   }
@@ -64,7 +73,24 @@ const onRowUpdate = (index, newRow) => {
 const amountMin = ref(0)
 const amountMax = ref(1000)
 
+/**
+ * ★ 单场不可单关提示（非阻断）
+ * 仅当：
+ *   - 场次数量 === 1
+ *   - 已选中比赛（有 matchId）
+ *   - 该场不可单关（bettingSingle === false）
+ * 时显示，但不阻止计算
+ */
+const singleMatchWarning = computed(() => {
+  if (rows.length !== 1) return ''
+  const r = rows[0]
+  if (!r.matchId) return ''
+  if (r.bettingSingle) return ''
+  return `当前只选了 1 场（${r.matchName}），该场不可投单关`
+})
+
 const onCalculate = () => {
+  // 只做必要校验（提示放在按钮下方，不弹窗）
   if (rows.some(r => !r.matchId || !r.odds1 || !r.odds2)) {
     alert('请完整选择场次和两个赔率')
     return
@@ -78,13 +104,16 @@ const onCalculate = () => {
     return
   }
 
+  const m_ = amountMin.value
+  const M_ = amountMax.value
+
   let result = null
   let errorMsg = null
   try {
     result = computeAll(JSON.parse(JSON.stringify(rows)), {
       x: 0.01,
-      m_: Math.max(100, amountMin.value),
-      M_: Math.max(amountMax.value, 1000)
+      m_,
+      M_
     })
     if (result.errorMsg) {
       errorMsg = result.errorMsg
@@ -131,5 +160,18 @@ const onCalculate = () => {
 .btn-calc:hover {
   background: #1b5580;
   transform: scale(1.01);
+}
+
+/* ★ 提示文字样式 */
+.warning-tip {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #fff7e6;
+  border-left: 4px solid #e6a23c;
+  color: #b88230;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 </style>

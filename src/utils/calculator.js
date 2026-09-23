@@ -5,7 +5,10 @@
  *  组合规则：
  *    第 i 场有 2 个赔率 → a_i = [odds_i1, odds_i2]
  *    所有组合 a = [x1 * x2 * ... * xn for x1 in a1 for x2 in a2 ...]
- *    每个组合对应一个"比赛结果"文本，如 "曼联-胜 × 皇马-负"
+ *
+ *  严格约束：
+ *    M = sum(newWeights) ∈ [m_, M_]
+ *    通过 fixSum 主动修正 newW，使其和落在范围内
  * ============================================================ */
 
 /** 四舍五入到最近的偶数 */
@@ -38,16 +41,109 @@ function stdev(arr) {
 }
 
 /**
+ * ★ 关键：主动修正 newW，使 sum(newW) 严格落在 [m_, M_] 内
+ *
+ * 修正策略：
+ *   1. 若 sum > M_：从"非 idxMin 且值 > 0"的项里，按当前值从大到小依次 -2，
+ *      直到 sum <= M_。若一轮不够，继续循环。
+ *   2. 若 sum < m_：给"非 idxMin 且值最小"的项 +2，直到 sum >= m_。
+ *      优先给小的加，避免破坏原有比例。
+ *   3. 若修正后仍无法满足（例如 n=1 且区间无合法偶数值），抛错。
+ *
+ * @param {number[]} newW
+ * @param {number}   idxMin
+ * @param {number}   m_
+ * @param {number}   M_
+ * @returns {number[]} 修正后的 newW
+ */
+function fixSum(newW, idxMin, m_, M_) {
+  const arr = [...newW]
+  const n = arr.length
+
+  // 让数组各项始终 >= 2（偶数最小值）
+  for (let i = 0; i < n; i++) {
+    if (arr[i] < 2) arr[i] = 2
+  }
+  // 保证 idxMin 项不为 0（但这里不强制等于原 t，允许修正）
+  if (arr[idxMin] < 2) arr[idxMin] = 2
+
+  let sum = arr.reduce((s, v) => s + v, 0)
+
+  // ---------- 情况 1：sum > M_，需要减小 ----------
+  if (sum > M_) {
+    // 除 idxMin 外的项，按当前值从大到小排序
+    // 优先减小大项，对比例影响最小
+    let guard = 0
+    while (sum > M_ && guard++ < 100000) {
+      // 每次找当前值最大的非 idxMin 项
+      let maxIdx = -1
+      let maxVal = -1
+      for (let i = 0; i < n; i++) {
+        if (i === idxMin) continue
+        if (arr[i] > maxVal && arr[i] >= 4) {  // 保证减 2 后仍 >= 2
+          maxVal = arr[i]
+          maxIdx = i
+        }
+      }
+      if (maxIdx === -1) {
+        // 非 idxMin 项都无法再减，尝试减 idxMin
+        if (arr[idxMin] >= 4) {
+          arr[idxMin] -= 2
+          sum -= 2
+        } else {
+          break   // 无法再减
+        }
+      } else {
+        arr[maxIdx] -= 2
+        sum -= 2
+      }
+    }
+  }
+
+  // ---------- 情况 2：sum < m_，需要增大 ----------
+  if (sum < m_) {
+    let guard = 0
+    while (sum < m_ && guard++ < 100000) {
+      // 每次找当前值最小的非 idxMin 项（或者 idxMin 若它最小）
+      let minIdx = -1
+      let minVal = Infinity
+      for (let i = 0; i < n; i++) {
+        if (i === idxMin) continue
+        if (arr[i] < minVal) {
+          minVal = arr[i]
+          minIdx = i
+        }
+      }
+      if (minIdx !== -1) {
+        arr[minIdx] += 2
+        sum += 2
+      } else {
+        // 只有 idxMin 一项
+        arr[idxMin] += 2
+        sum += 2
+      }
+    }
+  }
+
+  return arr
+}
+
+/**
  * 权重优化
- * @param {number[]} a   组合赔率列表（每个元素 = 各场赔率乘积）
+ *
+ * @param {number[]} a   组合赔率列表
  * @param {number}   x   阈值
- * @param {number}   m_  下限
- * @param {number}   M_  上限
+ * @param {number}   m_  投注总额下限
+ * @param {number}   M_  投注总额上限
+ * @returns {object}
+ *
+ * 保证：M = sum(newWeights) ∈ [m_, M_]
  */
 export function optimizeWeights(a, x = 0.01, m_ = 100, M_ = 1000) {
   const n = a.length
   if (n === 0) throw new Error('输入列表不能为空')
   if (a.some(v => v <= 0)) throw new Error('所有数必须为正数')
+  if (m_ > M_) throw new Error(`投注总额下限 ${m_} 不能大于上限 ${M_}`)
 
   const totalProd = prod(a)
   const w = a.map(ai => totalProd / ai)
@@ -60,24 +156,33 @@ export function optimizeWeights(a, x = 0.01, m_ = 100, M_ = 1000) {
   const sumW = w.reduce((s, v) => s + v, 0)
 
   const candidates = []
-  const _m = Math.max(2, roundToEven((wMin * m_) / sumW) - 2)
-  const _M = roundToEven((wMin * M_) / sumW)
 
-  for (let t = _m; t <= _M + 4; t += 2) {
+  const tMin = Math.max(2, roundToEven((wMin * m_) / sumW) - 4)
+  const tMax = roundToEven((wMin * M_) / sumW) + 8
+
+  for (let t = tMin; t <= tMax; t += 2) {
     const scale = t / wMin
-    const newW = w.map(wi => roundToEven(wi * scale))
+    let newW = w.map(wi => roundToEven(wi * scale))
     newW[idxMin] = t
 
+    // 主动修正到 [m_, M_]
+    newW = fixSum(newW, idxMin, m_, M_)
+
     const sumNew = newW.reduce((s, v) => s + v, 0)
-    if (sumNew < m_) continue
-    if (sumNew > M_) break
+    if (sumNew < m_ || sumNew > M_) continue
 
     const S = newW.map((wi, i) => wi * a[i])
     const M = sumNew
     const D = S.map(s => s - M)
 
     const meanD = D.reduce((s, v) => s + v, 0) / D.length
-    const cv = D.length > 1 ? stdev(D) / meanD : 0
+
+    // ★ 修复 1：跳过 meanD 接近 0 的候选（cv 会爆炸）
+    if (Math.abs(meanD) < 1e-9) continue
+
+    // ★ 修复 2：cv 用 |meanD|，恒非负
+    const cv = D.length > 1 ? stdev(D) / Math.abs(meanD) : 0
+
     const rangeVal = Math.max(...D) - Math.min(...D)
     const rangeRatio = M !== 0 ? rangeVal / M : Infinity
 
@@ -85,12 +190,19 @@ export function optimizeWeights(a, x = 0.01, m_ = 100, M_ = 1000) {
   }
 
   if (candidates.length === 0) {
-    throw new Error('没有找到符合条件的候选方案')
+    throw new Error(`没有找到符合条件的候选方案（投注总额需在 ${m_} ~ ${M_} 之间）`)
   }
 
+  // ★ 修复 3：minCv 也基于非负 cv
   const minCv = Math.min(...candidates.map(c => c.cv))
+
   const filtered = candidates.filter(c => c.cv <= minCv + x)
   const best = filtered.reduce((a, b) => (a.rangeRatio <= b.rangeRatio ? a : b))
+
+  const finalM = best.newW.reduce((s, v) => s + v, 0)
+  if (finalM < m_ || finalM > M_) {
+    throw new Error(`最终投注总额 ${finalM} 超出范围 [${m_}, ${M_}]`)
+  }
 
   return {
     idxMin,
@@ -100,10 +212,10 @@ export function optimizeWeights(a, x = 0.01, m_ = 100, M_ = 1000) {
     candidatesCount: candidates.length,
     filteredCount: filtered.length,
     bestT: best.t,
-    newWeights: best.newW,       // ★ 即推荐投注额（长度 = 组合数）
+    newWeights: best.newW,
     S: best.S,
-    M: best.M,                   // 总投注额
-    D: best.D,                   // 每个组合的收益
+    M: finalM,
+    D: best.D,
     cv: best.cv,
     rangeRatio: best.rangeRatio
   }
@@ -113,17 +225,6 @@ export function optimizeWeights(a, x = 0.01, m_ = 100, M_ = 1000) {
  *  组合生成
  * ============================================================ */
 
-/**
- * 生成赔率组合
- *
- * @param {Array<{matchName:string, odds1:{label,value}, odds2:{label,value}}>} rows
- * @returns {{
- *   a: number[],            // 组合赔率列表（每项 = 各场赔率乘积）
- *   texts: string[],        // 每个组合对应的比赛结果文本
- *   combos: Array<Array<{matchName, label, value}>>,  // 组合明细
- *   perMatchLabels: string[][]  // 每场可选结果标签
- * }}
- */
 export function buildCombinations(rows) {
   const perMatchLabels = rows.map(r => [
     `${r.matchName}-${r.odds1.label}`,
@@ -137,9 +238,9 @@ export function buildCombinations(rows) {
   const combos = []
 
   const n = rows.length
+
   function backtrack(idx, currentOdds, currentTexts, currentCombos) {
     if (idx === n) {
-      // 组合赔率 = 各场赔率乘积
       const product = currentOdds.reduce((p, v) => p * v, 1)
       a.push(product)
       texts.push(currentTexts.join(' × '))
@@ -156,7 +257,11 @@ export function buildCombinations(rows) {
         matchIndex: idx,
         matchName: row.matchName,
         label: opt.label,
-        value: opt.value
+        value: opt.value,
+        // ★ 新增：让球标识
+        poolType: row.poolType || 'had',
+        poolLabel: row.poolLabel || '胜平负',
+        goalLine: row.goalLine ?? 0
       })
       backtrack(idx + 1, currentOdds, currentTexts, currentCombos)
       currentOdds.pop()
@@ -170,54 +275,59 @@ export function buildCombinations(rows) {
   return { a, texts, combos, perMatchLabels }
 }
 
+/* ============================================================
+ *  完整计算流程
+ * ============================================================ */
+
 /**
- * 完整计算流程
- *
- * @param {Array} rows   每场：{ matchName, odds1:{label,value}, odds2:{label,value} }
+ * @param {Array} rows
  * @param {object} options { x, m_, M_ }
+ *
+ * 严格保证：result.M ∈ [m_, M_]
  */
 export function computeAll(rows, options = {}) {
   const { x = 0.01, m_ = 100, M_ = 1000 } = options
 
-  // 1. 生成组合
   const { a, texts, combos } = buildCombinations(rows)
-
-  // 2. 期望收益
   const exp = expect(a)
 
-  // 3. 权重优化
   let result = null
   let errorMsg = null
   try {
     result = optimizeWeights(a, x, m_, M_)
+
+    // 双保险
+    const M = result.newWeights.reduce((s, v) => s + v, 0)
+    if (M < m_ || M > M_) {
+      errorMsg = `投注总额 ${M} 超出范围 [${m_}, ${M_}]`
+      result = null
+    } else {
+      result.M = M   // 确保 M 与实际求和一致
+    }
   } catch (e) {
     errorMsg = e.message
   }
 
-  // 4. 整理输出：投注额、文本、收益、回报率
   let details = []
   if (result) {
     const { newWeights, D, M } = result
     details = newWeights.map((bet, i) => ({
       index: i,
-      bet,                              // 推荐投注额
-      text: texts[i],                   // 比赛结果文本
-      combo: combos[i],                 // 组合明细
-      profit: D[i],                     // 该组合的收益（差值）
-      rate: M !== 0 ? D[i] / M : 0      // 回报率 = D[i] / M
+      bet,
+      text: texts[i],
+      combo: combos[i],
+      profit: D[i],
+      rate: M !== 0 ? D[i] / M : 0
     }))
   }
 
   return {
-    // 组合层
     a,
     texts,
     combos,
-    expect: exp,                        // 期望收益（第一行展示）
-
-    // 优化结果层
-    result,                             // optimize_weights 原始输出
-    details,                            // 每个组合的投注额/文本/收益/回报率
+    expect: exp,
+    result,
+    details,
     errorMsg
   }
 }

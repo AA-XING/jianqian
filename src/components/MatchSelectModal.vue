@@ -1,6 +1,6 @@
 <template>
   <div class="modal-mask" @click.self="$emit('close')">
-    <div class="modal-content" style="max-width: 480px;">
+    <div class="modal-content" style="max-width: 560px;">
       <div class="modal-header">
         <h2>🏟️ 选择场次</h2>
         <button class="close-btn" @click="$emit('close')">&times;</button>
@@ -10,20 +10,38 @@
           v-for="match in matchesData"
           :key="match.id"
           class="option-btn"
-          :class="{ disabled: usedMatchIds.has(match.id) }"
-          :disabled="usedMatchIds.has(match.id)"
+          :class="{
+            disabled: usedGroupIds.has(match.groupId),
+            'is-hhad': match.poolType === 'hhad'
+          }"
+          :disabled="usedGroupIds.has(match.groupId)"
           @click="$emit('select', match)"
         >
-          <span class="match-name">{{ match.name }}</span>
-          <span class="match-odds">
-            <em>胜</em>{{ match.odds.win.toFixed(2) }}
-            <em>平</em>{{ match.odds.draw.toFixed(2) }}
-            <em>负</em>{{ match.odds.lose.toFixed(2) }}
-          </span>
-          <span v-if="usedMatchIds.has(match.id)" class="used-tip">已选</span>
+          <div class="match-head">
+            <span class="match-no">{{ match.matchNo }}</span>
+
+            <!-- ★ 可单关徽章 -->
+            <span v-if="match.bettingSingle" class="single-badge" title="可投单关">单</span>
+
+            <span class="match-name">{{ match.name }}</span>
+            <span
+              class="pool-badge"
+              :class="match.poolType === 'hhad' ? 'hhad' : 'had'"
+            >
+              {{ match.poolLabel }}
+            </span>
+          </div>
+
+          <div class="match-odds">
+            <em>胜</em>{{ fmt(match.odds.win) }}
+            <em>平</em>{{ fmt(match.odds.draw) }}
+            <em>负</em>{{ fmt(match.odds.lose) }}
+          </div>
+
+          <span v-if="usedGroupIds.has(match.groupId)" class="used-tip">已选</span>
         </button>
       </div>
-      <div class="modal-small">与「所有比赛」数据一致 · 不同场次不能重复</div>
+      <div class="modal-small">同一场比赛的胜平负 / 让球只能选一条</div>
     </div>
   </div>
 </template>
@@ -31,13 +49,18 @@
 <script setup>
 defineProps({
   matchesData: { type: Array, default: () => [] },
-  // ★ 已被其他行占用的 matchId 集合
-  usedMatchIds: { type: Set, default: () => new Set() }
+  usedGroupIds: { type: Set, default: () => new Set() }
 })
 defineEmits(['select', 'close'])
+
+function fmt(v) {
+  if (v === null || v === undefined || Number.isNaN(v)) return '—'
+  return Number(v).toFixed(2)
+}
 </script>
 
 <style scoped>
+/* 原有样式保留 */
 .modal-mask {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -67,11 +90,7 @@ defineEmits(['select', 'close'])
   margin-bottom: 20px;
 }
 
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #0b2b4a;
-}
+.modal-header h2 { margin: 0; font-size: 1.5rem; color: #0b2b4a; }
 
 .close-btn {
   background: none;
@@ -82,7 +101,6 @@ defineEmits(['select', 'close'])
   line-height: 1;
   padding: 0 8px;
 }
-
 .close-btn:hover { color: #0b2b4a; }
 
 .options-list {
@@ -99,11 +117,9 @@ defineEmits(['select', 'close'])
   cursor: pointer;
   transition: all 0.15s;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
   text-align: left;
-  flex-wrap: wrap;
   position: relative;
 }
 
@@ -112,11 +128,46 @@ defineEmits(['select', 'close'])
   border-color: #b6cee6;
 }
 
-/* ★ 已选状态 */
 .option-btn.disabled {
   opacity: 0.45;
   cursor: not-allowed;
   background: #f5f8fc;
+}
+
+.option-btn.is-hhad:not(.disabled) {
+  border-left: 4px solid #b8860b;
+}
+
+.match-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.match-no {
+  font-size: 0.72rem;
+  background: #d6e7f7;
+  color: #1e3f5c;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* ★ 可单关徽章 */
+.single-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #e74c3c;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+  flex-shrink: 0;
 }
 
 .match-name {
@@ -124,15 +175,25 @@ defineEmits(['select', 'close'])
   color: #0b2b4a;
   font-size: 0.92rem;
   flex: 1;
-  min-width: 160px;
+  min-width: 140px;
 }
+
+.pool-badge {
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.pool-badge.had { background: #2e8b57; color: white; }
+.pool-badge.hhad { background: #b8860b; color: white; }
 
 .match-odds {
   display: inline-flex;
-  gap: 8px;
+  gap: 12px;
   font-weight: 600;
   color: #0f3b5e;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
 }
 
 .match-odds em {
@@ -142,8 +203,10 @@ defineEmits(['select', 'close'])
   margin-right: 2px;
 }
 
-/* ★ 「已选」标签 */
 .used-tip {
+  position: absolute;
+  top: 12px;
+  right: 16px;
   font-size: 0.7rem;
   color: #c0392b;
   background: #fdecea;

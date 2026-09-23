@@ -1,19 +1,33 @@
 <template>
   <div class="result-panel" v-if="data">
-    <div class="result-header">
-      <h2>📊 计算结果</h2>
-    </div>
-
-    <!-- 期望收益 -->
+    <!-- 理论收益率 -->
     <div class="expect-row">
-      <div class="expect-label">期望收益</div>
-      <div class="expect-value">{{ fmt(data.expect, 4) }}</div>
+      <div class="expect-label">理论收益率</div>
+      <div class="expect-value">
+        {{ fmtPercent(data.expect) }}%
+      </div>
     </div>
 
-    <!-- 投注总额 -->
+    <!-- 总额 + 收益范围 -->
     <div class="total-bet-row">
-      <div class="total-bet-label">投注总额</div>
+      <div class="total-bet-label">总额</div>
       <div class="total-bet-value">{{ data.result ? data.result.M : '—' }}</div>
+
+      <template v-if="data.result && data.result.D && data.result.D.length">
+        <div class="range-block">
+          <div class="range-label">收益范围</div>
+          <div class="range-value">
+            <span class="profit-min">{{ fmt(profitMin, 2) }}</span>
+            <span class="range-sep"> - </span>
+            <span class="profit-max">{{ fmt(profitMax, 2) }}</span>
+          </div>
+          <div class="range-gap">
+            <span class="gap-label">极差</span>
+            <span class="gap-value">{{ fmt(profitRange, 2) }}</span>
+            <span class="gap-percent">({{ fmtPercentOfTotal }}%)</span>
+          </div>
+        </div>
+      </template>
     </div>
 
     <!-- 报错 -->
@@ -27,10 +41,10 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>推荐投注额</th>
-            <th>比赛结果</th>
-            <th>收益 (D)</th>
-            <th>回报率 (D/M)</th>
+            <th>投注额</th>
+            <th>目标</th>
+            <th>收益</th>
+            <th>回报率</th>
           </tr>
         </thead>
         <tbody>
@@ -41,13 +55,13 @@
               <span class="bet-amount">{{ item.bet }}</span>
             </td>
 
-            <!-- ★ 比赛结果列：场次名（蓝）+ 结果（大号彩色） -->
             <td class="col-combo">
               <div
                 v-for="(c, i) in item.combo"
                 :key="i"
                 class="combo-line"
               >
+                <span v-if="c.poolType === 'hhad'" class="rang-tag">让</span>
                 <span class="combo-match">{{ c.matchName }}</span>
                 <span class="combo-sep">·</span>
                 <span class="combo-result" :class="labelClass(c.label)">
@@ -58,7 +72,7 @@
             </td>
 
             <td class="col-num" :class="profitClass(item.profit)">
-              {{ item.profit >= 0 ? '+' : '' }}{{ fmt(item.profit, 4) }}
+              {{ item.profit >= 0 ? '+' : '' }}{{ fmt(item.profit, 2) }}
             </td>
 
             <td class="col-num" :class="profitClass(item.rate)">
@@ -67,6 +81,18 @@
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- ★ 复制按钮 -->
+    <div v-if="data.result && data.details.length" class="copy-bar">
+      <button
+        class="btn-copy"
+        :class="{ copied }"
+        @click="copyBetsAndTargets"
+      >
+        <span class="copy-icon">{{ copied ? '✅' : '📋' }}</span>
+        {{ copied ? '已复制' : '复制' }}
+      </button>
     </div>
 
     <!-- 权重详情 -->
@@ -78,15 +104,70 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   data: { type: Object, default: null }
 })
 
+/* ========== 复制功能 ========== */
+const copied = ref(false)
+let copyTimer = null
+
+/** 把 details 拼成可复制的文本 */
+function buildCopyText() {
+  if (!props.data?.details?.length) return ''
+  return props.data.details
+    .map(item => {
+      const target = (item.combo || [])
+        .map(c => {
+          const prefix = c.poolType === 'hhad' ? '让 ' : ''
+          return `${prefix}${c.matchName} ${c.label} ${fmt(c.value, 2)}`
+        })
+        .join(' + ')
+      return `${item.bet}\t${target}`
+    })
+    .join('\n')
+}
+
+/** 点击复制 */
+async function copyBetsAndTargets() {
+  const text = buildCopyText()
+  if (!text) return
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text)
+    } else {
+      // 兜底：用 textarea + execCommand
+      const ta = document.createElement('textarea')
+      ta.value = text
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    // 显示"已复制"
+    copied.value = true
+    clearTimeout(copyTimer)
+    copyTimer = setTimeout(() => { copied.value = false }, 1500)
+  } catch (e) {
+    console.error('复制失败:', e)
+    alert('复制失败：' + e.message)
+  }
+}
+
+/* ========== 原有工具函数 ========== */
 function fmt(v, digits = 4) {
   if (v === null || v === undefined || Number.isNaN(v)) return '—'
   return Number(v).toFixed(digits)
+}
+
+function fmtPercent(v, digits = 2) {
+  if (v === null || v === undefined || Number.isNaN(v)) return '—'
+  return ((Number(v) - 1) * 100).toFixed(digits)
 }
 
 function labelClass(label) {
@@ -101,6 +182,30 @@ function profitClass(v) {
   return ''
 }
 
+const profitMin = computed(() => {
+  const D = props.data?.result?.D
+  if (!D || !D.length) return null
+  return Math.min(...D)
+})
+
+const profitMax = computed(() => {
+  const D = props.data?.result?.D
+  if (!D || !D.length) return null
+  return Math.max(...D)
+})
+
+const profitRange = computed(() => {
+  if (profitMin.value === null || profitMax.value === null) return null
+  return profitMax.value - profitMin.value
+})
+
+const fmtPercentOfTotal = computed(() => {
+  if (profitRange.value === null) return '—'
+  const M = props.data?.result?.M
+  if (!M) return '—'
+  return ((profitRange.value / M) * 100).toFixed(2)
+})
+
 const prettyResult = computed(() => {
   if (!props.data || !props.data.result) return ''
   const r = props.data.result
@@ -112,7 +217,7 @@ const prettyResult = computed(() => {
         texts: props.data.texts,
         new_weights: r.newWeights,
         M: r.M,
-        D: r.D.map(v => +fmt(v, 4)),
+        D: r.D.map(v => +fmt(v, 2)),
         S: r.S.map(v => +fmt(v, 4)),
         cv: +fmt(r.cv, 6),
         rangeRatio: +fmt(r.rangeRatio, 6),
@@ -145,7 +250,7 @@ const prettyResult = computed(() => {
   color: #0b2b4a;
 }
 
-/* 期望收益 */
+/* 理论收益率 */
 .expect-row {
   display: flex;
   align-items: center;
@@ -169,11 +274,11 @@ const prettyResult = computed(() => {
   font-family: ui-monospace, monospace;
 }
 
-/* 投注总额 */
+/* 总额 + 收益范围 */
 .total-bet-row {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  align-items: baseline;
+  gap: 20px;
   background: #eef5fc;
   border-left: 4px solid #0f3b5e;
   border-radius: 14px;
@@ -187,10 +292,61 @@ const prettyResult = computed(() => {
   font-size: 0.95rem;
 }
 .total-bet-value {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #0f3b5e;
+  color: #0b2b4a;
   font-family: ui-monospace, monospace;
+}
+
+.range-block {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-left: 16px;
+  border-left: 1px dashed #cbdae9;
+  flex-wrap: wrap;
+}
+.range-label {
+  font-weight: 600;
+  color: #1e3f5c;
+  font-size: 0.9rem;
+}
+.range-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: ui-monospace, monospace;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+}
+.profit-min { color: #2e8b57; }
+.profit-max { color: #c0392b; }
+.range-sep {
+  color: #0b2b4a;
+  font-weight: 500;
+  padding: 0 2px;
+}
+.range-gap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: ui-monospace, monospace;
+  padding: 2px 0;
+}
+.range-gap .gap-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e3f5c;
+}
+.range-gap .gap-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a7188;
+}
+.gap-percent {
+  font-size: 0.9rem;
+  color: #5a7188;
+  font-weight: 600;
 }
 
 .error-box {
@@ -203,7 +359,6 @@ const prettyResult = computed(() => {
   font-size: 0.9rem;
 }
 
-/* 表格 */
 .result-table-wrap {
   overflow-x: auto;
   border-radius: 14px;
@@ -241,9 +396,8 @@ const prettyResult = computed(() => {
   font-weight: 600;
   color: #0f3b5e;
 }
-.col-combo { min-width: 260px; }
+.col-combo { min-width: 280px; }
 
-/* 投注额高亮 */
 .bet-amount {
   display: inline-block;
   background: #eafaf0;
@@ -254,13 +408,24 @@ const prettyResult = computed(() => {
   font-size: 0.95rem;
 }
 
-/* ★ 比赛结果列：场次名 + 结果 */
 .combo-line {
   display: flex;
   align-items: baseline;
   gap: 6px;
   margin-bottom: 4px;
   flex-wrap: wrap;
+}
+.rang-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #b8860b;
+  background: #fdf6e3;
+  border: 1px solid #f0d78c;
+  padding: 0 6px;
+  border-radius: 6px;
+  line-height: 1.4;
+  flex-shrink: 0;
 }
 .combo-match {
   color: #5a7188;
@@ -280,19 +445,52 @@ const prettyResult = computed(() => {
 .combo-result.win { color: #2e8b57; }
 .combo-result.draw { color: #b8860b; }
 .combo-result.lose { color: #c0392b; }
-
 .combo-odds {
   color: #7e94aa;
   font-size: 0.78rem;
   font-family: ui-monospace, monospace;
   margin-left: 2px;
 }
-
-/* 收益/回报率颜色 */
 .profit-pos { color: #2e8b57; }
 .profit-neg { color: #c0392b; }
 
-/* 详情 */
+/* ★ 复制按钮 */
+.copy-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e9f0f8;
+  color: #0f3b5e;
+  border: 1px solid #cbdae9;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-copy:hover {
+  background: #dae6f2;
+  border-color: #6f9bc1;
+}
+
+.btn-copy.copied {
+  background: #d4f0e0;
+  border-color: #2e8b57;
+  color: #2e8b57;
+}
+
+.copy-icon {
+  font-size: 0.9rem;
+}
+
 .detail-box {
   margin-top: 16px;
   background: white;
