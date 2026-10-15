@@ -130,7 +130,7 @@ const FALLBACK_MATCHES = [
  * ★ 改成你自己的 Cloudflare Worker 地址
  * 例如：https://sporttery-proxy.你的用户名.workers.dev
  */
-const CLOUDFLARE_PROXY = 'https://sporttery-proxy.yzythe9th.workers.dev/'
+const CLOUDFLARE_PROXY = 'https://sporttery-proxy.yzythe9th.workers.dev'
 
 /** 竞彩网真实 API 地址 */
 const TARGET_API = 'https://webapi.sporttery.cn/gateway/jc/football/getMatchCalculatorV1.qry'
