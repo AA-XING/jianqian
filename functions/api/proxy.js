@@ -1,5 +1,5 @@
 /**
- * EdgeOne Pages Functions - 竞彩网 API 代理
+ * Cloudflare Pages Functions - 竞彩网 API 代理
  *
  * 访问路径：/api/proxy?url=<encoded target url>
  *
@@ -55,13 +55,15 @@ export async function onRequest(context) {
     return jsonResponse({ error: '转发失败: ' + e.message }, 502)
   }
 
-  // 构造响应
   const body = await apiRes.text()
+
+  // ★ 强制 200，避免竞彩网 4xx 导致前端走空
   return new Response(body, {
-    status: apiRes.status,
+    status: 200,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      ...corsHeaders()
+      ...corsHeaders(),
+      'Cache-Control': 'no-store'
     }
   })
 }
@@ -69,8 +71,8 @@ export async function onRequest(context) {
 function corsHeaders() {
   return {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': '*',   // ★ 放宽
     'Access-Control-Max-Age': '86400'
   }
 }
