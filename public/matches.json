@@ -2,7 +2,7 @@
   "matches": [
     {
       "id": "2041975-had",
-      "groupId": 2041975,
+      "groupId": "2041975",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "里昂 vs 水晶宫",
@@ -12,14 +12,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 2.2,
-        "draw": 3.4,
+        "win": 2.24,
+        "draw": 3.3,
         "lose": 2.63
       }
     },
     {
       "id": "2041976-had",
-      "groupId": 2041976,
+      "groupId": "2041976",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "托林斯 vs 桑德兰",
@@ -36,7 +36,7 @@
     },
     {
       "id": "2041977-had",
-      "groupId": 2041977,
+      "groupId": "2041977",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "波兹南 vs 勒沃库森",
@@ -53,7 +53,7 @@
     },
     {
       "id": "2041978-had",
-      "groupId": 2041978,
+      "groupId": "2041978",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "圣吉联合 vs 皇家社会",
@@ -70,7 +70,7 @@
     },
     {
       "id": "2041979-had",
-      "groupId": 2041979,
+      "groupId": "2041979",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "萨尔茨堡 vs AC米兰",
@@ -87,7 +87,7 @@
     },
     {
       "id": "2041989-had",
-      "groupId": 2041989,
+      "groupId": "2041989",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "克拉约瓦 vs 赫塔费",
@@ -97,14 +97,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.1,
-        "draw": 2.93,
-        "lose": 2.15
+        "win": 2.65,
+        "draw": 2.9,
+        "lose": 2.46
       }
     },
     {
       "id": "2041981-had",
-      "groupId": 2041981,
+      "groupId": "2041981",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "塞尔塔 vs 尤文图斯",
@@ -121,7 +121,7 @@
     },
     {
       "id": "2041982-had",
-      "groupId": 2041982,
+      "groupId": "2041982",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "霍芬海姆 vs 贝西克塔",
@@ -138,7 +138,7 @@
     },
     {
       "id": "2041983-had",
-      "groupId": 2041983,
+      "groupId": "2041983",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "马赛 vs 奥林匹亚",
@@ -155,7 +155,7 @@
     },
     {
       "id": "2041985-had",
-      "groupId": 2041985,
+      "groupId": "2041985",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "本菲卡 vs 凯尔特人",
@@ -172,7 +172,7 @@
     },
     {
       "id": "2041986-had",
-      "groupId": 2041986,
+      "groupId": "2041986",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "哥本哈根 vs 布拉加",
@@ -182,14 +182,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.26,
-        "draw": 3.02,
+        "win": 2.3,
+        "draw": 2.95,
         "lose": 2.81
       }
     },
     {
       "id": "2041987-had",
-      "groupId": 2041987,
+      "groupId": "2041987",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "拉普大学 vs 弗拉门戈",
@@ -199,14 +199,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.88,
-        "draw": 2.85,
+        "win": 3.97,
+        "draw": 2.8,
         "lose": 1.92
       }
     },
     {
       "id": "2042003-had",
-      "groupId": 2042003,
+      "groupId": "2042003",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "悉尼FC vs 西悉尼",
@@ -223,7 +223,7 @@
     },
     {
       "id": "2042013-had",
-      "groupId": 2042013,
+      "groupId": "2042013",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "科特布斯 vs 纽伦堡",
@@ -240,7 +240,7 @@
     },
     {
       "id": "2042004-had",
-      "groupId": 2042004,
+      "groupId": "2042004",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "布鲁马波 vs 佐加顿斯",
@@ -257,7 +257,7 @@
     },
     {
       "id": "2042005-had",
-      "groupId": 2042005,
+      "groupId": "2042005",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "海伦芬 vs SBV精英",
@@ -274,7 +274,7 @@
     },
     {
       "id": "2042006-had",
-      "groupId": 2042006,
+      "groupId": "2042006",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "登博思 vs 奥斯",
@@ -291,7 +291,7 @@
     },
     {
       "id": "2042007-had",
-      "groupId": 2042007,
+      "groupId": "2042007",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "法兰克福 vs 科隆",
@@ -308,7 +308,7 @@
     },
     {
       "id": "2042008-had",
-      "groupId": 2042008,
+      "groupId": "2042008",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "弗洛西诺 vs 萨索洛",
@@ -325,7 +325,7 @@
     },
     {
       "id": "2042009-had",
-      "groupId": 2042009,
+      "groupId": "2042009",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "勒芒 vs 图卢兹",
@@ -342,7 +342,7 @@
     },
     {
       "id": "2042010-had",
-      "groupId": 2042010,
+      "groupId": "2042010",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "伯恩利 vs 伍尔弗",
@@ -359,7 +359,7 @@
     },
     {
       "id": "2042011-had",
-      "groupId": 2042011,
+      "groupId": "2042011",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "拉科 vs 莱万特",
@@ -376,7 +376,7 @@
     },
     {
       "id": "2042012-had",
-      "groupId": 2042012,
+      "groupId": "2042012",
       "poolType": "had",
       "poolLabel": "胜平负",
       "name": "米拉索尔 vs 巴西国际",
@@ -393,7 +393,7 @@
     },
     {
       "id": "2041975-hhad",
-      "groupId": 2041975,
+      "groupId": "2041975",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "里昂 vs 水晶宫",
@@ -403,14 +403,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.5,
-        "draw": 4.18,
-        "lose": 1.5
+        "win": 4.65,
+        "draw": 4.2,
+        "lose": 1.48
       }
     },
     {
       "id": "2041976-hhad",
-      "groupId": 2041976,
+      "groupId": "2041976",
       "poolType": "hhad",
       "poolLabel": "让2",
       "name": "托林斯 vs 桑德兰",
@@ -427,7 +427,7 @@
     },
     {
       "id": "2041977-hhad",
-      "groupId": 2041977,
+      "groupId": "2041977",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "波兹南 vs 勒沃库森",
@@ -438,13 +438,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.54,
-        "draw": 3.9,
-        "lose": 2.09
+        "draw": 4,
+        "lose": 2.06
       }
     },
     {
       "id": "2041978-hhad",
-      "groupId": 2041978,
+      "groupId": "2041978",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "圣吉联合 vs 皇家社会",
@@ -461,7 +461,7 @@
     },
     {
       "id": "2041979-hhad",
-      "groupId": 2041979,
+      "groupId": "2041979",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "萨尔茨堡 vs AC米兰",
@@ -478,7 +478,7 @@
     },
     {
       "id": "2041989-hhad",
-      "groupId": 2041989,
+      "groupId": "2041989",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "克拉约瓦 vs 赫塔费",
@@ -488,14 +488,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.54,
-        "draw": 3.6,
-        "lose": 4.95
+        "win": 1.41,
+        "draw": 4,
+        "lose": 5.9
       }
     },
     {
       "id": "2041981-hhad",
-      "groupId": 2041981,
+      "groupId": "2041981",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "塞尔塔 vs 尤文图斯",
@@ -512,7 +512,7 @@
     },
     {
       "id": "2041982-hhad",
-      "groupId": 2041982,
+      "groupId": "2041982",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "霍芬海姆 vs 贝西克塔",
@@ -529,7 +529,7 @@
     },
     {
       "id": "2041983-hhad",
-      "groupId": 2041983,
+      "groupId": "2041983",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "马赛 vs 奥林匹亚",
@@ -546,7 +546,7 @@
     },
     {
       "id": "2041984-hhad",
-      "groupId": 2041984,
+      "groupId": "2041984",
       "poolType": "hhad",
       "poolLabel": "让-2",
       "name": "伯恩茅斯 vs 格风暴",
@@ -556,14 +556,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 1.97,
-        "draw": 4.15,
-        "lose": 2.63
+        "win": 1.93,
+        "draw": 4.2,
+        "lose": 2.68
       }
     },
     {
       "id": "2041985-hhad",
-      "groupId": 2041985,
+      "groupId": "2041985",
       "poolType": "hhad",
       "poolLabel": "让-2",
       "name": "本菲卡 vs 凯尔特人",
@@ -580,7 +580,7 @@
     },
     {
       "id": "2041986-hhad",
-      "groupId": 2041986,
+      "groupId": "2041986",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "哥本哈根 vs 布拉加",
@@ -590,14 +590,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 5,
-        "draw": 3.95,
-        "lose": 1.48
+        "win": 5.26,
+        "draw": 4,
+        "lose": 1.45
       }
     },
     {
       "id": "2041987-hhad",
-      "groupId": 2041987,
+      "groupId": "2041987",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "拉普大学 vs 弗拉门戈",
@@ -614,7 +614,7 @@
     },
     {
       "id": "2042003-hhad",
-      "groupId": 2042003,
+      "groupId": "2042003",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "悉尼FC vs 西悉尼",
@@ -631,7 +631,7 @@
     },
     {
       "id": "2042013-hhad",
-      "groupId": 2042013,
+      "groupId": "2042013",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "科特布斯 vs 纽伦堡",
@@ -648,7 +648,7 @@
     },
     {
       "id": "2042004-hhad",
-      "groupId": 2042004,
+      "groupId": "2042004",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "布鲁马波 vs 佐加顿斯",
@@ -665,7 +665,7 @@
     },
     {
       "id": "2042005-hhad",
-      "groupId": 2042005,
+      "groupId": "2042005",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "海伦芬 vs SBV精英",
@@ -682,7 +682,7 @@
     },
     {
       "id": "2042006-hhad",
-      "groupId": 2042006,
+      "groupId": "2042006",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "登博思 vs 奥斯",
@@ -699,7 +699,7 @@
     },
     {
       "id": "2042007-hhad",
-      "groupId": 2042007,
+      "groupId": "2042007",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "法兰克福 vs 科隆",
@@ -716,7 +716,7 @@
     },
     {
       "id": "2042008-hhad",
-      "groupId": 2042008,
+      "groupId": "2042008",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "弗洛西诺 vs 萨索洛",
@@ -733,7 +733,7 @@
     },
     {
       "id": "2042009-hhad",
-      "groupId": 2042009,
+      "groupId": "2042009",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "勒芒 vs 图卢兹",
@@ -750,7 +750,7 @@
     },
     {
       "id": "2042010-hhad",
-      "groupId": 2042010,
+      "groupId": "2042010",
       "poolType": "hhad",
       "poolLabel": "让1",
       "name": "伯恩利 vs 伍尔弗",
@@ -767,7 +767,7 @@
     },
     {
       "id": "2042011-hhad",
-      "groupId": 2042011,
+      "groupId": "2042011",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "拉科 vs 莱万特",
@@ -784,7 +784,7 @@
     },
     {
       "id": "2042012-hhad",
-      "groupId": 2042012,
+      "groupId": "2042012",
       "poolType": "hhad",
       "poolLabel": "让-1",
       "name": "米拉索尔 vs 巴西国际",
@@ -800,5 +800,5 @@
       }
     }
   ],
-  "fetchedAt": 1792066140934
+  "fetchedAt": 1792069640263
 }
