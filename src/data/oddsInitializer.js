@@ -16,6 +16,10 @@
  *   - 最小间隔：距上次成功抓取不足 60 秒时，返回缓存而不发请求
  *   - force=true 时绕过缓存，但仍受最小间隔限制
  *
+ * ★ 部署环境：
+ *   - 本地开发：走 Vite 代理
+ *   - 线上（Cloudflare / EdgeOne）：走 Cloudflare Worker 代理
+ *
  * 返回结构：
  *   { matches: [...], fetchedAt: 1726896000000 }
  */
@@ -25,7 +29,6 @@
  * ============================================================ */
 
 const FALLBACK_MATCHES = [
-  // 周二001 —— 只有让球，可单关
   {
     id: '2041642-hhad',
     groupId: '2041642',
@@ -39,7 +42,6 @@ const FALLBACK_MATCHES = [
     bettingSingle: true,
     odds: { win: 1.95, draw: 3.75, lose: 2.86 }
   },
-  // 周二002 —— 两盘都有
   {
     id: '2041643-had',
     groupId: '2041643',
@@ -66,7 +68,6 @@ const FALLBACK_MATCHES = [
     bettingSingle: false,
     odds: { win: 2.35, draw: 3.70, lose: 2.31 }
   },
-  // 周二003 —— had 可单关
   {
     id: '2041655-had',
     groupId: '2041655',
@@ -93,7 +94,6 @@ const FALLBACK_MATCHES = [
     bettingSingle: false,
     odds: { win: 4.20, draw: 3.88, lose: 1.58 }
   },
-  // 周二004 —— 两盘都有
   {
     id: '2041644-had',
     groupId: '2041644',
@@ -126,34 +126,37 @@ const FALLBACK_MATCHES = [
  *  API 配置
  * ============================================================ */
 
-const API_BASE = import.meta.env.DEV
-  ? '/api/sporttery/gateway/jc/football/getMatchCalculatorV1.qry'
-  : '/api/proxy'
+/**
+ * ★ 改成你自己的 Cloudflare Worker 地址
+ * 例如：https://sporttery-proxy.你的用户名.workers.dev
+ */
+const CLOUDFLARE_PROXY = 'https://sporttery-proxy.yzythe9th.workers.dev/
+
+/** 竞彩网真实 API 地址 */
+const TARGET_API = 'https://webapi.sporttery.cn/gateway/jc/football/getMatchCalculatorV1.qry'
 
 /**
  * 构造 pool 请求 URL
- * - 本地开发：走 Vite 代理，直接拼 poolCode
- * - 线上部署：走 EdgeOne Functions，把真实 URL 作为 url 参数
+ * - 本地开发：走 Vite 代理（vite.config.js 里配的 /api/sporttery）
+ * - 线上部署：走 Cloudflare Worker，把真实 URL 作为 url 参数
  */
 function buildPoolUrl(poolCode) {
   if (import.meta.env.DEV) {
-    return `${API_BASE}?poolCode=${poolCode}&channel=c`
+    // 本地开发
+    return `/api/sporttery/gateway/jc/football/getMatchCalculatorV1.qry?poolCode=${poolCode}&channel=c`
   }
-  const target = `https://webapi.sporttery.cn/gateway/jc/football/getMatchCalculatorV1.qry?poolCode=${poolCode}&channel=c`
-  return `${API_BASE}?url=${encodeURIComponent(target)}`
+
+  // 线上：通过 Cloudflare Worker 转发
+  const target = `${TARGET_API}?poolCode=${poolCode}&channel=c`
+  return `${CLOUDFLARE_PROXY}?url=${encodeURIComponent(target)}`
 }
 
 /* ============================================================
- *  ★ 硬保护：内存缓存 + 最小抓取间隔
+ *  硬保护：内存缓存 + 最小抓取间隔
  * ============================================================ */
 
-/** 最小抓取间隔（毫秒）—— 60 秒 */
-const MIN_FETCH_INTERVAL = 60 * 1000
-
-/** 上次成功抓取的时间戳 */
+const MIN_FETCH_INTERVAL = 60 * 1000   // 60 秒
 let lastFetchSuccessAt = 0
-
-/** 内存缓存（整个会话共享） */
 let memoryCache = null
 
 /* ============================================================
@@ -194,22 +197,15 @@ function parseGoalLine(obj) {
   return num(gl, -1)
 }
 
-/** 格式化让球标签 */
 function makePoolLabel(poolType, goalLine) {
   if (poolType === 'had') return '胜平负'
   return `让${goalLine}`
 }
 
-/**
- * 从 poolList 中读取指定 poolCode 的 single 字段
- * single = 1 → 可投单关
- */
 function parseBettingSingle(match, targetPoolCode) {
   const poolList = match?.poolList || []
   for (const p of poolList) {
-    if (
-      String(p.poolCode).toUpperCase() === String(targetPoolCode).toUpperCase()
-    ) {
+    if (String(p.poolCode).toUpperCase() === String(targetPoolCode).toUpperCase()) {
       return Number(p.single) === 1
     }
   }
@@ -225,7 +221,10 @@ async function fetchPool(poolCode) {
   console.log(`[init] 请求 pool=${poolCode}`, url)
   try {
     const res = await fetch(url)
-    if (!res.ok) return []
+    if (!res.ok) {
+      console.warn(`[init] pool=${poolCode} HTTP ${res.status}`)
+      return []
+    }
     const json = await res.json()
     const flat = extractFlatList(json)
     console.log(`[init] pool=${poolCode} 比赛数:`, flat.length)
@@ -266,7 +265,6 @@ async function fetchFreshData() {
     }
   }
 
-  // had 列表
   for (const m of hadList) {
     const odds = parseOdds(m.had)
     if (!odds) continue
@@ -283,7 +281,6 @@ async function fetchFreshData() {
     })
   }
 
-  // hhad 列表
   for (const m of hhadList) {
     const odds = parseOdds(m.hhad)
     if (!odds) continue
@@ -302,12 +299,6 @@ async function fetchFreshData() {
   }
 
   console.log('[init] 合并后比赛数量:', result.length)
-  result.slice(0, 6).forEach(m => {
-    console.log(`[init] ${m.matchNo} ${m.id} ${m.poolLabel}`, {
-      bettingSingle: m.bettingSingle,
-      odds: m.odds
-    })
-  })
 
   if (!result.length) {
     console.warn('[init] 合并结果为空，使用备用数据')
@@ -321,41 +312,20 @@ async function fetchFreshData() {
  *  对外 API
  * ============================================================ */
 
-/**
- * 初始化比赛数据
- *
- * @param {object} options
- *   - force: boolean  是否强制重新抓取（默认 false）
- *
- * 行为：
- *   1. force=false 且有缓存 → 直接返回缓存
- *   2. 距上次成功抓取不足 MIN_FETCH_INTERVAL → 返回缓存（若有）
- *   3. 否则真正发起抓取，成功后写缓存
- *   4. force=true 时绕过缓存，但仍受 MIN_FETCH_INTERVAL 限制
- *
- * @returns {Promise<{matches: Array, fetchedAt: number}>}
- */
 export async function initializeOddsData({ force = false } = {}) {
   const now = Date.now()
 
-  // ---------- 1. 非强制 + 有缓存 → 直接返回 ----------
   if (!force && memoryCache) {
     console.log('[init] 使用内存缓存（非强制）')
     return memoryCache
   }
 
-  // ---------- 2. 距上次成功不足 MIN_FETCH_INTERVAL → 返回缓存 ----------
   if (lastFetchSuccessAt && now - lastFetchSuccessAt < MIN_FETCH_INTERVAL) {
-    const remain = Math.ceil(
-      (MIN_FETCH_INTERVAL - (now - lastFetchSuccessAt)) / 1000
-    )
-    console.warn(
-      `[init] 距上次抓取不足 ${MIN_FETCH_INTERVAL / 1000} 秒（还剩 ${remain} 秒），使用缓存`
-    )
+    const remain = Math.ceil((MIN_FETCH_INTERVAL - (now - lastFetchSuccessAt)) / 1000)
+    console.warn(`[init] 距上次抓取不足 ${MIN_FETCH_INTERVAL / 1000} 秒（还剩 ${remain} 秒），使用缓存`)
     if (memoryCache) return memoryCache
   }
 
-  // ---------- 3. 真正抓取 ----------
   try {
     const result = await fetchFreshData()
     lastFetchSuccessAt = Date.now()
@@ -377,14 +347,12 @@ export function getRawMatches() {
   return JSON.parse(JSON.stringify(FALLBACK_MATCHES))
 }
 
-/** 清空缓存（仅供调试 / 测试用） */
 export function clearCache() {
   memoryCache = null
   lastFetchSuccessAt = 0
   console.log('[init] 缓存已清空')
 }
 
-/** 查看缓存状态 */
 export function getCacheStatus() {
   return {
     hasCache: !!memoryCache,
