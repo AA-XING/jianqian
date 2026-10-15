@@ -1,15 +1,11 @@
 <template>
   <div class="app-container">
     <TopBar
-      :refreshing="refreshing"
-      :cooldown="cooldown"
       :fetched-at="fetchedAt"
       @view-odds="openOddsModal"
-      @refresh="refreshOdds"
     />
 
     <ConfigPanel
-      ref="configPanelRef"
       :matches-data="matchesData"
       @calculate="handleCalculate"
     />
@@ -20,84 +16,32 @@
       v-if="showOddsModal"
       :matches-data="matchesData"
       :fetched-at="fetchedAt"
-      :refreshing="refreshing"
-      :cooldown="cooldown"
       @close="closeOddsModal"
-      @refresh="refreshOdds"
     />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import TopBar from './components/TopBar.vue'
 import ConfigPanel from './components/ConfigPanel.vue'
 import OddsModal from './components/OddsModal.vue'
 import ResultPanel from './components/ResultPanel.vue'
 import { initializeOddsData } from './data/oddsInitializer.js'
 
-const COOLDOWN_SEC = 60
-
 const matchesData = ref([])
 const fetchedAt = ref(null)
 const showOddsModal = ref(false)
 const calcResult = ref(null)
-const refreshing = ref(false)
-const cooldown = ref(0)
-let cooldownTimer = null
-
-/* ★ 引用 ConfigPanel 实例 */
-const configPanelRef = ref(null)
-
-function startCooldown(seconds = COOLDOWN_SEC) {
-  cooldown.value = seconds
-  clearInterval(cooldownTimer)
-  cooldownTimer = setInterval(() => {
-    cooldown.value--
-    if (cooldown.value <= 0) {
-      cooldown.value = 0
-      clearInterval(cooldownTimer)
-      cooldownTimer = null
-    }
-  }, 1000)
-}
 
 onMounted(async () => {
   const { matches, fetchedAt: t } = await initializeOddsData()
   matchesData.value = matches
   fetchedAt.value = t
-  startCooldown(COOLDOWN_SEC)
 })
-
-onUnmounted(() => clearInterval(cooldownTimer))
 
 const openOddsModal = () => { showOddsModal.value = true }
 const closeOddsModal = () => { showOddsModal.value = false }
-
-const refreshOdds = async () => {
-  if (refreshing.value) return
-  if (cooldown.value > 0) return
-
-  refreshing.value = true
-  try {
-    console.log('[refresh] 手动刷新赔率...')
-    const { matches, fetchedAt: t } = await initializeOddsData({ force: true })
-    matchesData.value = matches
-    fetchedAt.value = t
-
-    // ★ 同步已选比赛的赔率
-    if (configPanelRef.value?.syncWithMatches) {
-      configPanelRef.value.syncWithMatches(matches)
-    }
-
-    startCooldown(COOLDOWN_SEC)
-  } catch (e) {
-    console.error('[refresh] 异常:', e)
-    alert('刷新失败：' + e.message)
-  } finally {
-    refreshing.value = false
-  }
-}
 
 const handleCalculate = ({ result, errorMsg, rows, amountMin, amountMax }) => {
   console.log('计算参数：', { rows, amountMin, amountMax })

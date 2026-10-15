@@ -4,19 +4,7 @@
     <div class="page-header">
       <div class="header-row-1">
         <h2>所有比赛赔率</h2>
-        <div class="header-actions">
-          <button
-            class="btn-refresh"
-            :disabled="refreshing || cooldown > 0"
-            @click="$emit('refresh')"
-          >
-            <span class="refresh-icon" :class="{ spinning: refreshing }">🔄</span>
-            <template v-if="refreshing">刷新中</template>
-            <template v-else-if="cooldown > 0"> {{ cooldown }}s</template>
-            <template v-else>刷新</template>
-          </button>
-          <button class="btn-close" @click="$emit('close')">&times;</button>
-        </div>
+        <button class="btn-close" @click="$emit('close')">&times;</button>
       </div>
       <div class="header-row-2">
         <span class="meta-count">{{ groups.length }} 场比赛</span>
@@ -41,7 +29,7 @@
             <span class="match-league">{{ g.league }}</span>
           </div>
 
-          <!-- 胜平负行（如有） -->
+          <!-- 胜平负行 -->
           <div v-if="g.had" class="odds-line">
             <span v-if="g.had.bettingSingle" class="single-badge">单</span>
             <div class="odds-row">
@@ -52,7 +40,7 @@
             <span class="pool-badge had">胜平负</span>
           </div>
 
-          <!-- 让球行（如有） -->
+          <!-- 让球行 -->
           <div v-if="g.hhad" class="odds-line">
             <span v-if="g.hhad.bettingSingle" class="single-badge">单</span>
             <div class="odds-row">
@@ -83,18 +71,12 @@ import { computed } from 'vue'
 
 const props = defineProps({
   matchesData: { type: Array, default: () => [] },
-  fetchedAt: { type: Number, default: null },
-  refreshing: { type: Boolean, default: false },
-  cooldown: { type: Number, default: 0 }
+  fetchedAt: { type: Number, default: null }
 })
-defineEmits(['close', 'refresh'])
+defineEmits(['close'])
 
-/**
- * ★ 按 groupId 分组，把 had / hhad 合并到一个对象里
- */
 const groups = computed(() => {
   const map = new Map()
-
   for (const m of props.matchesData) {
     const gid = m.groupId
     if (!map.has(gid)) {
@@ -109,13 +91,9 @@ const groups = computed(() => {
       })
     }
     const g = map.get(gid)
-    if (m.poolType === 'had') {
-      g.had = m
-    } else if (m.poolType === 'hhad') {
-      g.hhad = m
-    }
+    if (m.poolType === 'had') g.had = m
+    else if (m.poolType === 'hhad') g.hhad = m
   }
-
   return Array.from(map.values())
 })
 
@@ -185,37 +163,6 @@ function goalClass(gl) {
   flex: 1;
   min-width: 0;
 }
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-}
-
-.btn-refresh {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #eef5fc;
-  color: #0f3b5e;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.btn-refresh:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-.refresh-icon { display: inline-block; font-size: 0.82rem; }
-.refresh-icon.spinning { animation: spin 0.9s linear infinite; }
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
 
 .btn-close {
   background: none;
@@ -256,7 +203,6 @@ function goalClass(gl) {
   gap: 8px;
 }
 
-/* ★ 每场比赛：一个卡片 */
 .match-group {
   background: white;
   border-radius: 12px;
@@ -267,7 +213,6 @@ function goalClass(gl) {
   box-shadow: 0 1px 4px rgba(0, 20, 40, 0.04);
 }
 
-/* 比赛头部 */
 .match-head {
   display: flex;
   align-items: center;
@@ -301,7 +246,6 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
-/* ★ 赔率行：单关 + 赔率 + 标记 */
 .odds-line {
   display: flex;
   align-items: center;
@@ -316,7 +260,6 @@ function goalClass(gl) {
   font-style: italic;
 }
 
-/* 单关徽章 */
 .single-badge {
   display: inline-flex;
   align-items: center;
@@ -331,7 +274,6 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
-/* 赔率 */
 .odds-row {
   display: flex;
   gap: 6px;
@@ -362,7 +304,6 @@ function goalClass(gl) {
 .odds-tag.draw em { color: #b8860b; }
 .odds-tag.lose em { color: #c0392b; }
 
-/* ★ 标记徽章 */
 .pool-badge {
   font-size: 0.66rem;
   border-radius: 6px;
