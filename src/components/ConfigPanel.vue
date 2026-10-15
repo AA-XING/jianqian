@@ -14,11 +14,8 @@
 
     <AmountRange v-model:min="amountMin" v-model:max="amountMax" />
 
-    <button class="btn-calc" @click="onCalculate">
-      捡
-    </button>
+    <button class="btn-calc" @click="onCalculate">计算</button>
 
-    <!-- ★ 单场不可单关提示（非阻断） -->
     <div v-if="singleMatchWarning" class="warning-tip">
       ⚠️ {{ singleMatchWarning }}
     </div>
@@ -39,7 +36,6 @@ const props = defineProps({
 const emit = defineEmits(['calculate'])
 
 const matchCount = ref(1)
-
 const rows = reactive([createEmptyRow()])
 
 function createEmptyRow() {
@@ -50,6 +46,7 @@ function createEmptyRow() {
     poolLabel: '',
     matchName: '',
     bettingSingle: false,
+    goalLine: 0,
     odds: null,
     comboType: 'wp',
     odds1: null,
@@ -73,26 +70,98 @@ const onRowUpdate = (index, newRow) => {
 const amountMin = ref(0)
 const amountMax = ref(1000)
 
-/**
- * ★ 单场不可单关提示（非阻断）
- * 仅当：
- *   - 场次数量 === 1
- *   - 已选中比赛（有 matchId）
- *   - 该场不可单关（bettingSingle === false）
- * 时显示，但不阻止计算
- */
 const singleMatchWarning = computed(() => {
   if (rows.length !== 1) return ''
   const r = rows[0]
   if (!r.matchId) return ''
   if (r.bettingSingle) return ''
-  return `当前只选了 1 场（${r.matchName}），该场不可投单关`
+  return `只选 1 场（${r.matchName}），该场不可投单关`
+})
+
+/**
+ * ★ 刷新后同步已选比赛
+ * @param {Array} newMatches 新抓取的 matchesData
+ */
+function syncWithMatches(newMatches) {
+  const map = new Map(newMatches.map(m => [m.id, m]))
+
+  for (let i = 0; i < rows.length; i++) {
+    const r = rows[i]
+    if (!r.matchId) continue
+
+    const fresh = map.get(r.matchId)
+    if (!fresh) {
+      // ★ 已选比赛不在新列表里 → 清空该行
+      console.log(`[sync] 已选比赛 ${r.matchId}（${r.matchName}）已下架，清空该行`)
+      rows[i] = createEmptyRow()
+      continue
+    }
+
+    // 比赛还在 → 更新赔率、单关标记等
+    const oldWin = r.odds?.win
+    const oldDraw = r.odds?.draw
+    const oldLose = r.odds?.lose
+
+    const newOdds = { ...fresh.odds }
+
+    const changed =
+      oldWin !== newOdds.win ||
+      oldDraw !== newOdds.draw ||
+      oldLose !== newOdds.lose
+
+    if (changed) {
+      console.log(`[sync] 比赛 ${r.matchId} 赔率变化：`, {
+        old: { win: oldWin, draw: oldDraw, lose: oldLose },
+        new: newOdds
+      })
+    }
+
+    // 更新字段
+    rows[i] = {
+      ...r,
+      matchName: fresh.name,
+      bettingSingle: !!fresh.bettingSingle,
+      goalLine: fresh.goalLine ?? 0,
+      odds: newOdds
+    }
+
+    // 重新应用当前组合（赔率变了要刷新 odds1/odds2）
+    applyComboToRow(i, r.comboType || 'wp')
+  }
+}
+
+/** 根据 comboType 重新计算某行的 odds1 / odds2 */
+function applyComboToRow(index, type) {
+  const row = rows[index]
+  if (!row.odds) {
+    rows[index] = { ...row, odds1: null, odds2: null }
+    return
+  }
+
+  let odds1 = null
+  let odds2 = null
+  if (type === 'wp') {
+    odds1 = { label: '胜', value: row.odds.win }
+    odds2 = { label: '平', value: row.odds.draw }
+  } else if (type === 'pl') {
+    odds1 = { label: '平', value: row.odds.draw }
+    odds2 = { label: '负', value: row.odds.lose }
+  } else if (type === 'wl') {
+    odds1 = { label: '胜', value: row.odds.win }
+    odds2 = { label: '负', value: row.odds.lose }
+  }
+
+  rows[index] = { ...row, odds1, odds2 }
+}
+
+// ★ 暴露给父组件
+defineExpose({
+  syncWithMatches
 })
 
 const onCalculate = () => {
-  // 只做必要校验（提示放在按钮下方，不弹窗）
   if (rows.some(r => !r.matchId || !r.odds1 || !r.odds2)) {
-    alert('请完整选择场次和两个赔率')
+    alert('请完整选择场次和赔率组合')
     return
   }
   if (amountMin.value < 0 || amountMax.value < 0) {
@@ -104,20 +173,15 @@ const onCalculate = () => {
     return
   }
 
-  const m_ = amountMin.value
-  const M_ = amountMax.value
-
   let result = null
   let errorMsg = null
   try {
     result = computeAll(JSON.parse(JSON.stringify(rows)), {
       x: 0.01,
-      m_,
-      M_
+      m_: amountMin.value,
+      M_: amountMax.value
     })
-    if (result.errorMsg) {
-      errorMsg = result.errorMsg
-    }
+    if (result.errorMsg) errorMsg = result.errorMsg
   } catch (e) {
     errorMsg = e.message
   }
@@ -135,43 +199,34 @@ const onCalculate = () => {
 
 <style scoped>
 .config-panel {
-  background: #f9fcff;
-  border-radius: 20px;
-  padding: 20px 20px 24px;
-  border: 1px solid #d9e6f2;
+  margin-bottom: 12px;
 }
 
 .btn-calc {
   background: #0f3b5e;
   border: none;
   color: white;
-  font-weight: 600;
-  padding: 16px 28px;
-  border-radius: 50px;
-  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1.05rem;
   width: 100%;
   cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.3px;
   margin-top: 14px;
-  box-shadow: 0 8px 18px rgba(15, 59, 94, 0.25);
 }
 
-.btn-calc:hover {
+.btn-calc:active {
   background: #1b5580;
-  transform: scale(1.01);
 }
 
-/* ★ 提示文字样式 */
 .warning-tip {
   margin-top: 10px;
-  padding: 10px 16px;
+  padding: 8px 12px;
   background: #fff7e6;
-  border-left: 4px solid #e6a23c;
+  border-left: 3px solid #e6a23c;
   color: #b88230;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  line-height: 1.5;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 </style>

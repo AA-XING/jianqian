@@ -9,6 +9,7 @@
     />
 
     <ConfigPanel
+      ref="configPanelRef"
       :matches-data="matchesData"
       @calculate="handleCalculate"
     />
@@ -35,19 +36,19 @@ import OddsModal from './components/OddsModal.vue'
 import ResultPanel from './components/ResultPanel.vue'
 import { initializeOddsData } from './data/oddsInitializer.js'
 
-/** 冷却时长（秒） */
 const COOLDOWN_SEC = 60
 
 const matchesData = ref([])
 const fetchedAt = ref(null)
 const showOddsModal = ref(false)
 const calcResult = ref(null)
-
 const refreshing = ref(false)
-const cooldown = ref(0)         // 剩余冷却秒数
+const cooldown = ref(0)
 let cooldownTimer = null
 
-// 启动冷却
+/* ★ 引用 ConfigPanel 实例 */
+const configPanelRef = ref(null)
+
 function startCooldown(seconds = COOLDOWN_SEC) {
   cooldown.value = seconds
   clearInterval(cooldownTimer)
@@ -65,29 +66,34 @@ onMounted(async () => {
   const { matches, fetchedAt: t } = await initializeOddsData()
   matchesData.value = matches
   fetchedAt.value = t
-  startCooldown(60)
+  startCooldown(COOLDOWN_SEC)
 })
 
-onUnmounted(() => {
-  clearInterval(cooldownTimer)
-})
+onUnmounted(() => clearInterval(cooldownTimer))
 
 const openOddsModal = () => { showOddsModal.value = true }
 const closeOddsModal = () => { showOddsModal.value = false }
 
-/** 刷新赔率数据 */
 const refreshOdds = async () => {
   if (refreshing.value) return
   if (cooldown.value > 0) return
 
   refreshing.value = true
   try {
+    console.log('[refresh] 手动刷新赔率...')
     const { matches, fetchedAt: t } = await initializeOddsData({ force: true })
     matchesData.value = matches
     fetchedAt.value = t
-    startCooldown(60)
+
+    // ★ 同步已选比赛的赔率
+    if (configPanelRef.value?.syncWithMatches) {
+      configPanelRef.value.syncWithMatches(matches)
+    }
+
+    startCooldown(COOLDOWN_SEC)
   } catch (e) {
     console.error('[refresh] 异常:', e)
+    alert('刷新失败：' + e.message)
   } finally {
     refreshing.value = false
   }
@@ -107,10 +113,9 @@ const handleCalculate = ({ result, errorMsg, rows, amountMin, amountMax }) => {
 <style scoped>
 .app-container {
   width: 100%;
-  max-width: 800px;
   background: white;
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 20, 40, 0.1);
-  padding: 24px 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 20, 40, 0.06);
+  padding: 12px 10px 18px;
 }
 </style>

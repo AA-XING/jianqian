@@ -2,60 +2,46 @@
   <div class="match-row">
     <!-- 场次选择 -->
     <button class="btn-match-select" @click="showMatchSelectModal = true">
-      <span v-if="localRow.bettingSingle" class="single-badge-sm" title="可投单关">单</span>
-      <span class="btn-match-text">
-        {{ localRow.matchName || '选择场次' }}
+      <span v-if="localRow.bettingSingle" class="single-badge-sm">单</span>
+      <span class="btn-match-text">{{ localRow.matchName || '选择场次' }}</span>
+
+      <!-- ★ 让球徽章：让字黄底 + 数字红/绿底 -->
+      <span
+        v-if="localRow.poolType === 'hhad'"
+        class="pool-badge hhad"
+      >
+        <span class="goal-label">让</span>
+        <span class="goal-num" :class="goalClass(localRow.goalLine)">
+          {{ formatGoalLine(localRow.goalLine) }}
+        </span>
       </span>
-      <span v-if="localRow.poolType" class="pool-mini" :class="localRow.poolType">
-        {{ localRow.poolLabel }}
+      <span v-else-if="localRow.poolType === 'had'" class="pool-badge had">
+        胜平负
       </span>
+
       <i>▼</i>
     </button>
 
-    <!-- 组合三选一按钮 -->
-    <div class="combo-group" :class="{ disabled: !localRow.odds }">
-      <!-- 胜 + 平 -->
-      <button
-        class="combo-btn"
-        :class="{ active: localRow.comboType === 'wp' }"
-        :disabled="!localRow.odds"
-        @click="selectCombo('wp')"
-      >
-        <span class="combo-label win">胜</span>
-        <span class="combo-odds" v-if="localRow.odds">{{ localRow.odds.win.toFixed(2) }}</span>
+    <!-- 组合选择：一行显示当前选中，点击弹窗 -->
+    <button
+      class="btn-combo"
+      :disabled="!localRow.odds"
+      @click="showComboModal = true"
+    >
+      <template v-if="localRow.odds && localRow.odds1 && localRow.odds2">
+        <span class="combo-label" :class="labelClass(localRow.odds1.label)">
+          {{ localRow.odds1.label }}
+        </span>
+        <span class="combo-odds">{{ localRow.odds1.value.toFixed(2) }}</span>
         <span class="combo-plus">+</span>
-        <span class="combo-label draw">平</span>
-        <span class="combo-odds" v-if="localRow.odds">{{ localRow.odds.draw.toFixed(2) }}</span>
-      </button>
-
-      <!-- 平 + 负 -->
-      <button
-        class="combo-btn"
-        :class="{ active: localRow.comboType === 'pl' }"
-        :disabled="!localRow.odds"
-        @click="selectCombo('pl')"
-      >
-        <span class="combo-label draw">平</span>
-        <span class="combo-odds" v-if="localRow.odds">{{ localRow.odds.draw.toFixed(2) }}</span>
-        <span class="combo-plus">+</span>
-        <span class="combo-label lose">负</span>
-        <span class="combo-odds" v-if="localRow.odds">{{ localRow.odds.lose.toFixed(2) }}</span>
-      </button>
-
-      <!-- 胜 + 负 -->
-      <button
-        class="combo-btn"
-        :class="{ active: localRow.comboType === 'wl' }"
-        :disabled="!localRow.odds"
-        @click="selectCombo('wl')"
-      >
-        <span class="combo-label win">胜</span>
-        <span class="combo-odds" v-if="localRow.odds">{{ localRow.odds.win.toFixed(2) }}</span>
-        <span class="combo-plus">+</span>
-        <span class="combo-label lose">负</span>
-        <span class="combo-odds" v-if="localRow.odds">{{ localRow.odds.lose.toFixed(2) }}</span>
-      </button>
-    </div>
+        <span class="combo-label" :class="labelClass(localRow.odds2.label)">
+          {{ localRow.odds2.label }}
+        </span>
+        <span class="combo-odds">{{ localRow.odds2.value.toFixed(2) }}</span>
+      </template>
+      <template v-else>选择赔率</template>
+      <i>▼</i>
+    </button>
 
     <!-- 场次选择弹窗 -->
     <MatchSelectModal
@@ -65,12 +51,22 @@
       @select="selectMatch"
       @close="showMatchSelectModal = false"
     />
+
+    <!-- 组合三选一弹窗 -->
+    <ComboSelectModal
+      v-if="showComboModal"
+      :odds="localRow.odds"
+      :current="localRow.comboType"
+      @select="selectCombo"
+      @close="showComboModal = false"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, reactive, watch, computed } from 'vue'
 import MatchSelectModal from './MatchSelectModal.vue'
+import ComboSelectModal from './ComboSelectModal.vue'
 
 const props = defineProps({
   row: { type: Object, required: true },
@@ -88,8 +84,9 @@ const localRow = reactive({
   poolLabel: '',
   matchName: '',
   bettingSingle: false,
+  goalLine: 0,
   odds: null,
-  comboType: 'wp',   // 'wp' | 'pl' | 'wl'
+  comboType: 'wp',
   odds1: null,
   odds2: null
 })
@@ -107,17 +104,18 @@ const usedGroupIds = computed(() => {
 })
 
 const showMatchSelectModal = ref(false)
+const showComboModal = ref(false)
 
 const selectMatch = (match) => {
   localRow.matchId = match.id
   localRow.groupId = match.groupId
   localRow.poolType = match.poolType
   localRow.poolLabel = match.poolLabel
+  localRow.goalLine = match.goalLine ?? 0
   localRow.matchName = match.name
   localRow.bettingSingle = !!match.bettingSingle
   localRow.odds = { ...match.odds }
 
-  // 默认胜&平
   localRow.comboType = 'wp'
   applyCombo('wp')
   emitUpdate()
@@ -129,6 +127,7 @@ const selectCombo = (type) => {
   localRow.comboType = type
   applyCombo(type)
   emitUpdate()
+  showComboModal.value = false
 }
 
 function applyCombo(type) {
@@ -149,62 +148,57 @@ function applyCombo(type) {
   }
 }
 
-const emitUpdate = () => {
-  emit('update:row', { ...localRow })
+function labelClass(label) {
+  if (label === '胜') return 'win'
+  if (label === '平') return 'draw'
+  return 'lose'
 }
+
+/* ★ 让球数格式化：正数带 +，负数带 - */
+function formatGoalLine(gl) {
+  const n = Number(gl)
+  if (Number.isNaN(n)) return '—'
+  return n >= 0 ? `+${n}` : `${n}`
+}
+
+/* ★ 让球数颜色类 */
+function goalClass(gl) {
+  const n = Number(gl)
+  if (Number.isNaN(n)) return ''
+  if (n > 0) return 'goal-pos'
+  if (n < 0) return 'goal-neg'
+  return ''
+}
+
+const emitUpdate = () => emit('update:row', { ...localRow })
 </script>
 
 <style scoped>
 .match-row {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-  background: white;
-  padding: 6px 8px;
-  border-radius: 18px;
-  border: 1px solid #e2eef9;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #f9fcff;
+  border-radius: 12px;
 }
 
+/* 场次选择按钮 */
 .btn-match-select {
-  background: #e9f0f8;
+  background: #eef5fc;
   border: none;
-  padding: 10px 10px;
-  border-radius: 30px;
+  padding: 10px 12px;
+  border-radius: 10px;
   font-weight: 500;
   color: #0b2b4a;
-  min-width: 200px;
+  width: 100%;
   text-align: left;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   cursor: pointer;
-  transition: background 0.15s;
-  font-size: 0.9rem;
-  border: 1px solid transparent;
-}
-
-.btn-match-select:hover {
-  background: #dae6f2;
-  border-color: #b6cee6;
-}
-
-.single-badge-sm {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px;
-  height: 20px;
-  border-radius: 50%;
-  background: #e74c3c;
-  color: white;
-  font-size: 0.68rem;
-  font-weight: 800;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
+  font-size: 0.88rem;
 }
 
 .btn-match-text {
@@ -214,94 +208,138 @@ const emitUpdate = () => {
   white-space: nowrap;
 }
 
-.pool-mini {
-  font-size: 0.68rem;
-  padding: 1px 8px;
-  border-radius: 8px;
-  font-weight: 700;
+.btn-match-select i {
+  font-style: normal;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.single-badge-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e74c3c;
   color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
   flex-shrink: 0;
 }
 
-.pool-mini.had { background: #2e8b57; }
-.pool-mini.hhad { background: #b8860b; }
-
-/* 三个按钮并排 */
-.combo-group {
-  display: flex;
-  gap: 2px;
-  flex: 1;
-  min-width: 400px;
+/* ★ 徽章容器 */
+.pool-badge {
+  font-size: 0.66rem;
+  border-radius: 6px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: stretch;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.pool-badge.had {
+  background: #2e8b57;
+  color: white;
+  padding: 1px 7px;
+  align-items: center;
+}
+.pool-badge.hhad {
+  background: transparent;
+  padding: 0;
 }
 
-.combo-group.disabled { opacity: 0.5; }
+/* ★「让」字块：黄底白字 */
+.goal-label {
+  background: #b8860b;
+  color: white;
+  padding: 1px 6px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
 
-.combo-btn {
-  flex: 1;
+/* ★ 数字块：加粗 */
+.goal-num {
+  padding: 1px 7px;
+  font-weight: 900;
+  font-family: ui-monospace, monospace;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.3px;
+  text-shadow: 0.4px 0 0 currentColor, -0.4px 0 0 currentColor;
+}
+
+/* ★ 正数：红底白字 */
+.goal-num.goal-pos {
+  background: #e74c3c;
+  color: #ffffff;
+}
+
+/* ★ 负数：绿底白字 */
+.goal-num.goal-neg {
+  background: #27ae60;
+  color: #ffffff;
+}
+
+/* 组合按钮 */
+.btn-combo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 6px;
+  width: 100%;
   background: white;
   border: 1px solid #cbdae9;
-  border-radius: 32px;
-  padding: 8px 10px;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-size: 0.85rem;
-  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-weight: 700;
   color: #0e3a5c;
   font-family: ui-monospace, monospace;
-  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s;
 }
 
-.combo-btn:hover:not(:disabled) {
-  border-color: #6f9bc1;
-  background: #f2f9ff;
-}
-
-.combo-btn:disabled {
+.btn-combo:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
   background: #f5f8fc;
+  color: #9fb3c8;
 }
 
-.combo-btn.active {
-  background: #0f3b5e;
-  border-color: #0f3b5e;
-  color: white;
-  box-shadow: 0 4px 12px rgba(15, 59, 94, 0.25);
+.btn-combo:not(:disabled):active {
+  background: #eef5fc;
+}
+
+.btn-combo i {
+  font-style: normal;
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-left: 2px;
 }
 
 .combo-label {
   display: inline-block;
-  font-size: 0.75rem;
-  padding: 2px 6px;
-  border-radius: 10px;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 8px;
   color: white;
   font-weight: 700;
 }
-
 .combo-label.win { background: #2e8b57; }
 .combo-label.draw { background: #b8860b; }
 .combo-label.lose { background: #c0392b; }
+
+.combo-odds {
+  font-weight: 700;
+  font-size: 1rem;
+}
 
 .combo-plus {
   font-size: 0.85rem;
   color: #7e94aa;
   font-weight: 400;
-}
-
-.combo-odds {
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.combo-btn.active .combo-odds { color: #ffffff; }
-.combo-btn.active .combo-plus { color: #b6d6f0; }
-
-.btn-match-select i {
-  font-style: normal;
-  font-size: 0.7rem;
-  opacity: 0.7;
+  margin: 0 2px;
 }
 </style>

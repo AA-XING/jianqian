@@ -1,24 +1,34 @@
 * {
   box-sizing: border-box;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: #f3f6fc;
-  margin: 0;
-  padding: 20px;
+  padding: 8px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
+  font-size: 14px;
 }
 
 #app {
   width: 100%;
-  max-width: 800px;
+  max-width: 520px;   /* ← 窄布局 */
 }
 
-/* 通用按钮重置 */
 button {
   font-family: inherit;
+}
+
+/* 所有按钮点击时不要有高亮块 */
+button {
+  -webkit-tap-highlight-color: transparent;
 }

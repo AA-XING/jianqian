@@ -1,55 +1,76 @@
 <template>
-  <div class="modal-mask" @click.self="$emit('close')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="header-left">
-          <h2>📊 所有比赛赔率</h2>
+  <div class="fullscreen-page">
+    <!-- 固定顶部栏 -->
+    <div class="page-header">
+      <div class="header-row-1">
+        <h2>所有比赛赔率</h2>
+        <div class="header-actions">
           <button
-            class="refresh-btn"
+            class="btn-refresh"
             :disabled="refreshing || cooldown > 0"
             @click="$emit('refresh')"
-            :title="refreshTitle"
           >
             <span class="refresh-icon" :class="{ spinning: refreshing }">🔄</span>
             <template v-if="refreshing">刷新中</template>
             <template v-else-if="cooldown > 0"> {{ cooldown }}s</template>
             <template v-else>刷新</template>
           </button>
+          <button class="btn-close" @click="$emit('close')">&times;</button>
         </div>
-        <button class="close-btn" @click="$emit('close')">&times;</button>
       </div>
-
-      <!-- 顶部元信息：比赛场次 + 抓取时间 -->
-      <div class="modal-meta">
-        <span class="meta-count">{{ matchesData.length }} 场比赛</span>
+      <div class="header-row-2">
+        <span class="meta-count">{{ groups.length }} 场比赛</span>
         <span v-if="fetchedAt" class="meta-time">
-          · 最后更新 {{ formatTime(fetchedAt) }}
+          最后更新: {{ formatTime(fetchedAt) }}
         </span>
       </div>
+    </div>
 
-      <div class="odds-list">
+    <!-- 可滚动的比赛列表 -->
+    <div class="page-body">
+      <div class="match-list">
         <div
-          v-for="match in matchesData"
-          :key="match.id"
-          class="match-item"
-          :class="{ 'is-hhad': match.poolType === 'hhad' }"
+          v-for="g in groups"
+          :key="g.groupId"
+          class="match-group"
         >
+          <!-- 比赛对阵等信息 -->
           <div class="match-head">
-            <span class="match-no">{{ match.matchNo }}</span>
-            <span v-if="match.bettingSingle" class="single-badge" title="可投单关">单</span>
-            <span class="match-name">{{ match.name }}</span>
-            <span
-              class="pool-badge"
-              :class="match.poolType === 'hhad' ? 'hhad' : 'had'"
-            >
-              {{ match.poolLabel }}
+            <span class="match-no">{{ g.matchNo }}</span>
+            <span class="match-name">{{ g.name }}</span>
+            <span class="match-league">{{ g.league }}</span>
+          </div>
+
+          <!-- 胜平负行（如有） -->
+          <div v-if="g.had" class="odds-line">
+            <span v-if="g.had.bettingSingle" class="single-badge">单</span>
+            <div class="odds-row">
+              <span class="odds-tag win"><em>胜</em>{{ fmt(g.had.odds.win) }}</span>
+              <span class="odds-tag draw"><em>平</em>{{ fmt(g.had.odds.draw) }}</span>
+              <span class="odds-tag lose"><em>负</em>{{ fmt(g.had.odds.lose) }}</span>
+            </div>
+            <span class="pool-badge had">胜平负</span>
+          </div>
+
+          <!-- 让球行（如有） -->
+          <div v-if="g.hhad" class="odds-line">
+            <span v-if="g.hhad.bettingSingle" class="single-badge">单</span>
+            <div class="odds-row">
+              <span class="odds-tag win"><em>胜</em>{{ fmt(g.hhad.odds.win) }}</span>
+              <span class="odds-tag draw"><em>平</em>{{ fmt(g.hhad.odds.draw) }}</span>
+              <span class="odds-tag lose"><em>负</em>{{ fmt(g.hhad.odds.lose) }}</span>
+            </div>
+            <span class="pool-badge hhad">
+              <span class="goal-label">让</span>
+              <span class="goal-num" :class="goalClass(g.hhad.goalLine)">
+                {{ formatGoalLine(g.hhad.goalLine) }}
+              </span>
             </span>
           </div>
 
-          <div class="odds-row">
-            <span class="odds-tag win"><em>胜</em>{{ fmt(match.odds.win) }}</span>
-            <span class="odds-tag draw"><em>平</em>{{ fmt(match.odds.draw) }}</span>
-            <span class="odds-tag lose"><em>负</em>{{ fmt(match.odds.lose) }}</span>
+          <!-- 都没有 -->
+          <div v-if="!g.had && !g.hhad" class="odds-line empty">
+            <span class="empty-text">暂无赔率</span>
           </div>
         </div>
       </div>
@@ -68,10 +89,34 @@ const props = defineProps({
 })
 defineEmits(['close', 'refresh'])
 
-const refreshTitle = computed(() => {
-  if (props.refreshing) return '刷新中...'
-  if (props.cooldown > 0) return `冷却中，还剩 ${props.cooldown} 秒`
-  return '重新抓取赔率'
+/**
+ * ★ 按 groupId 分组，把 had / hhad 合并到一个对象里
+ */
+const groups = computed(() => {
+  const map = new Map()
+
+  for (const m of props.matchesData) {
+    const gid = m.groupId
+    if (!map.has(gid)) {
+      map.set(gid, {
+        groupId: gid,
+        matchNo: m.matchNo,
+        name: m.name,
+        league: m.league,
+        kickoff: m.kickoff,
+        had: null,
+        hhad: null
+      })
+    }
+    const g = map.get(gid)
+    if (m.poolType === 'had') {
+      g.had = m
+    } else if (m.poolType === 'hhad') {
+      g.hhad = m
+    }
+  }
+
+  return Array.from(map.values())
 })
 
 function fmt(v) {
@@ -83,208 +128,289 @@ function formatTime(ts) {
   if (!ts) return '—'
   const d = new Date(ts)
   const pad = (n) => String(n).padStart(2, '0')
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`
+  return `${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+}
+
+function formatGoalLine(gl) {
+  const n = Number(gl)
+  if (Number.isNaN(n)) return '—'
+  return n >= 0 ? `+${n}` : `${n}`
+}
+
+function goalClass(gl) {
+  const n = Number(gl)
+  if (Number.isNaN(n)) return ''
+  if (n > 0) return 'goal-pos'
+  if (n < 0) return 'goal-neg'
+  return ''
 }
 </script>
 
 <style scoped>
-.modal-mask {
+.fullscreen-page {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 20, 30, 0.5);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
+  background: #f3f6fc;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.modal-content {
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background: white;
-  border-radius: 28px;
-  max-width: 680px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 24px 26px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  padding: 12px 14px 10px;
+  box-shadow: 0 1px 8px rgba(0, 20, 40, 0.06);
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
 }
 
-.modal-header {
+.header-row-1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  gap: 12px;
+  gap: 10px;
+  margin-bottom: 6px;
 }
-
-.header-left {
+.header-row-1 h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0b2b4a;
+  flex: 1;
+  min-width: 0;
+}
+.header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
-.modal-header h2 { margin: 0; font-size: 1.5rem; color: #0b2b4a; }
-
-.refresh-btn {
+.btn-refresh {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: #e9f0f8;
+  gap: 4px;
+  background: #eef5fc;
   color: #0f3b5e;
-  border: 1px solid #cbdae9;
-  border-radius: 30px;
-  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
-  min-width: 100px;
-  justify-content: center;
 }
-
-.refresh-btn:hover:not(:disabled) {
-  background: #dae6f2;
-  border-color: #6f9bc1;
-}
-
-.refresh-btn:disabled {
-  opacity: 0.6;
+.btn-refresh:disabled {
+  opacity: 0.55;
   cursor: not-allowed;
 }
-
-.refresh-icon {
-  display: inline-block;
-  font-size: 0.9rem;
-}
-
-.refresh-icon.spinning {
-  animation: spin 0.9s linear infinite;
-}
-
+.refresh-icon { display: inline-block; font-size: 0.82rem; }
+.refresh-icon.spinning { animation: spin 0.9s linear infinite; }
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-.modal-meta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.82rem;
-  color: #7e94aa;
-  padding-bottom: 12px;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #eef5fc;
-  flex-wrap: wrap;
-}
-
-.meta-count { font-weight: 600; color: #5a7188; }
-.meta-time {
-  color: #7e94aa;
-  font-family: ui-monospace, monospace;
-  font-size: 0.78rem;
-}
-
-.close-btn {
+.btn-close {
   background: none;
   border: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #6c7e92;
+  font-size: 1.6rem;
   line-height: 1;
-  padding: 0 8px;
+  color: #6c7e92;
+  cursor: pointer;
+  padding: 0 6px;
 }
-.close-btn:hover { color: #0b2b4a; }
+.btn-close:hover { color: #0b2b4a; }
 
-.odds-list { display: flex; flex-direction: column; gap: 12px; }
+.header-row-2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #9fb3c8;
+  font-family: ui-monospace, monospace;
+  flex-wrap: wrap;
+}
+.meta-count { font-weight: 600; color: #5a7188; }
+.meta-time { color: #9fb3c8; }
 
-.match-item {
-  background: #f0f7ff;
-  border-radius: 16px;
-  padding: 14px 18px;
-  border: 1px solid #d9e9fc;
+.page-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 10px 20px;
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
+}
+
+.match-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.match-item.is-hhad { border-left: 4px solid #b8860b; }
+/* ★ 每场比赛：一个卡片 */
+.match-group {
+  background: white;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0, 20, 40, 0.04);
+}
 
+/* 比赛头部 */
 .match-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed #eef5fc;
+}
+
+.match-no {
+  font-size: 0.68rem;
+  background: #eef5fc;
+  color: #1e3f5c;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.match-name {
+  font-weight: 700;
+  color: #0b2b4a;
+  font-size: 0.92rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.match-league {
+  font-size: 0.68rem;
+  color: #9fb3c8;
+  flex-shrink: 0;
+}
+
+/* ★ 赔率行：单关 + 赔率 + 标记 */
+.odds-line {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.match-no {
-  font-size: 0.72rem;
-  background: #e9f0f8;
-  color: #1e3f5c;
-  padding: 2px 8px;
-  border-radius: 8px;
-  font-weight: 600;
+.odds-line.empty {
+  justify-content: center;
+  color: #9fb3c8;
+  font-size: 0.78rem;
+  font-style: italic;
 }
 
+/* 单关徽章 */
 .single-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #e74c3c;
   color: white;
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  box-shadow: 0 2px 6px rgba(231, 76, 60, 0.4);
   flex-shrink: 0;
 }
 
-.match-name {
-  font-weight: 600;
-  color: #1e3f5c;
-  font-size: 0.95rem;
+/* 赔率 */
+.odds-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
   flex: 1;
-  min-width: 180px;
+  min-width: 0;
 }
-
-.pool-badge {
-  font-size: 0.7rem;
-  padding: 2px 10px;
-  border-radius: 8px;
-  font-weight: 700;
-}
-
-.pool-badge.had { background: #2e8b57; color: white; }
-.pool-badge.hhad { background: #b8860b; color: white; }
-
-.odds-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
 .odds-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: white;
-  padding: 5px 12px;
-  border-radius: 30px;
+  gap: 4px;
+  background: #f9fcff;
+  padding: 3px 10px;
+  border-radius: 14px;
   font-weight: 600;
   color: #0f3b5e;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid #e2eef9;
+  font-size: 0.82rem;
+  font-family: ui-monospace, monospace;
 }
-
 .odds-tag em {
   font-style: normal;
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   color: #7e94aa;
   font-weight: 500;
 }
-
 .odds-tag.win em { color: #2e8b57; }
 .odds-tag.draw em { color: #b8860b; }
 .odds-tag.lose em { color: #c0392b; }
+
+/* ★ 标记徽章 */
+.pool-badge {
+  font-size: 0.66rem;
+  border-radius: 6px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: stretch;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.pool-badge.had {
+  background: #2e8b57;
+  color: white;
+  padding: 1px 7px;
+  align-items: center;
+}
+.pool-badge.hhad {
+  background: transparent;
+  padding: 0;
+}
+
+.goal-label {
+  background: #b8860b;
+  color: white;
+  padding: 1px 6px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+}
+
+.goal-num {
+  padding: 1px 7px;
+  font-weight: 900;
+  font-family: ui-monospace, monospace;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.2px;
+}
+.goal-num.goal-pos {
+  background: #e74c3c;
+  color: #ffffff;
+}
+.goal-num.goal-neg {
+  background: #27ae60;
+  color: #ffffff;
+}
+
+.empty-text {
+  font-size: 0.78rem;
+}
 </style>
