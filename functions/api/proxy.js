@@ -1,5 +1,10 @@
 /**
  * Cloudflare Pages Functions - 竞彩网 API 代理
+ *
+ * 通过第三方 CORS 代理（allorigins.win）中转，
+ * 绕过竞彩网对 Cloudflare 数据中心 IP 的 WAF 拦截。
+ *
+ * 访问路径：/api/proxy?url=<encoded target url>
  */
 
 export async function onRequest(context) {
@@ -16,6 +21,7 @@ export async function onRequest(context) {
     return jsonResponse({ error: '缺少 url 参数' }, 400)
   }
 
+  // 白名单校验
   try {
     const t = new URL(target)
     if (!t.hostname.endsWith('sporttery.cn')) {
@@ -25,30 +31,35 @@ export async function onRequest(context) {
     return jsonResponse({ error: 'url 格式不正确' }, 400)
   }
 
-  // ★ 带超时的 fetch
+  // ★ 通过第三方 CORS 代理中转
+  // allorigins.win 的出口 IP 不在竞彩网黑名单
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(target)}`
+
   const controller = new AbortController()
-  const timeoutId = setTimeout(() => controller.abort(), 15000)
+  const timeoutId = setTimeout(() => controller.abort(), 25000)
 
   let apiRes
   try {
-    apiRes = await fetch(target, {
+    apiRes = await fetch(proxyUrl, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Referer': 'https://www.sporttery.cn/',
-        'Accept': 'application/json, text/plain, */*'
+        'User-Agent':
+          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
+          '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
       },
       signal: controller.signal
     })
     clearTimeout(timeoutId)
   } catch (e) {
     clearTimeout(timeoutId)
-    // ★ 明确区分超时 / SSL / DNS 等错误
-    return jsonResponse({
-      error: '转发失败',
-      message: e.message,
-      name: e.name,
-      target
-    }, 502)
+    return jsonResponse(
+      {
+        error: '转发失败',
+        message: e.message,
+        name: e.name,
+        target
+      },
+      502
+    )
   }
 
   const body = await apiRes.text()
