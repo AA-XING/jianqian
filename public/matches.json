@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042003-had",
-      "groupId": "2042003",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "悉尼FC vs 西悉尼",
-      "league": "澳超",
-      "kickoff": "2026-10-16 17:00:00",
-      "matchNo": "周五001",
-      "goalLine": 0,
-      "bettingSingle": true,
-      "odds": {
-        "win": 2.03,
-        "draw": 3.53,
-        "lose": 2.83
-      }
-    },
-    {
       "id": "2042013-had",
       "groupId": "2042013",
       "poolType": "had",
@@ -29,9 +12,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.45,
-        "draw": 4.3,
-        "lose": 1.65
+        "win": 3.73,
+        "draw": 4.45,
+        "lose": 1.57
       }
     },
     {
@@ -63,9 +46,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.45,
-        "draw": 4.36,
-        "lose": 4.75
+        "win": 1.39,
+        "draw": 4.65,
+        "lose": 5.15
       }
     },
     {
@@ -80,9 +63,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.52,
-        "draw": 4.3,
-        "lose": 4.18
+        "win": 1.47,
+        "draw": 4.4,
+        "lose": 4.5
       }
     },
     {
@@ -97,9 +80,9 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.7,
-        "draw": 3.9,
-        "lose": 3.52
+        "win": 1.66,
+        "draw": 4,
+        "lose": 3.62
       }
     },
     {
@@ -114,9 +97,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.24,
+        "win": 2.19,
         "draw": 3.45,
-        "lose": 2.55
+        "lose": 2.61
       }
     },
     {
@@ -749,23 +732,6 @@
       }
     },
     {
-      "id": "2042003-hhad",
-      "groupId": "2042003",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "悉尼FC vs 西悉尼",
-      "league": "澳超",
-      "kickoff": "2026-10-16 17:00:00",
-      "matchNo": "周五001",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.95,
-        "draw": 3.92,
-        "lose": 1.61
-      }
-    },
-    {
       "id": "2042013-hhad",
       "groupId": "2042013",
       "poolType": "hhad",
@@ -777,9 +743,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.93,
-        "draw": 3.9,
-        "lose": 2.82
+        "win": 2.05,
+        "draw": 3.75,
+        "lose": 2.67
       }
     },
     {
@@ -811,9 +777,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.4,
-        "draw": 3.6,
-        "lose": 2.3
+        "win": 2.32,
+        "draw": 3.4,
+        "lose": 2.48
       }
     },
     {
@@ -828,9 +794,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.52,
-        "draw": 3.72,
-        "lose": 2.16
+        "win": 2.4,
+        "draw": 3.65,
+        "lose": 2.28
       }
     },
     {
@@ -845,9 +811,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.97,
-        "draw": 3.75,
-        "lose": 1.9
+        "win": 2.9,
+        "draw": 3.7,
+        "lose": 1.95
       }
     },
     {
@@ -862,9 +828,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.6,
-        "draw": 4.25,
-        "lose": 1.48
+        "win": 4.5,
+        "draw": 4.15,
+        "lose": 1.5
       }
     },
     {
@@ -1514,5 +1480,5 @@
       }
     }
   ],
-  "fetchedAt": 1792130551411
+  "fetchedAt": 1792142023263
 }
