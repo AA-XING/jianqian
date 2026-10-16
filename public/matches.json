@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2041987-had",
-      "groupId": "2041987",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "拉普大学 vs 弗拉门戈",
-      "league": "解放者杯",
-      "kickoff": "2026-10-16 08:30:00",
-      "matchNo": "周四014",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.97,
-        "draw": 2.8,
-        "lose": 1.92
-      }
-    },
-    {
       "id": "2042003-had",
       "groupId": "2042003",
       "poolType": "had",
@@ -29,9 +12,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.17,
-        "draw": 3.4,
-        "lose": 2.67
+        "win": 2.12,
+        "draw": 3.47,
+        "lose": 2.71
       }
     },
     {
@@ -46,9 +29,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.85,
-        "draw": 3.97,
-        "lose": 1.9
+        "win": 2.95,
+        "draw": 4,
+        "lose": 1.85
       }
     },
     {
@@ -63,9 +46,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 5.35,
-        "draw": 4.4,
-        "lose": 1.4
+        "win": 5.72,
+        "draw": 4.55,
+        "lose": 1.36
       }
     },
     {
@@ -97,9 +80,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.56,
-        "draw": 4.2,
-        "lose": 4
+        "win": 1.54,
+        "draw": 4.25,
+        "lose": 4.08
       }
     },
     {
@@ -200,25 +183,8 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.12,
-        "draw": 3.15,
-        "lose": 2.94
-      }
-    },
-    {
-      "id": "2041987-hhad",
-      "groupId": "2041987",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "拉普大学 vs 弗拉门戈",
-      "league": "解放者杯",
-      "kickoff": "2026-10-16 08:30:00",
-      "matchNo": "周四014",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.69,
-        "draw": 3.25,
-        "lose": 4.35
+        "draw": 3.05,
+        "lose": 3.03
       }
     },
     {
@@ -233,9 +199,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.5,
-        "draw": 3.95,
-        "lose": 1.53
+        "win": 4.3,
+        "draw": 3.92,
+        "lose": 1.56
       }
     },
     {
@@ -250,9 +216,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.7,
-        "draw": 4.05,
-        "lose": 3.4
+        "win": 1.75,
+        "draw": 4,
+        "lose": 3.25
       }
     },
     {
@@ -267,9 +233,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.5,
-        "draw": 3.7,
-        "lose": 2.18
+        "win": 2.63,
+        "draw": 3.72,
+        "lose": 2.08
       }
     },
     {
@@ -409,5 +375,5 @@
       }
     }
   ],
-  "fetchedAt": 1792108466730
+  "fetchedAt": 1792119629680
 }
