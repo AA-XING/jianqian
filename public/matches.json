@@ -97,9 +97,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.19,
+        "win": 2.24,
         "draw": 3.45,
-        "lose": 2.61
+        "lose": 2.55
       }
     },
     {
@@ -828,9 +828,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.5,
-        "draw": 4.15,
-        "lose": 1.5
+        "win": 4.6,
+        "draw": 4.25,
+        "lose": 1.48
       }
     },
     {
@@ -1480,5 +1480,5 @@
       }
     }
   ],
-  "fetchedAt": 1792142023263
+  "fetchedAt": 1792141347326
 }
