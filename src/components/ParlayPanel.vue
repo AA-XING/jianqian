@@ -224,7 +224,16 @@ function onSelectMatch(match) {
   item.poolType = match.poolType || 'had'
   item.goalLine = match.goalLine ?? 0
   item.odds = { ...match.odds }
-  item.selectedOdds = null
+
+  // ★ 自动选最低赔率
+  const opts = [
+    { label: '胜', value: match.odds.win },
+    { label: '平', value: match.odds.draw },
+    { label: '负', value: match.odds.lose }
+  ]
+  opts.sort((a, b) => a.value - b.value)
+  item.selectedOdds = { ...opts[0] }
+
   showMatchSelect.value = false
   emitUpdate()
   setTimeout(maybeAddRow, 0)

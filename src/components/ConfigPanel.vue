@@ -103,6 +103,11 @@ const singleMatchWarning = computed(() => {
   const r = rows[0]
   if (!r.matchId) return ''
   if (r.bettingSingle) return ''
+
+  // ★ 串买有选择时，不提示
+  const validParlay = parlayItems.value.filter(it => it.matchId && it.selectedOdds)
+  if (validParlay.length > 0) return ''
+
   return `只选 1 场（${r.matchName}），该场不可投单关`
 })
 
