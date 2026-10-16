@@ -12,9 +12,18 @@
       @update:row="onRowUpdate(index, $event)"
     />
 
+    <!-- ★ 串买单项赔率区域 -->
+    <ParlayPanel
+      :matches-data="matchesData"
+      :used-group-ids="usedGroupIds"
+      :match-count="matchCount"
+      :max-total="8"
+      @update:parlay="onParlayUpdate"
+    />
+
     <AmountRange v-model:min="amountMin" v-model:max="amountMax" />
 
-    <button class="btn-calc" @click="onCalculate">计算</button>
+    <button class="btn-calc" @click="onCalculate">捡</button>
 
     <div v-if="singleMatchWarning" class="warning-tip">
       ⚠️ {{ singleMatchWarning }}
@@ -27,6 +36,7 @@ import { ref, reactive, computed } from 'vue'
 import MatchCountSelector from './MatchCountSelector.vue'
 import MatchRow from './MatchRow.vue'
 import AmountRange from './AmountRange.vue'
+import ParlayPanel from './ParlayPanel.vue'    // ★ 新增
 import { computeAll } from '../utils/calculator.js'
 
 const props = defineProps({
@@ -38,6 +48,9 @@ const emit = defineEmits(['calculate'])
 const matchCount = ref(1)
 const rows = reactive([createEmptyRow()])
 
+// 串买数据
+const parlayItems = ref([])
+
 function createEmptyRow() {
   return {
     matchId: null,
@@ -45,6 +58,7 @@ function createEmptyRow() {
     poolType: null,
     poolLabel: '',
     matchName: '',
+    matchNo: '',
     bettingSingle: false,
     goalLine: 0,
     odds: null,
@@ -67,6 +81,20 @@ const onRowUpdate = (index, newRow) => {
   rows[index] = { ...newRow }
 }
 
+// ★ 上方已选场次的 groupId 集合
+const usedGroupIds = computed(() => {
+  const set = new Set()
+  rows.forEach(r => {
+    if (r.groupId) set.add(String(r.groupId))
+  })
+  return set
+})
+
+// ★ 串买更新
+function onParlayUpdate(items) {
+  parlayItems.value = items
+}
+
 const amountMin = ref(0)
 const amountMax = ref(1000)
 
@@ -76,87 +104,6 @@ const singleMatchWarning = computed(() => {
   if (!r.matchId) return ''
   if (r.bettingSingle) return ''
   return `只选 1 场（${r.matchName}），该场不可投单关`
-})
-
-/**
- * ★ 刷新后同步已选比赛
- * @param {Array} newMatches 新抓取的 matchesData
- */
-function syncWithMatches(newMatches) {
-  const map = new Map(newMatches.map(m => [m.id, m]))
-
-  for (let i = 0; i < rows.length; i++) {
-    const r = rows[i]
-    if (!r.matchId) continue
-
-    const fresh = map.get(r.matchId)
-    if (!fresh) {
-      // ★ 已选比赛不在新列表里 → 清空该行
-      console.log(`[sync] 已选比赛 ${r.matchId}（${r.matchName}）已下架，清空该行`)
-      rows[i] = createEmptyRow()
-      continue
-    }
-
-    // 比赛还在 → 更新赔率、单关标记等
-    const oldWin = r.odds?.win
-    const oldDraw = r.odds?.draw
-    const oldLose = r.odds?.lose
-
-    const newOdds = { ...fresh.odds }
-
-    const changed =
-      oldWin !== newOdds.win ||
-      oldDraw !== newOdds.draw ||
-      oldLose !== newOdds.lose
-
-    if (changed) {
-      console.log(`[sync] 比赛 ${r.matchId} 赔率变化：`, {
-        old: { win: oldWin, draw: oldDraw, lose: oldLose },
-        new: newOdds
-      })
-    }
-
-    // 更新字段
-    rows[i] = {
-      ...r,
-      matchName: fresh.name,
-      bettingSingle: !!fresh.bettingSingle,
-      goalLine: fresh.goalLine ?? 0,
-      odds: newOdds
-    }
-
-    // 重新应用当前组合（赔率变了要刷新 odds1/odds2）
-    applyComboToRow(i, r.comboType || 'wp')
-  }
-}
-
-/** 根据 comboType 重新计算某行的 odds1 / odds2 */
-function applyComboToRow(index, type) {
-  const row = rows[index]
-  if (!row.odds) {
-    rows[index] = { ...row, odds1: null, odds2: null }
-    return
-  }
-
-  let odds1 = null
-  let odds2 = null
-  if (type === 'wp') {
-    odds1 = { label: '胜', value: row.odds.win }
-    odds2 = { label: '平', value: row.odds.draw }
-  } else if (type === 'pl') {
-    odds1 = { label: '平', value: row.odds.draw }
-    odds2 = { label: '负', value: row.odds.lose }
-  } else if (type === 'wl') {
-    odds1 = { label: '胜', value: row.odds.win }
-    odds2 = { label: '负', value: row.odds.lose }
-  }
-
-  rows[index] = { ...row, odds1, odds2 }
-}
-
-// ★ 暴露给父组件
-defineExpose({
-  syncWithMatches
 })
 
 const onCalculate = () => {
@@ -192,7 +139,9 @@ const onCalculate = () => {
     amountMax: amountMax.value,
     matchesData: props.matchesData,
     result,
-    errorMsg
+    errorMsg,
+    // ★ 传递串买数据
+    parlayItems: parlayItems.value.filter(it => it.matchId && it.selectedOdds)
   })
 }
 </script>

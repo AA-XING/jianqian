@@ -1,9 +1,9 @@
 <template>
   <div class="result-panel" v-if="data">
-    <!-- 理论收益率 -->
+    <!-- 理论收益率（累乘） -->
     <div class="stat-row">
       <div class="stat-label">理论收益率</div>
-      <div class="stat-value green">{{ fmtPercent(data.expect) }}%</div>
+      <div class="stat-value green">{{ fmtPercent(adjustedExpect) }}%</div>
     </div>
 
     <!-- 总额 -->
@@ -16,15 +16,15 @@
       <div class="stat-row">
         <div class="stat-label">收益范围</div>
         <div class="stat-value">
-          <span class="min">{{ fmt(profitMin, 2) }}</span>
+          <span class="min">{{ fmt(adjustedProfitMin, 2) }}</span>
           <span class="sep"> ~ </span>
-          <span class="max">{{ fmt(profitMax, 2) }}</span>
+          <span class="max">{{ fmt(adjustedProfitMax, 2) }}</span>
         </div>
       </div>
       <div class="stat-row">
         <div class="stat-label">极差</div>
         <div class="stat-value small">
-          {{ fmt(profitRange, 2) }}
+          {{ fmt(adjustedProfitRange, 2) }}
           <span class="gap-percent">({{ fmtPercentOfTotal }}%)</span>
         </div>
       </div>
@@ -42,41 +42,50 @@
         :key="item.index"
         class="bet-card"
       >
-        <!-- 顶部：投注额 -->
         <div class="card-head">
           <span class="card-bet">{{ item.bet }}</span>
         </div>
 
-        <!-- 目标 -->
         <div class="card-targets">
+          <!-- 计算用的场次 -->
           <div
             v-for="(c, i) in item.combo"
             :key="i"
             class="target-line"
           >
-            <!-- ★ 让球比赛：显示带符号数字（红/绿底） -->
-            <span
-              v-if="c.poolType === 'hhad'"
-              class="goal-tag"
-              :class="goalClass(c.goalLine)"
-            >
+            <span v-if="c.poolType === 'hhad'" class="goal-badge" :class="goalClass(c.goalLine)">
               {{ formatGoalLine(c.goalLine) }}
             </span>
             <span class="target-match">{{ c.matchName }}</span>
             <span class="target-result" :class="labelClass(c.label)">{{ c.label }}</span>
             <span class="target-odds">{{ fmt(c.value, 2) }}</span>
           </div>
+
+          <!-- ★ 串买项：不带任何标签，和普通项一致 -->
+          <div
+            v-for="(p, pi) in parlayItems"
+            :key="'p' + pi"
+            class="target-line"
+          >
+            <span v-if="p.poolType === 'hhad'" class="goal-badge" :class="goalClass(p.goalLine)">
+              {{ formatGoalLine(p.goalLine) }}
+            </span>
+            <span class="target-match">{{ p.matchName }}</span>
+            <span class="target-result" :class="labelClass(p.selectedOdds.label)">
+              {{ p.selectedOdds.label }}
+            </span>
+            <span class="target-odds">{{ fmt(p.selectedOdds.value, 2) }}</span>
+          </div>
         </div>
 
-        <!-- 底部：左收益额，右回报率 -->
         <div class="card-foot">
-          <span class="card-profit" :class="profitClass(item.profit)">
-            {{ item.profit >= 0 ? '+' : '' }}{{ fmt(item.profit, 2) }}
+          <span class="card-profit" :class="profitClass(item.adjustedProfit)">
+            {{ item.adjustedProfit >= 0 ? '+' : '' }}{{ fmt(item.adjustedProfit, 2) }}
           </span>
           <span class="foot-rate">
             回报率
-            <span class="rate" :class="profitClass(item.rate)">
-              {{ (item.rate * 100).toFixed(2) }}%
+            <span class="rate" :class="profitClass(item.adjustedRate)">
+              {{ (item.adjustedRate * 100).toFixed(2) }}%
             </span>
           </span>
         </div>
@@ -102,26 +111,62 @@
 import { computed, ref } from 'vue'
 
 const props = defineProps({
-  data: { type: Object, default: null }
+  data: { type: Object, default: null },
+  parlayItems: { type: Array, default: () => [] }
 })
 
 /* 复制 */
 const copied = ref(false)
 let copyTimer = null
 
+// 串买累乘系数
+const parlayMultiplier = computed(() => {
+  let m = 1
+  for (const p of props.parlayItems) {
+    if (p.selectedOdds?.value) m *= p.selectedOdds.value
+  }
+  return m
+})
+
+/**
+ * 复制文本格式：
+ *   投注额 场次编号 (让球) 结果 + 场次编号 (让球) 结果 + ...
+ *
+ * 示例：
+ *   40 周四001 胜 + 周四005 (让-1) 负 + 周四008 胜
+ */
 function buildCopyText() {
   if (!props.data?.details?.length) return ''
+
   return props.data.details
     .map(item => {
-      const target = (item.combo || [])
-        .map(c => {
-          const prefix = c.poolType === 'hhad' ? `让${formatGoalLine(c.goalLine)} ` : ''
-          return `${prefix}${c.matchName} ${c.label} ${fmt(c.value, 2)}`
-        })
-        .join(' + ')
-      return `${item.bet}\t${target}`
+      const parts = []
+
+      // 计算用的场次
+      for (const c of (item.combo || [])) {
+        parts.push(formatComboText(c))
+      }
+
+      // ★ 串买项：只加场次编号 + 结果，不写「串」
+      for (const p of props.parlayItems) {
+        const no = p.matchNo || ''
+        const label = p.selectedOdds?.label || ''
+        const goalPart = p.poolType === 'hhad' ? `(${formatGoalLine(p.goalLine)})` : ''
+        parts.push(`${no} ${goalPart}${label}`.replace(/\s+/g, ' ').trim())
+      }
+
+      return `${item.bet} ${parts.join(' + ')}`
     })
     .join('\n')
+}
+
+/**
+ * 格式化单场比赛：场次编号 (让球) 结果
+ */
+function formatComboText(c) {
+  const no = c.matchNo || ''
+  const goalPart = c.poolType === 'hhad' ? `(${formatGoalLine(c.goalLine)})` : ''
+  return `${no} ${goalPart}${c.label}`.replace(/\s+/g, ' ').trim()
 }
 
 async function copyBetsAndTargets() {
@@ -167,15 +212,11 @@ function profitClass(v) {
   if (v < 0) return 'profit-neg'
   return ''
 }
-
-/* ★ 让球数格式化：正数带 +，负数带 - */
 function formatGoalLine(gl) {
   const n = Number(gl)
   if (Number.isNaN(n)) return '—'
   return n >= 0 ? `+${n}` : `${n}`
 }
-
-/* ★ 让球数颜色类 */
 function goalClass(gl) {
   const n = Number(gl)
   if (Number.isNaN(n)) return ''
@@ -184,25 +225,57 @@ function goalClass(gl) {
   return ''
 }
 
-const profitMin = computed(() => {
+/* 累乘后调整 */
+const adjustedExpect = computed(() => {
+  if (!props.data?.expect) return null
+  return props.data.expect * parlayMultiplier.value
+})
+
+const adjustedProfitMin = computed(() => {
   const D = props.data?.result?.D
   if (!D || !D.length) return null
-  return Math.min(...D)
+  return Math.min(...D) * parlayMultiplier.value
 })
-const profitMax = computed(() => {
+
+const adjustedProfitMax = computed(() => {
   const D = props.data?.result?.D
   if (!D || !D.length) return null
-  return Math.max(...D)
+  return Math.max(...D) * parlayMultiplier.value
 })
-const profitRange = computed(() => {
-  if (profitMin.value === null || profitMax.value === null) return null
-  return profitMax.value - profitMin.value
+
+const adjustedProfitRange = computed(() => {
+  if (adjustedProfitMin.value === null || adjustedProfitMax.value === null) return null
+  return adjustedProfitMax.value - adjustedProfitMin.value
 })
+
 const fmtPercentOfTotal = computed(() => {
-  if (profitRange.value === null) return '—'
+  if (adjustedProfitRange.value === null) return '—'
   const M = props.data?.result?.M
   if (!M) return '—'
-  return ((profitRange.value / M) * 100).toFixed(2)
+  return ((adjustedProfitRange.value / M) * 100).toFixed(2)
+})
+
+// 累乘串买系数到每条详情
+const adjustedDetails = computed(() => {
+  if (!props.data?.details) return []
+  const mult = parlayMultiplier.value
+  return props.data.details.map(item => {
+    const adjustedProfit = item.profit * mult
+    const M = props.data?.result?.M || 1
+    return {
+      ...item,
+      adjustedProfit,
+      adjustedRate: adjustedProfit / M
+    }
+  })
+})
+
+const data = computed(() => {
+  if (!props.data) return null
+  return {
+    ...props.data,
+    details: adjustedDetails.value
+  }
 })
 
 const prettyResult = computed(() => {
@@ -211,6 +284,8 @@ const prettyResult = computed(() => {
   try {
     return JSON.stringify({
       expect: +fmt(props.data.expect, 6),
+      parlayMultiplier: +fmt(parlayMultiplier.value, 4),
+      adjustedExpect: +fmt(adjustedExpect.value, 6),
       a: props.data.a.map(v => +fmt(v, 4)),
       texts: props.data.texts,
       new_weights: r.newWeights,
@@ -234,7 +309,6 @@ const prettyResult = computed(() => {
   border-top: 1px solid #eef5fc;
 }
 
-/* 状态行 */
 .stat-row {
   display: flex;
   justify-content: space-between;
@@ -270,7 +344,6 @@ const prettyResult = computed(() => {
   font-size: 0.82rem;
 }
 
-/* 卡片列表 */
 .card-list {
   display: flex;
   flex-direction: column;
@@ -318,30 +391,22 @@ const prettyResult = computed(() => {
   flex-wrap: wrap;
 }
 
-/* ★ 让球标签：带符号数字，正红负绿 */
-.goal-tag {
+.goal-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 900;
+  min-width: 22px;
+  height: 15px;
+  border-radius: 7px;
+  font-size: 0.62rem;
+  font-weight: 800;
   font-family: ui-monospace, monospace;
-  color: #ffffff;
-  padding: 1px 6px;
-  border-radius: 5px;
-  line-height: 1.4;
+  color: white;
   flex-shrink: 0;
-  letter-spacing: 0.2px;
-  text-shadow: 0.3px 0 0 currentColor, -0.3px 0 0 currentColor;
+  padding: 0 4px;
 }
-
-.goal-tag.goal-pos {
-  background: #e74c3c;
-}
-
-.goal-tag.goal-neg {
-  background: #27ae60;
-}
+.goal-badge.goal-pos { background: #e74c3c; }
+.goal-badge.goal-neg { background: #27ae60; }
 
 .target-match {
   color: #5a7188;
@@ -363,7 +428,6 @@ const prettyResult = computed(() => {
   font-family: ui-monospace, monospace;
 }
 
-/* 底部 */
 .card-foot {
   margin-top: 6px;
   padding-top: 6px;
@@ -397,7 +461,6 @@ const prettyResult = computed(() => {
 .profit-pos { color: #2e8b57; }
 .profit-neg { color: #c0392b; }
 
-/* 复制按钮 */
 .copy-bar {
   display: flex;
   justify-content: center;
@@ -421,7 +484,6 @@ const prettyResult = computed(() => {
   color: #2e8b57;
 }
 
-/* 详情 */
 .detail-box {
   margin-top: 12px;
   background: white;

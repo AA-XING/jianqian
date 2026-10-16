@@ -10,7 +10,7 @@
       @calculate="handleCalculate"
     />
 
-    <ResultPanel :data="calcResult" />
+    <ResultPanel :data="calcResult" :parlay-items="parlayItems" />
 
     <OddsModal
       v-if="showOddsModal"
@@ -33,6 +33,7 @@ const matchesData = ref([])
 const fetchedAt = ref(null)
 const showOddsModal = ref(false)
 const calcResult = ref(null)
+const parlayItems = ref([])   // ★ 串买数据
 
 onMounted(async () => {
   const { matches, fetchedAt: t } = await initializeOddsData()
@@ -43,14 +44,16 @@ onMounted(async () => {
 const openOddsModal = () => { showOddsModal.value = true }
 const closeOddsModal = () => { showOddsModal.value = false }
 
-const handleCalculate = ({ result, errorMsg, rows, amountMin, amountMax }) => {
-  console.log('计算参数：', { rows, amountMin, amountMax })
+const handleCalculate = ({ result, errorMsg, parlayItems: pItems }) => {
+  console.log('计算参数：', { result, errorMsg, pItems })
   if (errorMsg) {
     alert('计算失败：' + errorMsg)
     calcResult.value = null
+    parlayItems.value = []
     return
   }
   calcResult.value = result
+  parlayItems.value = pItems || []   // ★ 保存串买数据
 }
 </script>
 

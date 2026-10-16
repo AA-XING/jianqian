@@ -47,7 +47,8 @@
                 </span>
               </span>
             </div>
-            <span class="pool-badge had">胜平负</span>
+            <!-- 胜平负：绿色圆点 -->
+            
           </button>
 
           <!-- 让球行 -->
@@ -79,11 +80,9 @@
                 </span>
               </span>
             </div>
-            <span class="pool-badge hhad">
-              <span class="goal-label">让</span>
-              <span class="goal-num" :class="goalClass(g.hhad.goalLine)">
-                {{ formatGoalLine(g.hhad.goalLine) }}
-              </span>
+            <!-- 让球：黄色圆背景正负数 -->
+            <span class="goal-badge" :class="goalClass(g.hhad.goalLine)">
+              {{ formatGoalLine(g.hhad.goalLine) }}
             </span>
           </button>
 
@@ -248,21 +247,23 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
+/* ★ 赔率行：不换行 */
 .odds-line {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
   background: white;
   border: 1px solid #e2eef9;
   border-radius: 10px;
-  padding: 12px 10px;
+  padding: 10px 8px;
   cursor: pointer;
   text-align: left;
   transition: all 0.15s;
   font-family: inherit;
   min-height: 46px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
 .odds-line:hover:not(:disabled) {
@@ -297,29 +298,33 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
+/* ★ 赔率行：缩小间距，不换行 */
 .odds-row {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 4px;
   flex: 1;
   min-width: 0;
+  flex-wrap: nowrap;
 }
 
 .odds-tag {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   background: #f9fcff;
-  padding: 3px 10px;
-  border-radius: 14px;
+  padding: 3px 6px;
+  border-radius: 12px;
   font-weight: 600;
   color: #0f3b5e;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-family: ui-monospace, monospace;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
+
 .odds-tag em {
   font-style: normal;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: #7e94aa;
   font-weight: 500;
 }
@@ -327,12 +332,12 @@ function goalClass(gl) {
 .odds-tag.draw em { color: #b8860b; }
 .odds-tag.lose em { color: #c0392b; }
 
-/* ★ 涨跌箭头 */
+/* 涨跌箭头 */
 .trend-arrow {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   line-height: 1;
-  margin-left: 2px;
+  margin-left: 1px;
   font-weight: 700;
 }
 .trend-arrow.up {
@@ -344,51 +349,43 @@ function goalClass(gl) {
   opacity: 0.75;
 }
 
-.pool-badge {
-  font-size: 0.66rem;
-  border-radius: 6px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: stretch;
-  overflow: hidden;
+/* ★ 胜平负：绿色圆点 */
+.pool-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   flex-shrink: 0;
   margin-left: auto;
+  box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.15);
 }
-.pool-badge.had {
+.pool-dot.had {
   background: #2e8b57;
-  color: white;
-  padding: 1px 7px;
-  align-items: center;
-}
-.pool-badge.hhad {
-  background: transparent;
-  padding: 0;
 }
 
-.goal-label {
-  background: #b8860b;
-  color: white;
-  padding: 1px 6px;
-  font-weight: 700;
+/* ★ 让球：黄色圆背景正负数 */
+.goal-badge {
   display: inline-flex;
   align-items: center;
-}
-
-.goal-num {
-  padding: 1px 7px;
-  font-weight: 900;
+  justify-content: center;
+  min-width: 28px;
+  height: 18px;
+  border-radius: 9px;
+  font-size: 0.68rem;
+  font-weight: 800;
   font-family: ui-monospace, monospace;
-  display: inline-flex;
-  align-items: center;
-  letter-spacing: 0.2px;
+  color: white;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0 5px;
 }
-.goal-num.goal-pos {
+
+.goal-badge.goal-pos {
   background: #e74c3c;
-  color: #ffffff;
 }
-.goal-num.goal-neg {
+
+.goal-badge.goal-neg {
   background: #27ae60;
-  color: #ffffff;
 }
 
 .used-tip {
@@ -401,5 +398,36 @@ function goalClass(gl) {
   padding: 1px 6px;
   border-radius: 8px;
   font-weight: 600;
+}
+
+/* ★ 窄屏下进一步缩小 */
+@media (max-width: 380px) {
+  .odds-line {
+    padding: 8px 6px;
+    gap: 4px;
+  }
+  .odds-tag {
+    padding: 2px 5px;
+    font-size: 0.72rem;
+    gap: 1px;
+  }
+  .odds-tag em {
+    font-size: 0.58rem;
+  }
+  .single-badge {
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+  }
+  .goal-badge {
+    min-width: 24px;
+    height: 16px;
+    font-size: 0.62rem;
+    padding: 0 4px;
+  }
+  .pool-dot {
+    width: 8px;
+    height: 8px;
+  }
 }
 </style>

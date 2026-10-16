@@ -83,6 +83,7 @@ const localRow = reactive({
   poolType: null,
   poolLabel: '',
   matchName: '',
+  matchNo: '',        // ★ 新增
   bettingSingle: false,
   goalLine: 0,
   odds: null,
@@ -113,6 +114,7 @@ const selectMatch = (match) => {
   localRow.poolLabel = match.poolLabel
   localRow.goalLine = match.goalLine ?? 0
   localRow.matchName = match.name
+  localRow.matchNo = match.matchNo          // ★ 新增
   localRow.bettingSingle = !!match.bettingSingle
   localRow.odds = { ...match.odds }
 

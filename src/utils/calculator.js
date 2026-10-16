@@ -256,6 +256,7 @@ export function buildCombinations(rows) {
       currentCombos.push({
         matchIndex: idx,
         matchName: row.matchName,
+        matchNo: row.matchNo || '',
         label: opt.label,
         value: opt.value,
         // ★ 新增：让球标识
