@@ -3,7 +3,7 @@
     <div class="parlay-title">
       串单项
       <span class="parlay-hint">
-        （不影响投注额计算，总上限8场）
+        总上限8场
       </span>
     </div>
 
@@ -17,7 +17,7 @@
         class="parlay-btn match-btn"
         @click="openMatchSelect(idx)"
       >
-        <span class="match-text">{{ item.matchName || '选择场次' }}</span>
+        <span class="match-text">{{ item.matchName || '选择比赛' }}</span>
         <span
           v-if="item.poolType === 'hhad'"
           class="goal-badge"

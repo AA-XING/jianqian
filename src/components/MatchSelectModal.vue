@@ -562,7 +562,7 @@ function goalClass(gl) {
   border-radius: 12px;
   font-weight: 600;
   color: #0f3b5e;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-family: ui-monospace, monospace;
   flex-shrink: 0;
   white-space: nowrap;

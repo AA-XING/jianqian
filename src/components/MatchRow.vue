@@ -3,7 +3,7 @@
     <!-- 场次选择 -->
     <button class="btn-match-select" @click="showMatchSelectModal = true">
       <span v-if="localRow.bettingSingle" class="single-badge-sm">单</span>
-      <span class="btn-match-text">{{ localRow.matchName || '选择场次' }}</span>
+      <span class="btn-match-text">{{ localRow.matchName || '选择比赛' }}</span>
 
       <!-- ★ 让球徽章：让字黄底 + 数字红/绿底 -->
       <span

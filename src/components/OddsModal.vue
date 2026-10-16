@@ -320,9 +320,9 @@ function goalClass(gl) {
   background: #f9fcff;
   padding: 2px 5px;                 /* ★ 3px 6px → 2px 5px */
   border-radius: 10px;
-  font-weight: 600;
+  font-weight: 800;
   color: #0f3b5e;
-  font-size: 0.74rem;               /* ★ 0.78rem → 0.74rem */
+  font-size: 0.82rem;               /* ★ 0.78rem → 0.74rem */
   font-family: ui-monospace, monospace;
   flex-shrink: 0;
   white-space: nowrap;
