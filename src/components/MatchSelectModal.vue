@@ -560,16 +560,16 @@ function goalClass(gl) {
   background: #f9fcff;
   padding: 3px 6px;
   border-radius: 12px;
-  font-weight: 600;
+  font-weight: 900;
   color: #0f3b5e;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   font-family: ui-monospace, monospace;
   flex-shrink: 0;
   white-space: nowrap;
 }
 .odds-tag em {
   font-style: normal;
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   color: #7e94aa;
   font-weight: 500;
 }
