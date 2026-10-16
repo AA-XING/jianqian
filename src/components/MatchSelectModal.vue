@@ -1,13 +1,35 @@
 <template>
-  <div class="modal-mask" @click.self="$emit('close')">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>选择场次</h2>
-        <button class="close-btn" @click="$emit('close')">&times;</button>
+  <div class="fullscreen-page">
+    <!-- 固定标题栏 -->
+    <div class="page-header">
+      <div class="header-row-1">
+        <h2>选择比赛</h2>
+        <div class="header-actions">
+          <button
+            v-if="hasActiveFilter"
+            class="btn-reset"
+            @click="resetFilter"
+          >
+            ↺ 重置
+          </button>
+          <button class="btn-filter" @click="showFilterModal = true">
+            🔍 筛选
+          </button>
+          <button class="btn-close" @click="$emit('close')">&times;</button>
+        </div>
       </div>
+      <div class="header-row-2">
+        <span class="meta-count">
+          {{ groups.length }} 场比赛<template v-if="hasActiveFilter">，筛选后 {{ filteredGroups.length }} 场</template>
+        </span>
+      </div>
+    </div>
+
+    <!-- 可滚动主体 -->
+    <div class="page-body">
       <div class="options-list">
         <div
-          v-for="g in groups"
+          v-for="g in filteredGroups"
           :key="g.groupId"
           class="match-group"
           :class="{ 'group-disabled': isGroupUsed(g) }"
@@ -18,7 +40,6 @@
             <span class="match-league">{{ g.league }}</span>
           </div>
 
-          <!-- 胜平负行 -->
           <button
             v-if="g.had"
             class="odds-line"
@@ -28,30 +49,12 @@
           >
             <span v-if="g.had.bettingSingle" class="single-badge">单</span>
             <div class="odds-row">
-              <span class="odds-tag win">
-                <em>胜</em>{{ fmt(g.had.odds.win) }}
-                <span v-if="g.had.trend?.win" class="trend-arrow" :class="g.had.trend.win">
-                  {{ g.had.trend.win === 'up' ? '▲' : '▼' }}
-                </span>
-              </span>
-              <span class="odds-tag draw">
-                <em>平</em>{{ fmt(g.had.odds.draw) }}
-                <span v-if="g.had.trend?.draw" class="trend-arrow" :class="g.had.trend.draw">
-                  {{ g.had.trend.draw === 'up' ? '▲' : '▼' }}
-                </span>
-              </span>
-              <span class="odds-tag lose">
-                <em>负</em>{{ fmt(g.had.odds.lose) }}
-                <span v-if="g.had.trend?.lose" class="trend-arrow" :class="g.had.trend.lose">
-                  {{ g.had.trend.lose === 'up' ? '▲' : '▼' }}
-                </span>
-              </span>
+              <span class="odds-tag win"><em>胜</em>{{ fmt(g.had.odds.win) }}</span>
+              <span class="odds-tag draw"><em>平</em>{{ fmt(g.had.odds.draw) }}</span>
+              <span class="odds-tag lose"><em>负</em>{{ fmt(g.had.odds.lose) }}</span>
             </div>
-            <!-- 胜平负：绿色圆点 -->
-            
           </button>
 
-          <!-- 让球行 -->
           <button
             v-if="g.hhad"
             class="odds-line"
@@ -61,26 +64,10 @@
           >
             <span v-if="g.hhad.bettingSingle" class="single-badge">单</span>
             <div class="odds-row">
-              <span class="odds-tag win">
-                <em>胜</em>{{ fmt(g.hhad.odds.win) }}
-                <span v-if="g.hhad.trend?.win" class="trend-arrow" :class="g.hhad.trend.win">
-                  {{ g.hhad.trend.win === 'up' ? '▲' : '▼' }}
-                </span>
-              </span>
-              <span class="odds-tag draw">
-                <em>平</em>{{ fmt(g.hhad.odds.draw) }}
-                <span v-if="g.hhad.trend?.draw" class="trend-arrow" :class="g.hhad.trend.draw">
-                  {{ g.hhad.trend.draw === 'up' ? '▲' : '▼' }}
-                </span>
-              </span>
-              <span class="odds-tag lose">
-                <em>负</em>{{ fmt(g.hhad.odds.lose) }}
-                <span v-if="g.hhad.trend?.lose" class="trend-arrow" :class="g.hhad.trend.lose">
-                  {{ g.hhad.trend.lose === 'up' ? '▲' : '▼' }}
-                </span>
-              </span>
+              <span class="odds-tag win"><em>胜</em>{{ fmt(g.hhad.odds.win) }}</span>
+              <span class="odds-tag draw"><em>平</em>{{ fmt(g.hhad.odds.draw) }}</span>
+              <span class="odds-tag lose"><em>负</em>{{ fmt(g.hhad.odds.lose) }}</span>
             </div>
-            <!-- 让球：黄色圆背景正负数 -->
             <span class="goal-badge" :class="goalClass(g.hhad.goalLine)">
               {{ formatGoalLine(g.hhad.goalLine) }}
             </span>
@@ -88,13 +75,90 @@
 
           <span v-if="usedGroupIds.has(String(g.groupId))" class="used-tip">已选</span>
         </div>
+
+        <div v-if="!filteredGroups.length" class="empty-list">
+          没有符合条件的比赛
+        </div>
+      </div>
+    </div>
+
+    <!-- 筛选弹窗 -->
+    <div v-if="showFilterModal" class="modal-mask" @click.self="showFilterModal = false">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>筛选条件</h3>
+          <button class="close-btn" @click="showFilterModal = false">&times;</button>
+        </div>
+
+        <div class="filter-body">
+          <!-- 条件 1 -->
+          <div class="filter-item">
+            <div class="filter-title">赔率</div>
+            <div class="filter-desc">
+              筛选弱势方获胜赔率范围
+              <div class="filter-subdesc">大于约7.8时组合为负收益</div>
+            </div>
+
+            <label class="filter-checkbox">
+              <input type="checkbox" v-model="filter1.includeHhad" />
+              <span>包含让球赔率</span>
+            </label>
+
+            <div class="filter-inputs">
+              <input
+                type="number"
+                step="0.1"
+                v-model.number="filter1.min"
+                placeholder="最小值"
+              />
+              <span class="sep">~</span>
+              <input
+                type="number"
+                step="0.1"
+                v-model.number="filter1.max"
+                placeholder="最大值"
+              />
+            </div>
+          </div>
+
+          <!-- 条件 2：赛制 -->
+          <div class="filter-item">
+            <div class="filter-title">赛制</div>
+            <div class="filter-desc">可多选</div>
+            <div class="league-list">
+              <label
+                v-for="lg in allLeagues"
+                :key="lg"
+                class="league-option"
+                :class="{ active: filter2.leagues.includes(lg) }"
+              >
+                <input
+                  type="checkbox"
+                  :value="lg"
+                  v-model="filter2.leagues"
+                />
+                <span>{{ lg }}</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 条件 3（占位） -->
+          <div class="filter-item placeholder">
+            <div class="filter-title">占位</div>
+            <div class="filter-desc">占位</div>
+          </div>
+        </div>
+
+        <div class="filter-footer">
+          <button class="btn-apply" @click="applyFilter">筛选</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed, reactive } from 'vue'
 
 const props = defineProps({
   matchesData: { type: Array, default: () => [] },
@@ -102,6 +166,72 @@ const props = defineProps({
 })
 defineEmits(['select', 'close'])
 
+/* ========== 筛选状态 ========== */
+const showFilterModal = ref(false)
+
+// 条件 1
+const filter1 = reactive({
+  enabled: false,
+  includeHhad: false,
+  min: 3.6,
+  max: 6.4
+})
+
+// 条件 2：赛制
+const filter2 = reactive({
+  leagues: []
+})
+
+// 已应用
+const appliedFilter1 = reactive({
+  enabled: false,
+  includeHhad: false,
+  min: 3.6,
+  max: 6.4
+})
+
+const appliedFilter2 = reactive({
+  leagues: []
+})
+
+const hasActiveFilter = computed(() => {
+  return appliedFilter1.enabled || appliedFilter2.leagues.length > 0
+})
+
+function applyFilter() {
+  appliedFilter1.enabled = true
+  appliedFilter1.includeHhad = filter1.includeHhad
+  appliedFilter1.min = filter1.min
+  appliedFilter1.max = filter1.max
+
+  appliedFilter2.leagues = [...filter2.leagues]
+
+  showFilterModal.value = false
+}
+
+function resetFilter() {
+  appliedFilter1.enabled = false
+  appliedFilter1.includeHhad = false
+  appliedFilter1.min = 3.6
+  appliedFilter1.max = 6.4
+  filter1.includeHhad = false
+  filter1.min = 3.6
+  filter1.max = 6.4
+
+  appliedFilter2.leagues = []
+  filter2.leagues = []
+}
+
+/* ========== 所有赛制 ========== */
+const allLeagues = computed(() => {
+  const set = new Set()
+  for (const m of props.matchesData) {
+    if (m.league) set.add(m.league)
+  }
+  return Array.from(set).sort()
+})
+
+/* ========== 分组 ========== */
 const groups = computed(() => {
   const map = new Map()
   for (const m of props.matchesData) {
@@ -123,6 +253,41 @@ const groups = computed(() => {
   return Array.from(map.values())
 })
 
+/* ========== 筛选后 ========== */
+const filteredGroups = computed(() => {
+  let result = groups.value
+
+  if (appliedFilter1.enabled) {
+    const min = appliedFilter1.min
+    const max = appliedFilter1.max
+    const includeHhad = appliedFilter1.includeHhad
+
+    result = result.filter(g => {
+      const checkOdds = (odds) => {
+        if (!odds) return false
+        const maxWL = Math.max(odds.win, odds.lose)
+        return maxWL >= min && maxWL <= max
+      }
+
+      const hadOk = checkOdds(g.had?.odds)
+      if (hadOk) return true
+
+      if (includeHhad) {
+        return checkOdds(g.hhad?.odds)
+      }
+      return false
+    })
+  }
+
+  if (appliedFilter2.leagues.length > 0) {
+    const set = new Set(appliedFilter2.leagues)
+    result = result.filter(g => set.has(g.league))
+  }
+
+  return result
+})
+
+/* ========== 工具 ========== */
 function isGroupUsed(g) {
   return props.usedGroupIds.has(String(g.groupId))
 }
@@ -148,48 +313,111 @@ function goalClass(gl) {
 </script>
 
 <style scoped>
-.modal-mask {
+.fullscreen-page {
   position: fixed;
   inset: 0;
-  background: rgba(0, 20, 30, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #f3f6fc;
   z-index: 1000;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.modal-content {
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background: white;
-  border-radius: 16px;
+  padding: 12px 14px 10px;
+  box-shadow: 0 1px 8px rgba(0, 20, 40, 0.06);
+  flex-shrink: 0;
   width: 100%;
-  max-width: 460px;
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 16px 14px 18px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  max-width: 520px;
+  box-sizing: border-box;
 }
 
-.modal-header {
+.header-row-1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 6px;
 }
-.modal-header h2 {
+.header-row-1 h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #0b2b4a;
+  flex: 1;
+  min-width: 0;
 }
 
-.close-btn {
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff7e6;
+  color: #b88230;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-reset:hover { background: #fdebc8; }
+
+.btn-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #eef5fc;
+  color: #0f3b5e;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-filter:hover { background: #dae6f2; }
+
+.btn-close {
   background: none;
   border: none;
   font-size: 1.6rem;
+  line-height: 1;
   color: #6c7e92;
   cursor: pointer;
-  line-height: 1;
   padding: 0 6px;
+}
+.btn-close:hover { color: #0b2b4a; }
+
+.header-row-2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #9fb3c8;
+  font-family: ui-monospace, monospace;
+  flex-wrap: wrap;
+}
+.meta-count { font-weight: 600; color: #5a7188; }
+
+.page-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 10px 20px;
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
 }
 
 .options-list {
@@ -198,15 +426,22 @@ function goalClass(gl) {
   gap: 12px;
 }
 
+.empty-list {
+  text-align: center;
+  color: #9fb3c8;
+  font-size: 0.85rem;
+  padding: 40px 0;
+}
+
 .match-group {
   position: relative;
-  background: #f9fcff;
-  border: 1px solid #e2eef9;
+  background: white;
   border-radius: 12px;
   padding: 10px 10px 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  box-shadow: 0 1px 4px rgba(0, 20, 40, 0.04);
 }
 
 .match-group.group-disabled {
@@ -247,7 +482,6 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
-/* ★ 赔率行：不换行 */
 .odds-line {
   display: flex;
   align-items: center;
@@ -265,24 +499,18 @@ function goalClass(gl) {
   flex-wrap: nowrap;
   overflow: hidden;
 }
-
 .odds-line:hover:not(:disabled) {
   background: #eef5fc;
   border-color: #b6cee6;
 }
-
 .odds-line:active:not(:disabled) {
   background: #e2eef9;
 }
-
 .odds-line:disabled {
   cursor: not-allowed;
   background: #f5f8fc;
 }
-
-.odds-line.used {
-  opacity: 0.55;
-}
+.odds-line.used { opacity: 0.55; }
 
 .single-badge {
   display: inline-flex;
@@ -298,7 +526,6 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
-/* ★ 赔率行：缩小间距，不换行 */
 .odds-row {
   display: flex;
   gap: 4px;
@@ -321,7 +548,6 @@ function goalClass(gl) {
   flex-shrink: 0;
   white-space: nowrap;
 }
-
 .odds-tag em {
   font-style: normal;
   font-size: 0.62rem;
@@ -332,38 +558,6 @@ function goalClass(gl) {
 .odds-tag.draw em { color: #b8860b; }
 .odds-tag.lose em { color: #c0392b; }
 
-/* 涨跌箭头 */
-.trend-arrow {
-  display: inline-block;
-  font-size: 0.6rem;
-  line-height: 1;
-  margin-left: 1px;
-  font-weight: 700;
-}
-.trend-arrow.up {
-  color: #e74c3c;
-  opacity: 0.75;
-}
-.trend-arrow.down {
-  color: #27ae60;
-  opacity: 0.75;
-}
-
-/* ★ 胜平负：绿色圆点 */
-.pool-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-left: auto;
-  box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.15);
-}
-.pool-dot.had {
-  background: #2e8b57;
-}
-
-/* ★ 让球：黄色圆背景正负数 */
 .goal-badge {
   display: inline-flex;
   align-items: center;
@@ -379,14 +573,8 @@ function goalClass(gl) {
   margin-left: auto;
   padding: 0 5px;
 }
-
-.goal-badge.goal-pos {
-  background: #e74c3c;
-}
-
-.goal-badge.goal-neg {
-  background: #27ae60;
-}
+.goal-badge.goal-pos { background: #e74c3c; }
+.goal-badge.goal-neg { background: #27ae60; }
 
 .used-tip {
   position: absolute;
@@ -400,7 +588,198 @@ function goalClass(gl) {
   font-weight: 600;
 }
 
-/* ★ 窄屏下进一步缩小 */
+/* 筛选弹窗 */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 20, 30, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 16px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid #eef5fc;
+  flex-shrink: 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #0b2b4a;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c7e92;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 6px;
+}
+
+.filter-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-item {
+  background: #f9fcff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid #e2eef9;
+}
+
+.filter-item.placeholder {
+  opacity: 0.6;
+  background: #f5f8fc;
+  border-style: dashed;
+}
+
+.filter-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0b2b4a;
+  margin-bottom: 6px;
+}
+
+.filter-desc {
+  font-size: 0.78rem;
+  color: #5a7188;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.filter-subdesc {
+  font-size: 0.7rem;
+  color: #9fb3c8;
+  margin-top: 2px;
+}
+
+.filter-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  color: #1e3f5c;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+.filter-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #0f3b5e;
+  cursor: pointer;
+}
+
+.filter-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-inputs input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #d9e6f2;
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a2f44;
+  outline: none;
+  background: white;
+  text-align: center;
+  font-family: ui-monospace, monospace;
+}
+.filter-inputs input:focus {
+  border-color: #6f9bc1;
+}
+.filter-inputs .sep {
+  color: #9fb3c8;
+  font-weight: 600;
+}
+
+.league-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.league-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border: 1px solid #d9e6f2;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e3f5c;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s;
+}
+.league-option:hover {
+  border-color: #6f9bc1;
+}
+.league-option.active {
+  background: #0f3b5e;
+  border-color: #0f3b5e;
+  color: white;
+}
+.league-option input[type="checkbox"] {
+  display: none;
+}
+
+.filter-footer {
+  padding: 12px 16px 16px;
+  border-top: 1px solid #eef5fc;
+  flex-shrink: 0;
+}
+
+.btn-apply {
+  width: 100%;
+  background: #0f3b5e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-apply:hover {
+  background: #1e537d;
+}
+
 @media (max-width: 380px) {
   .odds-line {
     padding: 8px 6px;
@@ -413,21 +792,6 @@ function goalClass(gl) {
   }
   .odds-tag em {
     font-size: 0.58rem;
-  }
-  .single-badge {
-    width: 16px;
-    height: 16px;
-    font-size: 0.6rem;
-  }
-  .goal-badge {
-    min-width: 24px;
-    height: 16px;
-    font-size: 0.62rem;
-    padding: 0 4px;
-  }
-  .pool-dot {
-    width: 8px;
-    height: 8px;
   }
 }
 </style>
