@@ -86,14 +86,19 @@
     <div v-if="showFilterModal" class="modal-mask" @click.self="showFilterModal = false">
       <div class="modal-content">
         <div class="modal-header">
-          <h3>筛选条件</h3>
+          <h3>筛选</h3>
           <button class="close-btn" @click="showFilterModal = false">&times;</button>
         </div>
 
         <div class="filter-body">
           <!-- 条件 1 -->
           <div class="filter-item">
-            <div class="filter-title">赔率</div>
+            <div class="filter-item-head">
+              <div class="filter-title">赔率</div>
+              <label class="filter-enable">
+                <input type="checkbox" v-model="filter1.enabled" />
+              </label>
+            </div>
             <div class="filter-desc">
               筛选弱势方获胜赔率范围
               <div class="filter-subdesc">大于约7.8时组合为负收益</div>
@@ -123,7 +128,12 @@
 
           <!-- 条件 2：赛制 -->
           <div class="filter-item">
-            <div class="filter-title">赛制</div>
+            <div class="filter-item-head">
+              <div class="filter-title">赛制</div>
+              <label class="filter-enable">
+                <input type="checkbox" v-model="filter2.enabled" />
+              </label>
+            </div>
             <div class="filter-desc">可多选</div>
             <div class="league-list">
               <label
@@ -144,8 +154,13 @@
 
           <!-- 条件 3（占位） -->
           <div class="filter-item placeholder">
-            <div class="filter-title">占位</div>
-            <div class="filter-desc">占位</div>
+            <div class="filter-item-head">
+              <div class="filter-title">占位</div>
+              <label class="filter-enable">
+                <input type="checkbox" disabled />
+              </label>
+            </div>
+            <div class="filter-desc">肖</div>
           </div>
         </div>
 
@@ -169,7 +184,6 @@ defineEmits(['select', 'close'])
 /* ========== 筛选状态 ========== */
 const showFilterModal = ref(false)
 
-// 条件 1
 const filter1 = reactive({
   enabled: false,
   includeHhad: false,
@@ -177,12 +191,11 @@ const filter1 = reactive({
   max: 6.4
 })
 
-// 条件 2：赛制
 const filter2 = reactive({
+  enabled: false,
   leagues: []
 })
 
-// 已应用
 const appliedFilter1 = reactive({
   enabled: false,
   includeHhad: false,
@@ -191,20 +204,22 @@ const appliedFilter1 = reactive({
 })
 
 const appliedFilter2 = reactive({
+  enabled: false,
   leagues: []
 })
 
 const hasActiveFilter = computed(() => {
-  return appliedFilter1.enabled || appliedFilter2.leagues.length > 0
+  return appliedFilter1.enabled || appliedFilter2.enabled
 })
 
 function applyFilter() {
-  appliedFilter1.enabled = true
+  appliedFilter1.enabled = filter1.enabled
   appliedFilter1.includeHhad = filter1.includeHhad
   appliedFilter1.min = filter1.min
   appliedFilter1.max = filter1.max
 
-  appliedFilter2.leagues = [...filter2.leagues]
+  appliedFilter2.enabled = filter2.enabled
+  appliedFilter2.leagues = filter2.enabled ? [...filter2.leagues] : []
 
   showFilterModal.value = false
 }
@@ -214,11 +229,14 @@ function resetFilter() {
   appliedFilter1.includeHhad = false
   appliedFilter1.min = 3.6
   appliedFilter1.max = 6.4
+  filter1.enabled = false
   filter1.includeHhad = false
   filter1.min = 3.6
   filter1.max = 6.4
 
+  appliedFilter2.enabled = false
   appliedFilter2.leagues = []
+  filter2.enabled = false
   filter2.leagues = []
 }
 
@@ -279,7 +297,7 @@ const filteredGroups = computed(() => {
     })
   }
 
-  if (appliedFilter2.leagues.length > 0) {
+  if (appliedFilter2.enabled && appliedFilter2.leagues.length > 0) {
     const set = new Set(appliedFilter2.leagues)
     result = result.filter(g => set.has(g.league))
   }
@@ -313,6 +331,7 @@ function goalClass(gl) {
 </script>
 
 <style scoped>
+/* 全屏容器 */
 .fullscreen-page {
   position: fixed;
   inset: 0;
@@ -659,11 +678,30 @@ function goalClass(gl) {
   border-style: dashed;
 }
 
+.filter-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
 .filter-title {
   font-size: 0.9rem;
   font-weight: 700;
   color: #0b2b4a;
-  margin-bottom: 6px;
+}
+
+/* ★ 加大启用勾选框 */
+.filter-enable {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.filter-enable input[type="checkbox"] {
+  width: 26px;                  /* ★ 18px → 26px */
+  height: 26px;
+  accent-color: #0f3b5e;
+  cursor: pointer;
 }
 
 .filter-desc {

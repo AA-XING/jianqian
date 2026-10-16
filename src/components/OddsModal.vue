@@ -232,10 +232,10 @@ function goalClass(gl) {
 .match-group {
   background: white;
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 10px 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   box-shadow: 0 1px 4px rgba(0, 20, 40, 0.04);
 }
 
@@ -261,7 +261,7 @@ function goalClass(gl) {
 .match-name {
   font-weight: 700;
   color: #0b2b4a;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   flex: 1;
   min-width: 0;
 }
@@ -272,11 +272,14 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
+/* ★ 赔率行：不换行 */
 .odds-line {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 5px;
+  flex-wrap: nowrap;               /* ★ 不换行 */
+  overflow: hidden;                 /* ★ 超出隐藏 */
+  min-height: 28px;
 }
 
 .odds-line.empty {
@@ -290,39 +293,43 @@ function goalClass(gl) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 16px;                      /* ★ 18px → 16px */
+  height: 16px;
   border-radius: 50%;
   background: #e74c3c;
   color: white;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 800;
   flex-shrink: 0;
 }
 
+/* ★ 赔率行：不换行 + 收紧间距 */
 .odds-row {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 3px;                         /* ★ 4px → 3px */
   flex: 1;
   min-width: 0;
+  flex-wrap: nowrap;                /* ★ 不换行 */
+  overflow: hidden;
 }
 
 .odds-tag {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 1px;                         /* ★ 2px → 1px */
   background: #f9fcff;
-  padding: 3px 10px;
-  border-radius: 14px;
+  padding: 2px 5px;                 /* ★ 3px 6px → 2px 5px */
+  border-radius: 10px;
   font-weight: 600;
   color: #0f3b5e;
-  font-size: 0.82rem;
+  font-size: 0.74rem;               /* ★ 0.78rem → 0.74rem */
   font-family: ui-monospace, monospace;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .odds-tag em {
   font-style: normal;
-  font-size: 0.68rem;
+  font-size: 0.58rem;               /* ★ 0.62rem → 0.58rem */
   color: #7e94aa;
   font-weight: 500;
 }
@@ -330,12 +337,12 @@ function goalClass(gl) {
 .odds-tag.draw em { color: #b8860b; }
 .odds-tag.lose em { color: #c0392b; }
 
-/* ★ 涨跌箭头 */
+/* 涨跌箭头 */
 .trend-arrow {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.55rem;               /* ★ 0.65rem → 0.55rem */
   line-height: 1;
-  margin-left: 2px;
+  margin-left: 1px;
   font-weight: 700;
 }
 .trend-arrow.up {
@@ -347,21 +354,23 @@ function goalClass(gl) {
   opacity: 0.75;
 }
 
+/* 标记徽章 */
 .pool-badge {
-  font-size: 0.66rem;
-  border-radius: 6px;
+  font-size: 0.62rem;               /* ★ 0.66rem → 0.62rem */
+  border-radius: 5px;
   font-weight: 700;
   display: inline-flex;
   align-items: stretch;
   overflow: hidden;
-  flex-shrink: 0;
+  flex-shrink: 0;                   /* ★ 不收缩 */
   margin-left: auto;
 }
 .pool-badge.had {
   background: #2e8b57;
   color: white;
-  padding: 1px 7px;
+  padding: 1px 6px;                 /* ★ 1px 7px → 1px 6px */
   align-items: center;
+  white-space: nowrap;
 }
 .pool-badge.hhad {
   background: transparent;
@@ -371,19 +380,20 @@ function goalClass(gl) {
 .goal-label {
   background: #b8860b;
   color: white;
-  padding: 1px 6px;
+  padding: 1px 5px;                 /* ★ 1px 6px → 1px 5px */
   font-weight: 700;
   display: inline-flex;
   align-items: center;
 }
 
 .goal-num {
-  padding: 1px 7px;
+  padding: 1px 6px;                 /* ★ 1px 7px → 1px 6px */
   font-weight: 900;
   font-family: ui-monospace, monospace;
   display: inline-flex;
   align-items: center;
   letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 .goal-num.goal-pos {
   background: #e74c3c;
@@ -396,5 +406,37 @@ function goalClass(gl) {
 
 .empty-text {
   font-size: 0.78rem;
+}
+
+/* ★ 窄屏进一步缩小 */
+@media (max-width: 400px) {
+  .odds-tag {
+    padding: 2px 4px;
+    font-size: 0.7rem;
+    gap: 0;
+  }
+  .odds-tag em {
+    font-size: 0.55rem;
+  }
+  .single-badge {
+    width: 14px;
+    height: 14px;
+    font-size: 0.55rem;
+  }
+  .pool-badge {
+    font-size: 0.58rem;
+  }
+  .pool-badge.had {
+    padding: 1px 5px;
+  }
+  .goal-label {
+    padding: 1px 4px;
+  }
+  .goal-num {
+    padding: 1px 5px;
+  }
+  .trend-arrow {
+    font-size: 0.5rem;
+  }
 }
 </style>
