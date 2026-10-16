@@ -1,6 +1,5 @@
 <template>
   <div class="fullscreen-page">
-    <!-- 固定顶部栏 -->
     <div class="page-header">
       <div class="header-row-1">
         <h2>所有比赛赔率</h2>
@@ -14,7 +13,6 @@
       </div>
     </div>
 
-    <!-- 可滚动的比赛列表 -->
     <div class="page-body">
       <div class="match-list">
         <div
@@ -22,7 +20,6 @@
           :key="g.groupId"
           class="match-group"
         >
-          <!-- 比赛对阵等信息 -->
           <div class="match-head">
             <span class="match-no">{{ g.matchNo }}</span>
             <span class="match-name">{{ g.name }}</span>
@@ -33,9 +30,24 @@
           <div v-if="g.had" class="odds-line">
             <span v-if="g.had.bettingSingle" class="single-badge">单</span>
             <div class="odds-row">
-              <span class="odds-tag win"><em>胜</em>{{ fmt(g.had.odds.win) }}</span>
-              <span class="odds-tag draw"><em>平</em>{{ fmt(g.had.odds.draw) }}</span>
-              <span class="odds-tag lose"><em>负</em>{{ fmt(g.had.odds.lose) }}</span>
+              <span class="odds-tag win">
+                <em>胜</em>{{ fmt(g.had.odds.win) }}
+                <span v-if="g.had.trend?.win" class="trend-arrow" :class="g.had.trend.win">
+                  {{ g.had.trend.win === 'up' ? '▲' : '▼' }}
+                </span>
+              </span>
+              <span class="odds-tag draw">
+                <em>平</em>{{ fmt(g.had.odds.draw) }}
+                <span v-if="g.had.trend?.draw" class="trend-arrow" :class="g.had.trend.draw">
+                  {{ g.had.trend.draw === 'up' ? '▲' : '▼' }}
+                </span>
+              </span>
+              <span class="odds-tag lose">
+                <em>负</em>{{ fmt(g.had.odds.lose) }}
+                <span v-if="g.had.trend?.lose" class="trend-arrow" :class="g.had.trend.lose">
+                  {{ g.had.trend.lose === 'up' ? '▲' : '▼' }}
+                </span>
+              </span>
             </div>
             <span class="pool-badge had">胜平负</span>
           </div>
@@ -44,9 +56,24 @@
           <div v-if="g.hhad" class="odds-line">
             <span v-if="g.hhad.bettingSingle" class="single-badge">单</span>
             <div class="odds-row">
-              <span class="odds-tag win"><em>胜</em>{{ fmt(g.hhad.odds.win) }}</span>
-              <span class="odds-tag draw"><em>平</em>{{ fmt(g.hhad.odds.draw) }}</span>
-              <span class="odds-tag lose"><em>负</em>{{ fmt(g.hhad.odds.lose) }}</span>
+              <span class="odds-tag win">
+                <em>胜</em>{{ fmt(g.hhad.odds.win) }}
+                <span v-if="g.hhad.trend?.win" class="trend-arrow" :class="g.hhad.trend.win">
+                  {{ g.hhad.trend.win === 'up' ? '▲' : '▼' }}
+                </span>
+              </span>
+              <span class="odds-tag draw">
+                <em>平</em>{{ fmt(g.hhad.odds.draw) }}
+                <span v-if="g.hhad.trend?.draw" class="trend-arrow" :class="g.hhad.trend.draw">
+                  {{ g.hhad.trend.draw === 'up' ? '▲' : '▼' }}
+                </span>
+              </span>
+              <span class="odds-tag lose">
+                <em>负</em>{{ fmt(g.hhad.odds.lose) }}
+                <span v-if="g.hhad.trend?.lose" class="trend-arrow" :class="g.hhad.trend.lose">
+                  {{ g.hhad.trend.lose === 'up' ? '▲' : '▼' }}
+                </span>
+              </span>
             </div>
             <span class="pool-badge hhad">
               <span class="goal-label">让</span>
@@ -56,7 +83,6 @@
             </span>
           </div>
 
-          <!-- 都没有 -->
           <div v-if="!g.had && !g.hhad" class="odds-line empty">
             <span class="empty-text">暂无赔率</span>
           </div>
@@ -303,6 +329,23 @@ function goalClass(gl) {
 .odds-tag.win em { color: #2e8b57; }
 .odds-tag.draw em { color: #b8860b; }
 .odds-tag.lose em { color: #c0392b; }
+
+/* ★ 涨跌箭头 */
+.trend-arrow {
+  display: inline-block;
+  font-size: 0.65rem;
+  line-height: 1;
+  margin-left: 2px;
+  font-weight: 700;
+}
+.trend-arrow.up {
+  color: #e74c3c;
+  opacity: 0.75;
+}
+.trend-arrow.down {
+  color: #27ae60;
+  opacity: 0.75;
+}
 
 .pool-badge {
   font-size: 0.66rem;
