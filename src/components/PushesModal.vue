@@ -200,7 +200,7 @@
               <button class="btn-delete" @click="confirmDelete">删除</button>
             </template>
             <template v-else>
-              <button class="btn-reset" @click="resetEdit">重新编辑</button>
+              <button class="btn-reset" @click="resetEdit">编辑</button>
             </template>
           </template>
         </div>
@@ -392,7 +392,7 @@ async function resetEdit() {
 /* ========== 删除 ========== */
 async function confirmDelete() {
   if (!detail.value) return
-  if (!confirm('确认删除这个方案？（仍保留在云端，仅隐藏）')) return
+  if (!confirm('确认删除？')) return
 
   await updatePush(detail.value.id, { deleted: true })
   detail.value = null
