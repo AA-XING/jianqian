@@ -83,7 +83,6 @@
             {{ item.adjustedProfit >= 0 ? '+' : '' }}{{ fmt(item.adjustedProfit, 2) }}
           </span>
           <span class="foot-rate">
-            回报率
             <span class="rate" :class="profitClass(item.adjustedRate)">
               {{ (item.adjustedRate * 100).toFixed(2) }}%
             </span>
