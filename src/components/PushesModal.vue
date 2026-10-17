@@ -179,14 +179,14 @@
         <div class="detail-footer">
           <!-- 已推方案：应用按钮 -->
           <template v-if="detail.status === 'pushed'">
+            <!-- 已过期时，点击才打开下拉菜单 -->
             <div v-if="showApplyMenu" class="apply-menu">
               <button class="apply-menu-item" @click="moveToPicked">已捡</button>
             </div>
             <button
               class="btn-apply"
               :class="{ expired: isExpired(detail) }"
-              :disabled="false"
-              @click.stop="toggleApplyMenu"
+              @click.stop="handleApplyClick"
             >
               {{ isExpired(detail) ? '已过期' : '应用并重新计算' }}
             </button>
@@ -340,6 +340,19 @@ async function updatePush(id, changes) {
 /* ========== 已推：应用下拉菜单 ========== */
 function toggleApplyMenu() {
   showApplyMenu.value = !showApplyMenu.value
+}
+
+function handleApplyClick() {
+  if (!detail.value) return
+  if (isExpired(detail.value)) {
+    // ★ 已过期：打开下拉菜单
+    showApplyMenu.value = !showApplyMenu.value
+  } else {
+    // ★ 未过期：直接应用（原功能）
+    showApplyMenu.value = false
+    emit('apply', detail.value)
+    emit('close')
+  }
 }
 
 async function moveToPicked() {
