@@ -61,7 +61,7 @@
             <span class="target-odds">{{ fmt(c.value, 2) }}</span>
           </div>
 
-          <!-- ★ 串买项：不带任何标签，和普通项一致 -->
+          <!-- 串买项 -->
           <div
             v-for="(p, pi) in parlayItems"
             :key="'p' + pi"
@@ -140,7 +140,7 @@ let copyTimer = null
 // 串买累乘系数
 const parlayMultiplier = computed(() => {
   let m = 1
-  for (const p of props.parlayItems) {
+  for (const p of props.parlayItems || []) {
     if (p.selectedOdds?.value) m *= p.selectedOdds.value
   }
   return m
@@ -231,30 +231,40 @@ function goalClass(gl) {
   return ''
 }
 
-/* ========== 累乘后调整 ========== */
+/* ========== 累乘后计算 ========== */
+
+// 理论收益率：
+// 原 expect 是赔率（如 1.15），新赔率 = 原赔率 × 串买累乘
+// 收益率 = (新赔率 - 1) × 100%
 const adjustedExpect = computed(() => {
   if (!props.data?.expect) return null
   return props.data.expect * parlayMultiplier.value
 })
 
-// 收益最小值（累乘）
+// 收益最小值：(min(D) + M) × K - M
 const profitMin = computed(() => {
   const D = props.data?.result?.D
-  if (!D || !D.length) return null
-  return Math.min(...D) * parlayMultiplier.value
+  const M = props.data?.result?.M
+  if (!D || !D.length || !M) return null
+  const minD = Math.min(...D)
+  return (minD + M) * parlayMultiplier.value - M
 })
 
-// 收益最大值（累乘）
+// 收益最大值：(max(D) + M) × K - M
 const profitMax = computed(() => {
   const D = props.data?.result?.D
-  if (!D || !D.length) return null
-  return Math.max(...D) * parlayMultiplier.value
+  const M = props.data?.result?.M
+  if (!D || !D.length || !M) return null
+  const maxD = Math.max(...D)
+  return (maxD + M) * parlayMultiplier.value - M
 })
 
-// 极差（基于累乘后的值）
+// 极差：原极差 × K
 const profitRange = computed(() => {
-  if (profitMin.value === null || profitMax.value === null) return null
-  return profitMax.value - profitMin.value
+  const D = props.data?.result?.D
+  if (!D || !D.length) return null
+  const rangeD = Math.max(...D) - Math.min(...D)
+  return rangeD * parlayMultiplier.value
 })
 
 // 极差占总额百分比
@@ -265,17 +275,21 @@ const fmtPercentOfTotal = computed(() => {
   return ((profitRange.value / M) * 100).toFixed(2)
 })
 
-// 累乘串买系数到每条详情
+// 单项收益 / 回报率：
+// 单项收益 = (profit + M) × K - M
+// 回报率 = 单项收益 / M
 const adjustedDetails = computed(() => {
   if (!props.data?.details) return []
   const mult = parlayMultiplier.value
+  const M = props.data?.result?.M || 1
+
   return props.data.details.map(item => {
-    const adjustedProfit = item.profit * mult
-    const M = props.data?.result?.M || 1
+    const adjustedProfit = (item.profit + M) * mult - M
+    const adjustedRate = adjustedProfit / M
     return {
       ...item,
       adjustedProfit,
-      adjustedRate: adjustedProfit / M
+      adjustedRate
     }
   })
 })
