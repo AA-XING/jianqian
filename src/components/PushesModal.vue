@@ -20,9 +20,6 @@
           </button>
         </div>
         <div class="header-actions">
-          <button class="btn-refresh" :disabled="loading" @click="load">
-            {{ loading ? '加载中' : '刷新' }}
-          </button>
           <button class="btn-close" @click="$emit('close')">&times;</button>
         </div>
       </div>
@@ -222,18 +219,6 @@ onMounted(load)
   align-items: center;
   gap: 6px;
 }
-
-.btn-refresh {
-  background: #eef5fc;
-  color: #0f3b5e;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-.btn-refresh:disabled { opacity: 0.5; }
 
 .btn-close {
   background: none;
