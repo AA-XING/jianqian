@@ -93,27 +93,47 @@
     </div>
 
     <!-- 复制按钮 -->
-    <div v-if="data.result && data.details.length" class="copy-bar">
+    <div v-if="data.result && data.details.length" class="action-bar">
+      <button v-if="!hidePush" class="btn-push" @click="openPushModal">推单</button>
       <button class="btn-copy" :class="{ copied }" @click="copyBetsAndTargets">
         {{ copied ? '✅ 已复制' : '📋 复制' }}
       </button>
     </div>
 
-    <!-- 权重详情 -->
-    <details class="detail-box" v-if="data.result">
-      <summary>optimize_weights 完整输出</summary>
-      <pre>{{ prettyResult }}</pre>
-    </details>
+    <PushSaveModal
+      v-if="showPushModal"
+      :result="data"
+      :copy-text="buildCopyText()"
+      :parlay-items="parlayItems"
+      @close="showPushModal = false"
+      @saved="onPushSaved"
+      @open-pushes="$emit('open-pushes')"
+    />
   </div>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
 
+import PushSaveModal from './PushSaveModal.vue'
+
+const showPushModal = ref(false)
+
+function openPushModal() {
+  showPushModal.value = true
+}
+
+function onPushSaved() {
+  // 可加提示
+}
+
 const props = defineProps({
   data: { type: Object, default: null },
-  parlayItems: { type: Array, default: () => [] }
+  parlayItems: { type: Array, default: () => [] },
+  hidePush: { type: Boolean, default: false }
 })
+
+defineEmits(['open-pushes'])   // ★ 新增
 
 /* 复制 */
 const copied = ref(false)
@@ -278,28 +298,6 @@ const data = computed(() => {
   }
 })
 
-const prettyResult = computed(() => {
-  if (!props.data || !props.data.result) return ''
-  const r = props.data.result
-  try {
-    return JSON.stringify({
-      expect: +fmt(props.data.expect, 6),
-      parlayMultiplier: +fmt(parlayMultiplier.value, 4),
-      adjustedExpect: +fmt(adjustedExpect.value, 6),
-      a: props.data.a.map(v => +fmt(v, 4)),
-      texts: props.data.texts,
-      new_weights: r.newWeights,
-      M: r.M,
-      D: r.D.map(v => +fmt(v, 2)),
-      S: r.S.map(v => +fmt(v, 4)),
-      cv: +fmt(r.cv, 6),
-      rangeRatio: +fmt(r.rangeRatio, 6),
-      bestT: r.bestT
-    }, null, 2)
-  } catch (e) {
-    return '数据不完整'
-  }
-})
 </script>
 
 <style scoped>
@@ -461,13 +459,30 @@ const prettyResult = computed(() => {
 .profit-pos { color: #2e8b57; }
 .profit-neg { color: #c0392b; }
 
-.copy-bar {
+.action-bar {
   display: flex;
-  justify-content: center;
+  gap: 8px;
   margin-top: 14px;
 }
 
+.btn-push {
+  flex: 0 0 auto;
+  min-width: 64px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-push:hover {
+  background: #c0392b;
+}
+
 .btn-copy {
+  flex: 1;
   background: #eef5fc;
   color: #0f3b5e;
   border: none;
@@ -476,7 +491,6 @@ const prettyResult = computed(() => {
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
 }
 
 .btn-copy.copied {
@@ -484,28 +498,4 @@ const prettyResult = computed(() => {
   color: #2e8b57;
 }
 
-.detail-box {
-  margin-top: 12px;
-  background: white;
-  border-radius: 10px;
-  border: 1px solid #e2eef9;
-  padding: 8px 10px;
-}
-.detail-box summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #1e3f5c;
-  font-size: 0.82rem;
-  padding: 4px 0;
-}
-.detail-box pre {
-  background: #0f3b5e;
-  color: #d6e7f7;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 0.7rem;
-  overflow-x: auto;
-  margin: 8px 0 4px;
-  line-height: 1.4;
-}
 </style>

@@ -9,6 +9,7 @@
       :index="index"
       :matches-data="matchesData"
       :all-rows="rows"
+      :parlay-group-ids="parlayGroupIds"
       @update:row="onRowUpdate(index, $event)"
     />
 
@@ -40,10 +41,11 @@ import ParlayPanel from './ParlayPanel.vue'    // ★ 新增
 import { computeAll } from '../utils/calculator.js'
 
 const props = defineProps({
-  matchesData: { type: Array, default: () => [] }
+  matchesData: { type: Array, default: () => [] },
+  parlayItems: { type: Array, default: () => [] }   // ★ 新增
 })
 
-const emit = defineEmits(['calculate'])
+const emit = defineEmits(['calculate', 'update:parlayItems'])
 
 const matchCount = ref(1)
 const rows = reactive([createEmptyRow()])
@@ -90,9 +92,19 @@ const usedGroupIds = computed(() => {
   return set
 })
 
+// ★ 串买项已占用的 groupId
+const parlayGroupIds = computed(() => {
+  const set = new Set()
+  props.parlayItems.forEach(it => {
+    if (it.groupId) set.add(String(it.groupId))
+  })
+  return set
+})
+
 // ★ 串买更新
 function onParlayUpdate(items) {
   parlayItems.value = items
+  emit('update:parlayItems', items)   // ★ 实时同步给父组件
 }
 
 const amountMin = ref(0)

@@ -1,6 +1,8 @@
 <template>
   <div class="top-bar">
-    <h1>jianqian</h1>
+    <button class="logo-btn" @click="$emit('view-pushes')">
+      jianqian
+    </button>
 
     <div class="top-actions">
       <span v-if="fetchedAt" class="fetch-time">
@@ -15,10 +17,10 @@
 </template>
 
 <script setup>
+defineEmits(['view-odds', 'view-pushes', 'refresh'])
 const props = defineProps({
   fetchedAt: { type: Number, default: null }
 })
-defineEmits(['view-odds'])
 
 function formatTime(ts) {
   if (!ts) return '—'
@@ -39,13 +41,21 @@ function formatTime(ts) {
   border-bottom: 1px solid #eef5fc;
 }
 
-.top-bar h1 {
-  font-size: 1.35rem;
+.logo-btn {
+  background: #cc6464;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #0b2b4a;
-  margin: 0;
   letter-spacing: -0.5px;
+  cursor: pointer;
   flex-shrink: 0;
+  transition: background 0.15s;
+}
+.logo-btn:hover {
+  background: #d98a8a;
 }
 
 .top-actions {

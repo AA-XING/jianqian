@@ -3,20 +3,32 @@
     <TopBar
       :fetched-at="fetchedAt"
       @view-odds="openOddsModal"
+      @view-pushes="openPushesModal"
     />
 
     <ConfigPanel
       :matches-data="matchesData"
+      :parlay-items="parlayItems"
+      @update:parlay-items="onParlayUpdate"
       @calculate="handleCalculate"
     />
 
-    <ResultPanel :data="calcResult" :parlay-items="parlayItems" />
+    <ResultPanel
+      :data="calcResult"
+      :parlay-items="parlayItems"
+      @open-pushes="openPushesModal"
+    />
 
     <OddsModal
       v-if="showOddsModal"
       :matches-data="matchesData"
       :fetched-at="fetchedAt"
       @close="closeOddsModal"
+    />
+
+    <PushesModal
+      v-if="showPushesModal"
+      @close="closePushesModal"
     />
   </div>
 </template>
@@ -28,6 +40,13 @@ import ConfigPanel from './components/ConfigPanel.vue'
 import OddsModal from './components/OddsModal.vue'
 import ResultPanel from './components/ResultPanel.vue'
 import { initializeOddsData } from './data/oddsInitializer.js'
+
+import PushesModal from './components/PushesModal.vue'
+
+const showPushesModal = ref(false)
+
+const openPushesModal = () => { showPushesModal.value = true }
+const closePushesModal = () => { showPushesModal.value = false }
 
 const matchesData = ref([])
 const fetchedAt = ref(null)
@@ -54,6 +73,10 @@ const handleCalculate = ({ result, errorMsg, parlayItems: pItems }) => {
   }
   calcResult.value = result
   parlayItems.value = pItems || []   // ★ 保存串买数据
+}
+
+function onParlayUpdate(items) {
+  parlayItems.value = items
 }
 </script>
 

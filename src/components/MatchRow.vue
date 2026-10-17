@@ -72,7 +72,8 @@ const props = defineProps({
   row: { type: Object, required: true },
   index: { type: Number, required: true },
   matchesData: { type: Array, default: () => [] },
-  allRows: { type: Array, default: () => [] }
+  allRows: { type: Array, default: () => [] },
+  parlayGroupIds: { type: Set, default: () => new Set() }   // ★ 新增
 })
 
 const emit = defineEmits(['update:row'])
@@ -98,9 +99,15 @@ watch(() => props.row, (val) => {
 
 const usedGroupIds = computed(() => {
   const set = new Set()
+
+  // 上方其他行
   props.allRows.forEach((r, i) => {
-    if (i !== props.index && r.groupId) set.add(r.groupId)
+    if (i !== props.index && r.groupId) set.add(String(r.groupId))
   })
+
+  // ★ 串买项
+  props.parlayGroupIds.forEach(gid => set.add(String(gid)))
+
   return set
 })
 
