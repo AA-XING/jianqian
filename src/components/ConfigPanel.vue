@@ -182,8 +182,30 @@ function applyPush(push) {
       newRow.goalLine = saved.goalLine
       newRow.odds = saved.odds
       newRow.comboType = saved.comboType || 'wp'
-      newRow.odds1 = saved.odds1
-      newRow.odds2 = saved.odds2
+
+      // ★ 兜底：从 matchesData 查最新 odds
+      if (!newRow.odds) {
+        const match = props.matchesData.find(m => m.id === saved.matchId)
+        if (match) {
+          newRow.odds = { ...match.odds }
+        }
+      }
+
+      // ★ 强制重算 odds1/odds2
+      if (newRow.odds) {
+        const ct = newRow.comboType
+        if (ct === 'wp') {
+          newRow.odds1 = { label: '胜', value: newRow.odds.win }
+          newRow.odds2 = { label: '平', value: newRow.odds.draw }
+        } else if (ct === 'pl') {
+          newRow.odds1 = { label: '平', value: newRow.odds.draw }
+          newRow.odds2 = { label: '负', value: newRow.odds.lose }
+        } else if (ct === 'wl') {
+          newRow.odds1 = { label: '胜', value: newRow.odds.win }
+          newRow.odds2 = { label: '负', value: newRow.odds.lose }
+        }
+      }
+
       rows[i] = newRow
     }
   } else {
@@ -212,20 +234,27 @@ function applyPush(push) {
       newRow.goalLine = match.goalLine ?? 0
       newRow.odds = { ...match.odds }
 
-      // 用 c.label 推断 comboType
-      // 先默认 wp，尝试根据 label 调整
       let comboType = 'wp'
-      if (c.label === '胜') comboType = 'wp'   // 默认，后续用户可手动切
-      else if (c.label === '平') comboType = 'wp'
-      else if (c.label === '负') comboType = 'pl'
-
+      if (c.label === '负') comboType = 'pl'
       newRow.comboType = comboType
-      applyComboToRow(i, comboType)
+
+      // ★ 强制算 odds1/odds2
+      if (comboType === 'wp') {
+        newRow.odds1 = { label: '胜', value: match.odds.win }
+        newRow.odds2 = { label: '平', value: match.odds.draw }
+      } else if (comboType === 'pl') {
+        newRow.odds1 = { label: '平', value: match.odds.draw }
+        newRow.odds2 = { label: '负', value: match.odds.lose }
+      } else if (comboType === 'wl') {
+        newRow.odds1 = { label: '胜', value: match.odds.win }
+        newRow.odds2 = { label: '负', value: match.odds.lose }
+      }
+
       rows[i] = newRow
     }
   }
 
-  // 3. 恢复串买（如果 ParlayPanel 支持）
+  // 3. 恢复串买
   if (push.parlayItems?.length && parlayPanelRef.value?.setItems) {
     parlayPanelRef.value.setItems(push.parlayItems)
   }
