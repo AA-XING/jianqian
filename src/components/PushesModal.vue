@@ -150,9 +150,10 @@
                 </span>
               </div>
               <div class="combo-targets">
+                <!-- 计算用的场次 -->
                 <div
                   v-for="(c, i) in item.combo"
-                  :key="i"
+                  :key="'c' + i"
                   class="combo-line"
                 >
                   <span v-if="c.poolType === 'hhad'" class="goal-badge" :class="goalClass(c.goalLine)">
@@ -161,6 +162,22 @@
                   <span class="combo-match">{{ c.matchName }}</span>
                   <span class="combo-result" :class="labelClass(c.label)">{{ c.label }}</span>
                   <span class="combo-odds">{{ fmt(c.value, 2) }}</span>
+                </div>
+
+                <!-- ★ 串买项 -->
+                <div
+                  v-for="(p, pi) in (detail.parlayItems || [])"
+                  :key="'p' + pi"
+                  class="combo-line"
+                >
+                  <span v-if="p.poolType === 'hhad'" class="goal-badge" :class="goalClass(p.goalLine)">
+                    {{ formatGoalLine(p.goalLine) }}
+                  </span>
+                  <span class="combo-match">{{ p.matchName }}</span>
+                  <span class="combo-result" :class="labelClass(p.selectedOdds?.label)">
+                    {{ p.selectedOdds?.label || '?' }}
+                  </span>
+                  <span class="combo-odds">{{ fmt(p.selectedOdds?.value, 2) }}</span>
                 </div>
               </div>
             </div>
