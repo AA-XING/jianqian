@@ -166,44 +166,46 @@ function applyPush(push) {
 
   // 1. 优先用 comboRows（精确恢复）
   if (push.comboRows?.length) {
+  // ★ 先校验所有比赛是否还在，不在就报错
+    for (const saved of push.comboRows) {
+      const match = props.matchesData.find(m => m.id === saved.matchId)
+      if (!match) {
+        alert(`比赛 ${saved.matchName} 已不在列表中，无法应用`)
+        return
+      }
+    }
+
     matchCount.value = push.comboRows.length
     onMatchCountChange(push.comboRows.length)
 
     for (let i = 0; i < push.comboRows.length; i++) {
       const saved = push.comboRows[i]
+      const match = props.matchesData.find(m => m.id === saved.matchId)
+
       const newRow = createEmptyRow()
-      newRow.matchId = saved.matchId
-      newRow.groupId = saved.groupId
-      newRow.poolType = saved.poolType
-      newRow.poolLabel = saved.poolLabel
-      newRow.matchName = saved.matchName
-      newRow.matchNo = saved.matchNo
-      newRow.bettingSingle = saved.bettingSingle
-      newRow.goalLine = saved.goalLine
-      newRow.odds = saved.odds
+      newRow.matchId = match.id
+      newRow.groupId = match.groupId
+      newRow.poolType = match.poolType
+      newRow.poolLabel = match.poolLabel
+      newRow.matchName = match.name
+      newRow.matchNo = match.matchNo
+      newRow.bettingSingle = match.bettingSingle
+      newRow.goalLine = match.goalLine ?? 0
       newRow.comboType = saved.comboType || 'wp'
 
-      // ★ 兜底：从 matchesData 查最新 odds
-      if (!newRow.odds) {
-        const match = props.matchesData.find(m => m.id === saved.matchId)
-        if (match) {
-          newRow.odds = { ...match.odds }
-        }
-      }
+      // ★ 用 matchesData 里的最新赔率，而不是 saved.odds
+      newRow.odds = { ...match.odds }
 
-      // ★ 强制重算 odds1/odds2
-      if (newRow.odds) {
-        const ct = newRow.comboType
-        if (ct === 'wp') {
-          newRow.odds1 = { label: '胜', value: newRow.odds.win }
-          newRow.odds2 = { label: '平', value: newRow.odds.draw }
-        } else if (ct === 'pl') {
-          newRow.odds1 = { label: '平', value: newRow.odds.draw }
-          newRow.odds2 = { label: '负', value: newRow.odds.lose }
-        } else if (ct === 'wl') {
-          newRow.odds1 = { label: '胜', value: newRow.odds.win }
-          newRow.odds2 = { label: '负', value: newRow.odds.lose }
-        }
+      const ct = newRow.comboType
+      if (ct === 'wp') {
+        newRow.odds1 = { label: '胜', value: match.odds.win }
+        newRow.odds2 = { label: '平', value: match.odds.draw }
+      } else if (ct === 'pl') {
+        newRow.odds1 = { label: '平', value: match.odds.draw }
+        newRow.odds2 = { label: '负', value: match.odds.lose }
+      } else if (ct === 'wl') {
+        newRow.odds1 = { label: '胜', value: match.odds.win }
+        newRow.odds2 = { label: '负', value: match.odds.lose }
       }
 
       rows[i] = newRow

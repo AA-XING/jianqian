@@ -272,7 +272,28 @@ function emitUpdate() {
 
 // ParlayPanel.vue 的 <script setup> 加：
 function setItems(newItems) {
-  items.value = newItems.map(it => ({ ...it }))
+  items.value = newItems.map(it => {
+    // ★ 用 matchesData 里的最新赔率
+    const match = props.matchesData.find(m => m.id === it.matchId)
+    if (!match) {
+      // 比赛已不在（理论上 isExpired 已拦截，兜底）
+      return { ...it, selectedOdds: null }
+    }
+
+    const label = it.selectedOdds?.label
+    let newValue = null
+    if (label === '胜') newValue = match.odds.win
+    else if (label === '平') newValue = match.odds.draw
+    else if (label === '负') newValue = match.odds.lose
+
+    return {
+      ...it,
+      odds: { ...match.odds },       // ★ 新赔率
+      selectedOdds: newValue !== null
+        ? { label, value: newValue }  // ★ 保持 label，用新 value
+        : null
+    }
+  })
   emitUpdate()
 }
 
