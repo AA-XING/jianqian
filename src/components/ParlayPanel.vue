@@ -270,7 +270,16 @@ function emitUpdate() {
   emit('update:parlay', JSON.parse(JSON.stringify(items.value)))
 }
 
-defineExpose({ items })
+// ParlayPanel.vue 的 <script setup> 加：
+function setItems(newItems) {
+  items.value = newItems.map(it => ({ ...it }))
+  emitUpdate()
+}
+
+defineExpose({
+  items,
+  setItems
+})
 </script>
 
 <style scoped>

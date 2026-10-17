@@ -13,8 +13,9 @@
       @update:row="onRowUpdate(index, $event)"
     />
 
-    <!-- ★ 串买单项赔率区域 -->
+    <!-- 串买单项赔率区域 -->
     <ParlayPanel
+      ref="parlayPanelRef"
       :matches-data="matchesData"
       :used-group-ids="usedGroupIds"
       :match-count="matchCount"
@@ -37,21 +38,20 @@ import { ref, reactive, computed } from 'vue'
 import MatchCountSelector from './MatchCountSelector.vue'
 import MatchRow from './MatchRow.vue'
 import AmountRange from './AmountRange.vue'
-import ParlayPanel from './ParlayPanel.vue'    // ★ 新增
+import ParlayPanel from './ParlayPanel.vue'
 import { computeAll } from '../utils/calculator.js'
 
 const props = defineProps({
   matchesData: { type: Array, default: () => [] },
-  parlayItems: { type: Array, default: () => [] }   // ★ 新增
+  parlayItems: { type: Array, default: () => [] }
 })
 
 const emit = defineEmits(['calculate', 'update:parlayItems'])
 
 const matchCount = ref(1)
 const rows = reactive([createEmptyRow()])
-
-// 串买数据
 const parlayItems = ref([])
+const parlayPanelRef = ref(null)
 
 function createEmptyRow() {
   return {
@@ -83,7 +83,6 @@ const onRowUpdate = (index, newRow) => {
   rows[index] = { ...newRow }
 }
 
-// ★ 上方已选场次的 groupId 集合
 const usedGroupIds = computed(() => {
   const set = new Set()
   rows.forEach(r => {
@@ -92,7 +91,6 @@ const usedGroupIds = computed(() => {
   return set
 })
 
-// ★ 串买项已占用的 groupId
 const parlayGroupIds = computed(() => {
   const set = new Set()
   props.parlayItems.forEach(it => {
@@ -101,10 +99,9 @@ const parlayGroupIds = computed(() => {
   return set
 })
 
-// ★ 串买更新
 function onParlayUpdate(items) {
   parlayItems.value = items
-  emit('update:parlayItems', items)   // ★ 实时同步给父组件
+  emit('update:parlayItems', items)
 }
 
 const amountMin = ref(0)
@@ -116,7 +113,6 @@ const singleMatchWarning = computed(() => {
   if (!r.matchId) return ''
   if (r.bettingSingle) return ''
 
-  // ★ 串买有选择时，不提示
   const validParlay = parlayItems.value.filter(it => it.matchId && it.selectedOdds)
   if (validParlay.length > 0) return ''
 
@@ -157,10 +153,130 @@ const onCalculate = () => {
     matchesData: props.matchesData,
     result,
     errorMsg,
-    // ★ 传递串买数据
     parlayItems: parlayItems.value.filter(it => it.matchId && it.selectedOdds)
   })
 }
+
+/* ============================================================
+ *  ★ 应用推单方案
+ * ============================================================ */
+
+function applyPush(push) {
+  if (!push) return
+
+  // 1. 优先用 comboRows（精确恢复）
+  if (push.comboRows?.length) {
+    matchCount.value = push.comboRows.length
+    onMatchCountChange(push.comboRows.length)
+
+    for (let i = 0; i < push.comboRows.length; i++) {
+      const saved = push.comboRows[i]
+      const newRow = createEmptyRow()
+      newRow.matchId = saved.matchId
+      newRow.groupId = saved.groupId
+      newRow.poolType = saved.poolType
+      newRow.poolLabel = saved.poolLabel
+      newRow.matchName = saved.matchName
+      newRow.matchNo = saved.matchNo
+      newRow.bettingSingle = saved.bettingSingle
+      newRow.goalLine = saved.goalLine
+      newRow.odds = saved.odds
+      newRow.comboType = saved.comboType || 'wp'
+      newRow.odds1 = saved.odds1
+      newRow.odds2 = saved.odds2
+      rows[i] = newRow
+    }
+  } else {
+    // 2. 兜底：从 result.details[0].combo 恢复（旧数据）
+    const combo = push.result?.details?.[0]?.combo || []
+    if (!combo.length) return
+
+    matchCount.value = combo.length
+    onMatchCountChange(combo.length)
+
+    for (let i = 0; i < combo.length; i++) {
+      const c = combo[i]
+      const match = props.matchesData.find(
+        m => m.matchNo === c.matchNo && m.poolType === c.poolType
+      )
+      if (!match) continue
+
+      const newRow = createEmptyRow()
+      newRow.matchId = match.id
+      newRow.groupId = match.groupId
+      newRow.poolType = match.poolType
+      newRow.poolLabel = match.poolLabel
+      newRow.matchName = match.name
+      newRow.matchNo = match.matchNo
+      newRow.bettingSingle = match.bettingSingle
+      newRow.goalLine = match.goalLine ?? 0
+      newRow.odds = { ...match.odds }
+
+      // 用 c.label 推断 comboType
+      // 先默认 wp，尝试根据 label 调整
+      let comboType = 'wp'
+      if (c.label === '胜') comboType = 'wp'   // 默认，后续用户可手动切
+      else if (c.label === '平') comboType = 'wp'
+      else if (c.label === '负') comboType = 'pl'
+
+      newRow.comboType = comboType
+      applyComboToRow(i, comboType)
+      rows[i] = newRow
+    }
+  }
+
+  // 3. 恢复串买（如果 ParlayPanel 支持）
+  if (push.parlayItems?.length && parlayPanelRef.value?.setItems) {
+    parlayPanelRef.value.setItems(push.parlayItems)
+  }
+}
+
+/**
+ * 根据 comboType 重新计算某行的 odds1 / odds2
+ */
+function applyComboToRow(index, type) {
+  const row = rows[index]
+  if (!row.odds) {
+    rows[index] = { ...row, odds1: null, odds2: null }
+    return
+  }
+
+  let odds1 = null
+  let odds2 = null
+  if (type === 'wp') {
+    odds1 = { label: '胜', value: row.odds.win }
+    odds2 = { label: '平', value: row.odds.draw }
+  } else if (type === 'pl') {
+    odds1 = { label: '平', value: row.odds.draw }
+    odds2 = { label: '负', value: row.odds.lose }
+  } else if (type === 'wl') {
+    odds1 = { label: '胜', value: row.odds.win }
+    odds2 = { label: '负', value: row.odds.lose }
+  }
+
+  rows[index] = { ...row, odds1, odds2 }
+}
+
+/**
+ * 设置金额范围
+ */
+function setAmountRange(min, max) {
+  amountMin.value = min
+  amountMax.value = max
+}
+
+/**
+ * 触发计算
+ */
+function calculate() {
+  onCalculate()
+}
+
+defineExpose({
+  applyPush,
+  setAmountRange,
+  calculate
+})
 </script>
 
 <style scoped>

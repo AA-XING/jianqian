@@ -31,28 +31,46 @@ import { ref } from 'vue'
 const props = defineProps({
   result: { type: Object, required: true },
   copyText: { type: String, default: '' },
-  parlayItems: { type: Array, default: () => [] }   // ★ 新增
+  parlayItems: { type: Array, default: () => [] },
+  rows: { type: Array, default: () => [] }
 })
+
 const emit = defineEmits(['close', 'saved', 'open-pushes'])
 
 const remark = ref('')
 const saving = ref(false)
-const pushed = ref(false)   // ★ 新增
+const pushed = ref(false)
 
 async function handlePush() {
-  if (saving.value) return
+  if (saving.value || pushed.value) return
   saving.value = true
+
+  const payload = {
+    remark: remark.value.trim(),
+    result: props.result,
+    copyText: props.copyText,
+    parlayItems: props.parlayItems || [],
+    comboRows: (props.rows || []).map(r => ({
+      matchId: r.matchId,
+      groupId: r.groupId,
+      poolType: r.poolType,
+      poolLabel: r.poolLabel,
+      matchName: r.matchName,
+      matchNo: r.matchNo,
+      bettingSingle: r.bettingSingle,
+      goalLine: r.goalLine,
+      odds: r.odds,
+      comboType: r.comboType,
+      odds1: r.odds1,
+      odds2: r.odds2
+    }))
+  }
 
   try {
     const res = await fetch('/api/pushes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        remark: remark.value.trim(),
-        result: props.result,
-        copyText: props.copyText,
-        parlayItems: props.parlayItems || []
-      })
+      body: JSON.stringify(payload)
     })
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const json = await res.json()
@@ -64,10 +82,7 @@ async function handlePush() {
       list.unshift({
         id: Date.now().toString(36),
         savedAt: Date.now(),
-        remark: remark.value.trim(),
-        result: props.result,
-        copyText: props.copyText,
-        parlayItems: props.parlayItems || []
+        ...payload
       })
       localStorage.setItem('__pushes_mock', JSON.stringify(list))
       doSuccess()
@@ -78,10 +93,8 @@ async function handlePush() {
   }
 }
 
-// 新增：成功处理
 function doSuccess() {
   pushed.value = true
-  // 1 秒后关闭弹窗并打开已推页面
   setTimeout(() => {
     emit('saved')
     emit('close')

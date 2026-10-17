@@ -70,7 +70,22 @@
           <button class="close-btn" @click="detail = null">&times;</button>
         </div>
         <div class="detail-body">
-          <ResultPanel :data="detail.result" :parlay-items="detail.parlayItems || []" hide-push />
+          <ResultPanel
+            :data="detail.result"
+            :parlay-items="detail.parlayItems || []"
+            hide-push
+            hide-copy
+          />
+        </div>
+        <div class="detail-footer">
+          <button
+            class="btn-apply"
+            :class="{ expired: isExpired(detail) }"
+            :disabled="isExpired(detail)"
+            @click="handleApply"
+          >
+            {{ isExpired(detail) ? '已过期' : '应用并重新计算' }}
+          </button>
         </div>
       </div>
     </div>
@@ -81,12 +96,48 @@
 import { ref, onMounted } from 'vue'
 import ResultPanel from './ResultPanel.vue'
 
-defineEmits(['close'])
-
 const list = ref([])
 const loading = ref(false)
 const detail = ref(null)
 const currentTab = ref('pushed')
+
+const emit = defineEmits(['close', 'apply'])   // ★ 新增 apply 事件
+
+function isExpired(p) {
+  if (!props.matchesData?.length) return true
+
+  // 检查 comboRows 里的比赛是否还在
+  if (p.comboRows?.length) {
+    for (const r of p.comboRows) {
+      const found = props.matchesData.find(m => m.id === r.matchId)
+      if (!found) return true
+      // 赔率变了也算过期？按需求只要比赛还在就行
+    }
+  } else {
+    // 旧数据：从 result.details 里查
+    const combo = p.result?.details?.[0]?.combo || []
+    for (const c of combo) {
+      const found = props.matchesData.find(
+        m => m.matchNo === c.matchNo && m.poolType === c.poolType
+      )
+      if (!found) return true
+    }
+  }
+
+  // 检查串买
+  const idSet = new Set(props.matchesData.map(m => m.id))
+  for (const it of (p.parlayItems || [])) {
+    if (!idSet.has(it.matchId)) return true
+  }
+
+  return false
+}
+
+function handleApply() {
+  if (isExpired(detail.value)) return
+  emit('apply', detail.value)
+  emit('close')
+}
 
 async function load() {
   loading.value = true
@@ -131,6 +182,10 @@ function getAllMatches(p) {
 
   return [...combo, ...parlay]
 }
+
+const props = defineProps({
+  matchesData: { type: Array, default: () => [] }
+})
 
 function formatTime(ts) {
   if (!ts) return ''
@@ -368,4 +423,32 @@ onMounted(load)
   overflow-y: auto;
   padding: 10px 14px 14px;
 }
+
+.detail-footer {
+  padding: 10px 16px 14px;
+  border-top: 1px solid #eef5fc;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-apply {
+  background: #0f3b5e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 28px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-apply:hover:not(:disabled) {
+  background: #1e537d;
+}
+.btn-apply.expired,
+.btn-apply:disabled {
+  background: #b6c6d6;
+  cursor: not-allowed;
+}
+
 </style>

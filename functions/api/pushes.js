@@ -32,9 +32,10 @@ export async function onRequestPost(context) {
     id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
     savedAt: Date.now(),
     remark: (body.remark || '').slice(0, 200),
-    result: body.result,                // 计算结果页的 data
-    copyText: (body.copyText || '').slice(0, 2000),   // 复制按钮内容
-    parlayItems: body.parlayItems || []   // ★ 新增
+    result: body.result,
+    copyText: (body.copyText || '').slice(0, 2000),
+    parlayItems: body.parlayItems || [],
+    comboRows: body.comboRows || []   // ★ 新增
   }
 
   try {

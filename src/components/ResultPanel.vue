@@ -66,15 +66,16 @@
             v-for="(p, pi) in parlayItems"
             :key="'p' + pi"
             class="target-line"
+            v-show="p.selectedOdds"
           >
             <span v-if="p.poolType === 'hhad'" class="goal-badge" :class="goalClass(p.goalLine)">
               {{ formatGoalLine(p.goalLine) }}
             </span>
             <span class="target-match">{{ p.matchName }}</span>
-            <span class="target-result" :class="labelClass(p.selectedOdds.label)">
-              {{ p.selectedOdds.label }}
+            <span class="target-result" :class="labelClass(p.selectedOdds?.label)">
+              {{ p.selectedOdds?.label || '?' }}
             </span>
-            <span class="target-odds">{{ fmt(p.selectedOdds.value, 2) }}</span>
+            <span class="target-odds">{{ fmt(p.selectedOdds?.value, 2) }}</span>
           </div>
         </div>
 
@@ -92,7 +93,7 @@
     </div>
 
     <!-- 复制按钮 -->
-    <div v-if="data.result && data.details.length" class="action-bar">
+    <div v-if="data.result && data.details.length && !hideCopy" class="action-bar">
       <button v-if="!hidePush" class="btn-push" @click="openPushModal">推单</button>
       <button class="btn-copy" :class="{ copied }" @click="copyBetsAndTargets">
         {{ copied ? '✅ 已复制' : '📋 复制' }}
@@ -104,6 +105,7 @@
       :result="data"
       :copy-text="buildCopyText()"
       :parlay-items="parlayItems"
+      :rows="rows"
       @close="showPushModal = false"
       @saved="onPushSaved"
       @open-pushes="$emit('open-pushes')"
@@ -118,7 +120,9 @@ import PushSaveModal from './PushSaveModal.vue'
 const props = defineProps({
   data: { type: Object, default: null },
   parlayItems: { type: Array, default: () => [] },
-  hidePush: { type: Boolean, default: false }
+  hidePush: { type: Boolean, default: false },
+  hideCopy: { type: Boolean, default: false },
+  rows: { type: Array, default: () => [] }   // ★ 新增
 })
 
 defineEmits(['open-pushes'])
