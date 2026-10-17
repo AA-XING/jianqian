@@ -16,15 +16,15 @@
       <div class="stat-row">
         <div class="stat-label">收益范围</div>
         <div class="stat-value">
-          <span class="min">{{ fmt(adjustedProfitMin, 2) }}</span>
+          <span class="min">{{ fmt(profitMin, 2) }}</span>
           <span class="sep"> ~ </span>
-          <span class="max">{{ fmt(adjustedProfitMax, 2) }}</span>
+          <span class="max">{{ fmt(profitMax, 2) }}</span>
         </div>
       </div>
       <div class="stat-row">
         <div class="stat-label">极差</div>
         <div class="stat-value small">
-          {{ fmt(adjustedProfitRange, 2) }}
+          {{ fmt(profitRange, 2) }}
           <span class="gap-percent">({{ fmtPercentOfTotal }}%)</span>
         </div>
       </div>
@@ -114,18 +114,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-
 import PushSaveModal from './PushSaveModal.vue'
-
-const showPushModal = ref(false)
-
-function openPushModal() {
-  showPushModal.value = true
-}
-
-function onPushSaved() {
-  // 可加提示
-}
 
 const props = defineProps({
   data: { type: Object, default: null },
@@ -133,9 +122,18 @@ const props = defineProps({
   hidePush: { type: Boolean, default: false }
 })
 
-defineEmits(['open-pushes'])   // ★ 新增
+defineEmits(['open-pushes'])
 
-/* 复制 */
+/* ========== 推单弹窗 ========== */
+const showPushModal = ref(false)
+
+function openPushModal() {
+  showPushModal.value = true
+}
+
+function onPushSaved() {}
+
+/* ========== 复制 ========== */
 const copied = ref(false)
 let copyTimer = null
 
@@ -148,13 +146,6 @@ const parlayMultiplier = computed(() => {
   return m
 })
 
-/**
- * 复制文本格式：
- *   投注额 场次编号 (让球) 结果 + 场次编号 (让球) 结果 + ...
- *
- * 示例：
- *   40 周四001 胜 + 周四005 (让-1) 负 + 周四008 胜
- */
 function buildCopyText() {
   if (!props.data?.details?.length) return ''
 
@@ -162,12 +153,10 @@ function buildCopyText() {
     .map(item => {
       const parts = []
 
-      // 计算用的场次
       for (const c of (item.combo || [])) {
         parts.push(formatComboText(c))
       }
 
-      // ★ 串买项：只加场次编号 + 结果，不写「串」
       for (const p of props.parlayItems) {
         const no = p.matchNo || ''
         const label = p.selectedOdds?.label || ''
@@ -180,9 +169,6 @@ function buildCopyText() {
     .join('\n')
 }
 
-/**
- * 格式化单场比赛：场次编号 (让球) 结果
- */
 function formatComboText(c) {
   const no = c.matchNo || ''
   const goalPart = c.poolType === 'hhad' ? `(${formatGoalLine(c.goalLine)})` : ''
@@ -213,7 +199,7 @@ async function copyBetsAndTargets() {
   }
 }
 
-/* 工具 */
+/* ========== 工具 ========== */
 function fmt(v, digits = 4) {
   if (v === null || v === undefined || Number.isNaN(v)) return '—'
   return Number(v).toFixed(digits)
@@ -245,34 +231,38 @@ function goalClass(gl) {
   return ''
 }
 
-/* 累乘后调整 */
+/* ========== 累乘后调整 ========== */
 const adjustedExpect = computed(() => {
   if (!props.data?.expect) return null
   return props.data.expect * parlayMultiplier.value
 })
 
-const adjustedProfitMin = computed(() => {
+// 收益最小值（累乘）
+const profitMin = computed(() => {
   const D = props.data?.result?.D
   if (!D || !D.length) return null
   return Math.min(...D) * parlayMultiplier.value
 })
 
-const adjustedProfitMax = computed(() => {
+// 收益最大值（累乘）
+const profitMax = computed(() => {
   const D = props.data?.result?.D
   if (!D || !D.length) return null
   return Math.max(...D) * parlayMultiplier.value
 })
 
-const adjustedProfitRange = computed(() => {
-  if (adjustedProfitMin.value === null || adjustedProfitMax.value === null) return null
-  return adjustedProfitMax.value - adjustedProfitMin.value
+// 极差（基于累乘后的值）
+const profitRange = computed(() => {
+  if (profitMin.value === null || profitMax.value === null) return null
+  return profitMax.value - profitMin.value
 })
 
+// 极差占总额百分比
 const fmtPercentOfTotal = computed(() => {
-  if (adjustedProfitRange.value === null) return '—'
+  if (profitRange.value === null) return '—'
   const M = props.data?.result?.M
   if (!M) return '—'
-  return ((adjustedProfitRange.value / M) * 100).toFixed(2)
+  return ((profitRange.value / M) * 100).toFixed(2)
 })
 
 // 累乘串买系数到每条详情
@@ -290,6 +280,7 @@ const adjustedDetails = computed(() => {
   })
 })
 
+// 覆盖 data：details 已注入 adjustedProfit / adjustedRate
 const data = computed(() => {
   if (!props.data) return null
   return {
@@ -297,7 +288,6 @@ const data = computed(() => {
     details: adjustedDetails.value
   }
 })
-
 </script>
 
 <style scoped>
@@ -497,5 +487,4 @@ const data = computed(() => {
   background: #d4f0e0;
   color: #2e8b57;
 }
-
 </style>
