@@ -73,7 +73,7 @@
           <button class="close-btn" @click="detail = null">&times;</button>
         </div>
         <div class="detail-body">
-          <ResultPanel :data="detail.result" hide-push />
+          <ResultPanel :data="detail.result" :parlay-items="detail.parlayItems || []" hide-push />
         </div>
       </div>
     </div>
