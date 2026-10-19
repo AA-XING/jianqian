@@ -10,7 +10,7 @@
       "kickoff": "2026-10-20 00:30:00",
       "matchNo": "周一001",
       "goalLine": 0,
-      "bettingSingle": false,
+      "bettingSingle": true,
       "odds": {
         "win": 2.32,
         "draw": 3,
@@ -80,9 +80,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.36,
-        "draw": 4.45,
-        "lose": 5.9
+        "win": 1.34,
+        "draw": 4.5,
+        "lose": 6.2
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -273,5 +278,5 @@
       }
     }
   ],
-  "fetchedAt": 1792375709165
+  "fetchedAt": 1792379017115
 }
