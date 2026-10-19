@@ -66,11 +66,6 @@
         "win": 3.04,
         "draw": 3.3,
         "lose": 2.01
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -88,11 +83,6 @@
         "win": 1.32,
         "draw": 4.6,
         "lose": 6.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -110,11 +100,6 @@
         "win": 2.91,
         "draw": 2.55,
         "lose": 2.54
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -149,11 +134,6 @@
         "win": 1.47,
         "draw": 3.7,
         "lose": 5.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -168,9 +148,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 5.8,
-        "draw": 3.9,
-        "lose": 1.43
+        "win": 5.88,
+        "draw": 3.92,
+        "lose": 1.42
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -222,11 +207,6 @@
         "win": 1.6,
         "draw": 3.8,
         "lose": 4.14
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -244,11 +224,6 @@
         "win": 2,
         "draw": 3.8,
         "lose": 2.73
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -266,11 +241,6 @@
         "win": 8,
         "draw": 4.5,
         "lose": 1.28
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -305,13 +275,8 @@
         "win": 2.8,
         "draw": 3.05,
         "lose": 2.25
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1792386264330
+  "fetchedAt": 1792389780866
 }
