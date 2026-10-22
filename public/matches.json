@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042118-had",
-      "groupId": "2042118",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "帕梅拉斯 vs 弗鲁米嫩",
-      "league": "解放者杯",
-      "kickoff": "2026-10-22 08:30:00",
-      "matchNo": "周三013",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.58,
-        "draw": 3.25,
-        "lose": 5.3
-      }
-    },
-    {
       "id": "2042119-had",
       "groupId": "2042119",
       "poolType": "had",
@@ -29,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.3,
+        "win": 3.4,
         "draw": 3.65,
-        "lose": 1.81
+        "lose": 1.78
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -80,9 +68,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.42,
-        "draw": 4.15,
-        "lose": 5.45
+        "win": 1.39,
+        "draw": 4.2,
+        "lose": 5.8
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -95,7 +88,7 @@
       "kickoff": "2026-10-23 03:00:00",
       "matchNo": "周四006",
       "goalLine": 0,
-      "bettingSingle": false,
+      "bettingSingle": true,
       "odds": {
         "win": 1.8,
         "draw": 3.55,
@@ -114,9 +107,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.48,
-        "draw": 3.25,
-        "lose": 2.39
+        "win": 2.46,
+        "draw": 3.3,
+        "lose": 2.38
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -131,9 +129,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.08,
-        "draw": 3.43,
-        "lose": 2.8
+        "win": 2.06,
+        "draw": 3.6,
+        "lose": 2.75
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -146,11 +149,16 @@
       "kickoff": "2026-10-23 03:00:00",
       "matchNo": "周四009",
       "goalLine": 0,
-      "bettingSingle": false,
+      "bettingSingle": true,
       "odds": {
-        "win": 1.8,
+        "win": 1.83,
         "draw": 3.9,
-        "lose": 3.15
+        "lose": 3.06
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -165,9 +173,48 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 5.2,
-        "draw": 4.3,
-        "lose": 1.42
+        "win": 5.55,
+        "draw": 4.45,
+        "lose": 1.38
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
+      }
+    },
+    {
+      "id": "2042130-had",
+      "groupId": "2042130",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "阿贾克斯 vs 亚特兰大",
+      "league": "欧协联",
+      "kickoff": "2026-10-23 03:00:00",
+      "matchNo": "周四011",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.82,
+        "draw": 3.6,
+        "lose": 3.32
+      }
+    },
+    {
+      "id": "2042131-had",
+      "groupId": "2042131",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "摩纳哥 vs 弗赖堡",
+      "league": "欧协联",
+      "kickoff": "2026-10-23 03:00:00",
+      "matchNo": "周四012",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.95,
+        "draw": 3.45,
+        "lose": 3.07
       }
     },
     {
@@ -185,23 +232,6 @@
         "win": 1.26,
         "draw": 4.28,
         "lose": 9.75
-      }
-    },
-    {
-      "id": "2042118-hhad",
-      "groupId": "2042118",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "帕梅拉斯 vs 弗鲁米嫩",
-      "league": "解放者杯",
-      "kickoff": "2026-10-22 08:30:00",
-      "matchNo": "周三013",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.27,
-        "draw": 2.9,
-        "lose": 2.09
       }
     },
     {
@@ -267,9 +297,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.42,
-        "draw": 3.3,
-        "lose": 2.42
+        "win": 2.31,
+        "draw": 3.35,
+        "lose": 2.51
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -335,9 +370,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.35,
-        "draw": 3.88,
-        "lose": 1.56
+        "win": 4.25,
+        "draw": 3.85,
+        "lose": 1.58
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -352,9 +392,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.2,
+        "win": 3.35,
         "draw": 3.82,
-        "lose": 1.8
+        "lose": 1.76
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -369,9 +414,48 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.45,
-        "draw": 3.5,
-        "lose": 2.3
+        "win": 2.54,
+        "draw": 3.55,
+        "lose": 2.2
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
+      }
+    },
+    {
+      "id": "2042130-hhad",
+      "groupId": "2042130",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "阿贾克斯 vs 亚特兰大",
+      "league": "欧协联",
+      "kickoff": "2026-10-23 03:00:00",
+      "matchNo": "周四011",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.45,
+        "draw": 3.7,
+        "lose": 1.76
+      }
+    },
+    {
+      "id": "2042131-hhad",
+      "groupId": "2042131",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "摩纳哥 vs 弗赖堡",
+      "league": "欧协联",
+      "kickoff": "2026-10-23 03:00:00",
+      "matchNo": "周四012",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.9,
+        "draw": 3.75,
+        "lose": 1.65
       }
     },
     {
@@ -392,5 +476,5 @@
       }
     }
   ],
-  "fetchedAt": 1792626731415
+  "fetchedAt": 1792638271753
 }
