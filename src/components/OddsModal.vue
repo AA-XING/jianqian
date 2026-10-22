@@ -322,14 +322,14 @@ function goalClass(gl) {
   border-radius: 10px;
   font-weight: 800;
   color: #0f3b5e;
-  font-size: 0.82rem;               /* ★ 0.78rem → 0.74rem */
+  font-size: 0.94rem;               /* ★ 0.78rem → 0.74rem */
   font-family: ui-monospace, monospace;
   flex-shrink: 0;
   white-space: nowrap;
 }
 .odds-tag em {
   font-style: normal;
-  font-size: 0.58rem;               /* ★ 0.62rem → 0.58rem */
+  font-size: 0.82rem;               /* ★ 0.62rem → 0.58rem */
   color: #7e94aa;
   font-weight: 500;
 }
@@ -412,11 +412,11 @@ function goalClass(gl) {
 @media (max-width: 400px) {
   .odds-tag {
     padding: 2px 4px;
-    font-size: 0.7rem;
+    font-size: 0.84rem;
     gap: 0;
   }
   .odds-tag em {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
   }
   .single-badge {
     width: 14px;

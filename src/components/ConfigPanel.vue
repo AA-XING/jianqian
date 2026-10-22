@@ -1,6 +1,10 @@
 <template>
   <div class="config-panel">
-    <MatchCountSelector v-model="matchCount" @update:modelValue="onMatchCountChange" />
+    <MatchCountSelector
+      v-model="matchCount"
+      @update:modelValue="onMatchCountChange"
+      @random-pick="onRandomPick"
+    />
 
     <MatchRow
       v-for="(row, index) in rows"
@@ -105,7 +109,7 @@ function onParlayUpdate(items) {
 }
 
 const amountMin = ref(0)
-const amountMax = ref(1000)
+const amountMax = ref(200)
 
 const singleMatchWarning = computed(() => {
   if (rows.length !== 1) return ''
@@ -308,6 +312,77 @@ defineExpose({
   setAmountRange,
   calculate
 })
+
+function onRandomPick() {
+  // 1. 筛选非让球的比赛
+  const parlayGroupIds = props.parlayItems
+    .filter(it => it.groupId)
+    .map(it => String(it.groupId))
+
+  const candidates = (props.matchesData || []).filter(m => {
+    // if (m.poolType !== 'had') return false
+    if (!m.odds) return false
+    // ★ 排除串买已选的场次
+    if (parlayGroupIds.includes(String(m.groupId))) return false
+    const maxWL = Math.max(m.odds.win, m.odds.lose)
+    return maxWL > 5 && maxWL <= 6.3
+  })
+
+  if (candidates.length < matchCount.value) {
+    alert(`符合筛选条件的比赛不足 ${matchCount.value} 场（当前只有 ${candidates.length} 场）`)
+    return
+  }
+
+  // 2. 随机选取
+  const shuffled = [...candidates]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  const picked = shuffled.slice(0, matchCount.value)
+
+  // 3. 填充 rows
+  matchCount.value = picked.length
+  onMatchCountChange(picked.length)
+
+  for (let i = 0; i < picked.length; i++) {
+    const match = picked[i]
+    const newRow = createEmptyRow()
+
+    newRow.matchId = match.id
+    newRow.groupId = match.groupId
+    newRow.poolType = match.poolType
+    newRow.poolLabel = match.poolLabel
+    newRow.matchName = match.name
+    newRow.matchNo = match.matchNo
+    newRow.bettingSingle = match.bettingSingle
+    newRow.goalLine = match.goalLine ?? 0
+    newRow.odds = { ...match.odds }
+
+    // 4. 判断 comboType
+    // 胜赔率 > 负赔率 → pl（平负）
+    // 否则 → wp（胜平）
+    const comboType = match.odds.win > match.odds.lose ? 'pl' : 'wp'
+    newRow.comboType = comboType
+
+    // 计算 odds1 / odds2
+    if (comboType === 'pl') {
+      newRow.odds1 = { label: '平', value: match.odds.draw }
+      newRow.odds2 = { label: '负', value: match.odds.lose }
+    } else {
+      newRow.odds1 = { label: '胜', value: match.odds.win }
+      newRow.odds2 = { label: '平', value: match.odds.draw }
+    }
+
+    rows[i] = newRow
+  }
+
+  // 5. 触发计算
+  // 稍微延迟，等 Vue 更新 DOM
+  setTimeout(() => {
+    onCalculate()
+  }, 100)
+}
 </script>
 
 <style scoped>
