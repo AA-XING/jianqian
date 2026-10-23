@@ -9,7 +9,7 @@
       <div class="filter-body">
         <!-- 条件 1：赔率 -->
         <div class="filter-item">
-          <div class="filter-item-head">
+          <div class="filter-item-head title-only">
             <div class="filter-title">赔率</div>
             <label class="filter-enable">
               <input type="checkbox" v-model="filter1.enabled" />
@@ -283,6 +283,16 @@ function pickTop5Leagues() {
   align-items: center;
   margin-bottom: 6px;
   gap: 8px;
+}
+
+/* ★ 条件 1 专用：标题 + 勾选两端对齐 */
+.filter-item-head.title-only {
+  justify-content: space-between;
+  gap: 0;
+}
+
+.filter-item-head.title-only .filter-enable {
+  flex: 0 0 auto;
 }
 
 /* 标题靠左 */
