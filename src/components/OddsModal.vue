@@ -87,6 +87,11 @@
             <span class="empty-text">暂无赔率</span>
           </div>
         </div>
+
+        <!-- 空状态 -->
+        <div v-if="!groups.length" class="empty-list">
+          没有符合条件的比赛
+        </div>
       </div>
     </div>
   </div>
@@ -101,6 +106,7 @@ const props = defineProps({
 })
 defineEmits(['close'])
 
+/* ========== 分组 ========== */
 const groups = computed(() => {
   const map = new Map()
   for (const m of props.matchesData) {
@@ -123,6 +129,7 @@ const groups = computed(() => {
   return Array.from(map.values())
 })
 
+/* ========== 工具 ========== */
 function fmt(v) {
   if (v === null || v === undefined || Number.isNaN(v)) return '—'
   return Number(v).toFixed(2)
@@ -229,6 +236,13 @@ function goalClass(gl) {
   gap: 8px;
 }
 
+.empty-list {
+  text-align: center;
+  color: #9fb3c8;
+  font-size: 0.85rem;
+  padding: 40px 0;
+}
+
 .match-group {
   background: white;
   border-radius: 12px;
@@ -272,13 +286,13 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
-/* ★ 赔率行：不换行 */
+/* 赔率行：不换行 */
 .odds-line {
   display: flex;
   align-items: center;
   gap: 5px;
-  flex-wrap: nowrap;               /* ★ 不换行 */
-  overflow: hidden;                 /* ★ 超出隐藏 */
+  flex-wrap: nowrap;
+  overflow: hidden;
   min-height: 28px;
 }
 
@@ -293,7 +307,7 @@ function goalClass(gl) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;                      /* ★ 18px → 16px */
+  width: 16px;
   height: 16px;
   border-radius: 50%;
   background: #e74c3c;
@@ -303,33 +317,32 @@ function goalClass(gl) {
   flex-shrink: 0;
 }
 
-/* ★ 赔率行：不换行 + 收紧间距 */
 .odds-row {
   display: flex;
-  gap: 3px;                         /* ★ 4px → 3px */
+  gap: 3px;
   flex: 1;
   min-width: 0;
-  flex-wrap: nowrap;                /* ★ 不换行 */
+  flex-wrap: nowrap;
   overflow: hidden;
 }
 
 .odds-tag {
   display: inline-flex;
   align-items: center;
-  gap: 1px;                         /* ★ 2px → 1px */
+  gap: 1px;
   background: #f9fcff;
-  padding: 2px 5px;                 /* ★ 3px 6px → 2px 5px */
+  padding: 2px 5px;
   border-radius: 10px;
   font-weight: 800;
   color: #0f3b5e;
-  font-size: 0.94rem;               /* ★ 0.78rem → 0.74rem */
+  font-size: 0.94rem;
   font-family: ui-monospace, monospace;
   flex-shrink: 0;
   white-space: nowrap;
 }
 .odds-tag em {
   font-style: normal;
-  font-size: 0.82rem;               /* ★ 0.62rem → 0.58rem */
+  font-size: 0.82rem;
   color: #7e94aa;
   font-weight: 500;
 }
@@ -340,7 +353,7 @@ function goalClass(gl) {
 /* 涨跌箭头 */
 .trend-arrow {
   display: inline-block;
-  font-size: 0.55rem;               /* ★ 0.65rem → 0.55rem */
+  font-size: 0.55rem;
   line-height: 1;
   margin-left: 1px;
   font-weight: 700;
@@ -356,19 +369,19 @@ function goalClass(gl) {
 
 /* 标记徽章 */
 .pool-badge {
-  font-size: 0.62rem;               /* ★ 0.66rem → 0.62rem */
+  font-size: 0.62rem;
   border-radius: 5px;
   font-weight: 700;
   display: inline-flex;
   align-items: stretch;
   overflow: hidden;
-  flex-shrink: 0;                   /* ★ 不收缩 */
+  flex-shrink: 0;
   margin-left: auto;
 }
 .pool-badge.had {
   background: #2e8b57;
   color: white;
-  padding: 1px 6px;                 /* ★ 1px 7px → 1px 6px */
+  padding: 1px 6px;
   align-items: center;
   white-space: nowrap;
 }
@@ -380,14 +393,14 @@ function goalClass(gl) {
 .goal-label {
   background: #b8860b;
   color: white;
-  padding: 1px 5px;                 /* ★ 1px 6px → 1px 5px */
+  padding: 1px 5px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
 }
 
 .goal-num {
-  padding: 1px 6px;                 /* ★ 1px 7px → 1px 6px */
+  padding: 1px 6px;
   font-weight: 900;
   font-family: ui-monospace, monospace;
   display: inline-flex;
@@ -395,20 +408,14 @@ function goalClass(gl) {
   letter-spacing: 0.2px;
   white-space: nowrap;
 }
-.goal-num.goal-pos {
-  background: #e74c3c;
-  color: #ffffff;
-}
-.goal-num.goal-neg {
-  background: #27ae60;
-  color: #ffffff;
-}
+.goal-num.goal-pos { background: #e74c3c; color: #ffffff; }
+.goal-num.goal-neg { background: #27ae60; color: #ffffff; }
 
 .empty-text {
   font-size: 0.78rem;
 }
 
-/* ★ 窄屏进一步缩小 */
+/* 窄屏进一步缩小 */
 @media (max-width: 400px) {
   .odds-tag {
     padding: 2px 4px;

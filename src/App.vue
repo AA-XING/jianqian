@@ -2,13 +2,18 @@
   <div class="app-container">
     <TopBar
       :fetched-at="fetchedAt"
+      :has-active-filter="hasActiveFilter"
+      :total-count="totalGroupCount"
+      :filtered-count="filteredGroupCount"
       @view-odds="openOddsModal"
       @view-pushes="openPushesModal"
+      @open-filter="showFilterPanel = true"
+      @reset-filter="resetFilter"
     />
 
     <ConfigPanel
       ref="configPanelRef"
-      :matches-data="matchesData"
+      :matches-data="filteredMatches"
       :parlay-items="parlayItems"
       @update:parlay-items="onParlayUpdate"
       @calculate="handleCalculate"
@@ -23,7 +28,7 @@
 
     <OddsModal
       v-if="showOddsModal"
-      :matches-data="matchesData"
+      :matches-data="filteredMatches"
       :fetched-at="fetchedAt"
       @close="closeOddsModal"
     />
@@ -34,35 +39,51 @@
       @close="closePushesModal"
       @apply="onApplyPush"
     />
+
+    <!-- ★ 筛选弹窗 -->
+    <FilterPanel
+      ref="filterPanelRef"
+      :matches-data="matchesData"
+      :visible="showFilterPanel"
+      @close="showFilterPanel = false"
+      @filter-change="onFilterChange"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import TopBar from './components/TopBar.vue'
 import ConfigPanel from './components/ConfigPanel.vue'
 import OddsModal from './components/OddsModal.vue'
 import ResultPanel from './components/ResultPanel.vue'
 import PushesModal from './components/PushesModal.vue'
+import FilterPanel from './components/FilterPanel.vue'
 import { initializeOddsData } from './data/oddsInitializer.js'
 
+
 /* ========== 状态 ========== */
-const matchesData = ref([])
+const matchesData = ref([])            // 原始数据
+const filteredMatches = ref([])        // 过滤后数据
+const hasActiveFilter = ref(false)     // 是否有筛选生效
 const fetchedAt = ref(null)
 
 const showOddsModal = ref(false)
 const showPushesModal = ref(false)
+const showFilterPanel = ref(false)
 
 const calcResult = ref(null)
 const parlayItems = ref([])
 const lastCalcRows = ref([])
 
 const configPanelRef = ref(null)
+const filterPanelRef = ref(null)
 
 /* ========== 初始化 ========== */
 onMounted(async () => {
   const { matches, fetchedAt: t } = await initializeOddsData()
   matchesData.value = matches
+  filteredMatches.value = matches
   fetchedAt.value = t
 })
 
@@ -73,50 +94,67 @@ const closeOddsModal = () => { showOddsModal.value = false }
 const openPushesModal = () => { showPushesModal.value = true }
 const closePushesModal = () => { showPushesModal.value = false }
 
+/* ========== 筛选变化 ========== */
+function onFilterChange({ matches, hasActiveFilter: active }) {
+  filteredMatches.value = matches
+  hasActiveFilter.value = active
+}
+
+/* ========== 重置筛选 ========== */
+function resetFilter() {
+  filteredMatches.value = matchesData.value
+  hasActiveFilter.value = false
+  filterPanelRef.value?.resetFilter()
+}
+
 /* ========== 计算 ========== */
 const handleCalculate = ({ result, errorMsg, rows, parlayItems: pItems }) => {
-  console.log('计算参数：', { result, errorMsg, rows, pItems })
-
   if (errorMsg) {
     alert('计算失败：' + errorMsg)
     calcResult.value = null
     return
   }
-
   calcResult.value = result
   parlayItems.value = pItems || []
   lastCalcRows.value = rows || []
 }
 
-/* ========== 串买实时同步 ========== */
 function onParlayUpdate(items) {
-  // ★ 只保留完整选好的项（有场次 + 有赔率）
-  parlayItems.value = items.filter(it => it.matchId && it.selectedOdds)
+  parlayItems.value = items
 }
 
 /* ========== 应用推单方案 ========== */
 function onApplyPush(push) {
   showPushesModal.value = false
+  if (!configPanelRef.value) return
 
-  if (!configPanelRef.value) {
-    alert('界面未就绪，请稍后重试')
-    return
-  }
-
-  // 1. 恢复比赛
   configPanelRef.value.applyPush(push)
 
-  // 2. 设置总额范围 = M × 0.8 ~ M × 1.2
   const M = push.result?.result?.M || 100
-  const min = Math.round(M * 0.8)
-  const max = Math.round(M * 1.2)
-  configPanelRef.value.setAmountRange(min, max)
+  configPanelRef.value.setAmountRange(Math.round(M * 0.8), Math.round(M * 1.2))
 
-  // 3. 延迟计算（等 UI 更新）
   setTimeout(() => {
     configPanelRef.value?.calculate()
   }, 100)
 }
+
+/* ★ 总比赛数（按 groupId 去重） */
+const totalGroupCount = computed(() => {
+  const set = new Set()
+  for (const m of matchesData.value) {
+    if (m.groupId) set.add(m.groupId)
+  }
+  return set.size
+})
+
+/* ★ 筛选后比赛数 */
+const filteredGroupCount = computed(() => {
+  const set = new Set()
+  for (const m of filteredMatches.value) {
+    if (m.groupId) set.add(m.groupId)
+  }
+  return set.size
+})
 </script>
 
 <style scoped>
