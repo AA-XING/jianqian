@@ -36,10 +36,14 @@
         <div class="filter-item">
           <div class="filter-item-head">
             <div class="filter-title">赛制</div>
+            <button class="btn-quick" @click="pickTop5Leagues">
+              五大联赛
+            </button>
             <label class="filter-enable">
               <input type="checkbox" v-model="filter2.enabled" />
             </label>
           </div>
+
           <div class="filter-desc">可多选</div>
           <div class="league-list">
             <label
@@ -182,6 +186,31 @@ function resetFilter() {
 }
 
 defineExpose({ resetFilter, hasActiveFilter })
+
+/* ========== 五大联赛快捷选择 ========== */
+const TOP5_LEAGUES = [
+  '英超',
+  '西甲',
+  '意甲',
+  '德甲',
+  '法甲'
+]
+
+function pickTop5Leagues() {
+  // 1. 启用赛制筛选
+  filter2.enabled = true
+
+  // 2. 从 allLeagues 里挑出属于五大联赛的（兼容实际名称）
+  const matched = allLeagues.value.filter(lg => {
+    return TOP5_LEAGUES.some(t5 => {
+      // 兼容「英超」「英格兰超级联赛」等不同命名
+      return lg.includes(t5) || t5.includes(lg)
+    })
+  })
+
+  // 3. 直接选中（替换，不是追加）
+  filter2.leagues = matched
+}
 </script>
 
 <style scoped>
@@ -251,9 +280,46 @@ defineExpose({ resetFilter, hasActiveFilter })
 
 .filter-item-head {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 6px;
+  gap: 8px;
+}
+
+/* 标题靠左 */
+.filter-item-head .filter-title {
+  flex: 0 0 auto;
+}
+
+/* ★ 五大联赛按钮：居中 */
+.btn-quick {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background: #e6a23c;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 2px 6px rgba(230, 162, 60, 0.25);
+  max-width: 120px;
+  margin: 0 auto;
+}
+
+.btn-quick:hover {
+  background: #b88230;
+}
+
+.btn-quick:active {
+  transform: scale(0.97);
+}
+
+/* 勾选框靠右 */
+.filter-item-head .filter-enable {
+  flex: 0 0 auto;
 }
 
 .filter-title {
@@ -274,6 +340,30 @@ defineExpose({ resetFilter, hasActiveFilter })
   color: #5a7188;
   margin-bottom: 10px;
   line-height: 1.4;
+}
+
+.btn-quick {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #e6a23c;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: 0 2px 6px rgba(230, 162, 60, 0.3);
+}
+
+.btn-quick:hover {
+  background: #b88230;
+}
+
+.btn-quick:active {
+  transform: scale(0.97);
 }
 
 .filter-subdesc {
