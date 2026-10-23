@@ -15,7 +15,7 @@
         :class="{ active: hasActiveFilter }"
         @click="$emit('open-filter')"
       >
-        🔍 {{ hasActiveFilter ? '已筛选' : '筛选' }}
+        🔍 {{ hasActiveFilter ? '' : '' }}
       </button>
 
       <!-- ★ 重置按钮（有筛选时显示） -->
@@ -32,7 +32,7 @@
         :class="{ 'filter-active': hasActiveFilter }"
         @click="$emit('view-odds')"
       >
-        {{ hasActiveFilter ? `${filteredCount} 场比赛` : `${totalCount} 场比赛` }}
+        {{ hasActiveFilter ? `${filteredCount} 场` : `${totalCount} 场` }}
       </button>
     </div>
   </div>
@@ -71,8 +71,8 @@ function formatTime(ts) {
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 6px 14px;
-  font-size: 1.15rem;
+  padding: 5px 10px;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.5px;
   cursor: pointer;
@@ -86,7 +86,7 @@ function formatTime(ts) {
 .top-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   min-width: 0;
 }
 
@@ -104,9 +104,9 @@ function formatTime(ts) {
   border: none;
   color: white;
   font-weight: 600;
-  padding: 7px 14px;
+  padding: 5px 10px;
   border-radius: 20px;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -132,7 +132,7 @@ function formatTime(ts) {
   background: #dae6f2;
 }
 .btn-filter.active {
-  background: #e74c3c;
+  background: #e6a23c ;
   color: white;
 }
 
@@ -141,8 +141,8 @@ function formatTime(ts) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   background: #fff7e6;
   color: #b88230;
   border: none;
@@ -161,9 +161,9 @@ function formatTime(ts) {
   border: none;
   color: white;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 5px 10px;
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.15s;
@@ -174,14 +174,14 @@ function formatTime(ts) {
 
 /* ★ 筛选生效时醒目提示 */
 .btn-odds-view.filter-active {
-  background: #e74c3c;
+  background: #e6a23c;
   box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
   font-weight: 800;
   animation: pulse 2s infinite;
 }
 
 .btn-odds-view.filter-active:hover {
-  background: #c0392b;
+  background: #b88230;
 }
 
 @keyframes pulse {
