@@ -1,208 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042119-had",
-      "groupId": "2042119",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "格风暴 vs 马赛",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 4.05,
-        "draw": 4.08,
-        "lose": 1.57
-      }
-    },
-    {
-      "id": "2042120-had",
-      "groupId": "2042120",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "波兹南 vs 桑德兰",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 4.93,
-        "draw": 3.98,
-        "lose": 1.48
-      }
-    },
-    {
-      "id": "2042121-had",
-      "groupId": "2042121",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "萨迪纳摩 vs 奈梅亨",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.32,
-        "draw": 4.75,
-        "lose": 6.2
-      }
-    },
-    {
-      "id": "2042122-had",
-      "groupId": "2042122",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "尤文图斯 vs 雷恩",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四004",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.25,
-        "draw": 5.1,
-        "lose": 7.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042124-had",
-      "groupId": "2042124",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "伯恩茅斯 vs AC米兰",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四006",
-      "goalLine": 0,
-      "bettingSingle": true,
-      "odds": {
-        "win": 1.85,
-        "draw": 3.5,
-        "lose": 3.3
-      }
-    },
-    {
-      "id": "2042125-had",
-      "groupId": "2042125",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "凯尔特人 vs 塞尔塔",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四007",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.56,
-        "draw": 3.1,
-        "lose": 2.4
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
-      }
-    },
-    {
-      "id": "2042126-had",
-      "groupId": "2042126",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "贝西克塔 vs 水晶宫",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四008",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.95,
-        "draw": 3.75,
-        "lose": 2.86
-      }
-    },
-    {
-      "id": "2042127-had",
-      "groupId": "2042127",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "霍芬海姆 vs 里昂",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四009",
-      "goalLine": 0,
-      "bettingSingle": true,
-      "odds": {
-        "win": 2,
-        "draw": 3.9,
-        "lose": 2.68
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042128-had",
-      "groupId": "2042128",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "利勒斯特 vs 皇家社会",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四010",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 6.95,
-        "draw": 5.05,
-        "lose": 1.27
-      }
-    },
-    {
-      "id": "2042130-had",
-      "groupId": "2042130",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "阿贾克斯 vs 亚特兰大",
-      "league": "欧协联",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四011",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.89,
-        "draw": 3.68,
-        "lose": 3.04
-      }
-    },
-    {
-      "id": "2042131-had",
-      "groupId": "2042131",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "摩纳哥 vs 弗赖堡",
-      "league": "欧协联",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四012",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.93,
-        "draw": 3.35,
-        "lose": 3.2
-      }
-    },
-    {
       "id": "2042129-had",
       "groupId": "2042129",
       "poolType": "had",
@@ -217,11 +15,6 @@
         "win": 1.15,
         "draw": 5.4,
         "lose": 13.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -336,7 +129,7 @@
       "kickoff": "2026-10-24 02:45:00",
       "matchNo": "周五007",
       "goalLine": 0,
-      "bettingSingle": true,
+      "bettingSingle": false,
       "odds": {
         "win": 1.89,
         "draw": 3.35,
@@ -429,220 +222,6 @@
       }
     },
     {
-      "id": "2042119-hhad",
-      "groupId": "2042119",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "格风暴 vs 马赛",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.05,
-        "draw": 3.45,
-        "lose": 2.84
-      }
-    },
-    {
-      "id": "2042120-hhad",
-      "groupId": "2042120",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "波兹南 vs 桑德兰",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四002",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.24,
-        "draw": 3.3,
-        "lose": 2.63
-      }
-    },
-    {
-      "id": "2042121-hhad",
-      "groupId": "2042121",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "萨迪纳摩 vs 奈梅亨",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四003",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.03,
-        "draw": 3.65,
-        "lose": 2.76
-      }
-    },
-    {
-      "id": "2042122-hhad",
-      "groupId": "2042122",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "尤文图斯 vs 雷恩",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四004",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.84,
-        "draw": 3.82,
-        "lose": 3.08
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042123-hhad",
-      "groupId": "2042123",
-      "poolType": "hhad",
-      "poolLabel": "让2",
-      "name": "克里特 vs 勒沃库森",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 00:45:00",
-      "matchNo": "周四005",
-      "goalLine": 2,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.5,
-        "draw": 4.15,
-        "lose": 2.05
-      }
-    },
-    {
-      "id": "2042124-hhad",
-      "groupId": "2042124",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "伯恩茅斯 vs AC米兰",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四006",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.7,
-        "draw": 3.6,
-        "lose": 1.72
-      }
-    },
-    {
-      "id": "2042125-hhad",
-      "groupId": "2042125",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "凯尔特人 vs 塞尔塔",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四007",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.42,
-        "draw": 4.2,
-        "lose": 5.35
-      }
-    },
-    {
-      "id": "2042126-hhad",
-      "groupId": "2042126",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "贝西克塔 vs 水晶宫",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四008",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.9,
-        "draw": 3.8,
-        "lose": 1.64
-      }
-    },
-    {
-      "id": "2042127-hhad",
-      "groupId": "2042127",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "霍芬海姆 vs 里昂",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四009",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.75,
-        "draw": 4.15,
-        "lose": 1.61
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042128-hhad",
-      "groupId": "2042128",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "利勒斯特 vs 皇家社会",
-      "league": "欧罗巴",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四010",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.98,
-        "draw": 3.82,
-        "lose": 1.88
-      }
-    },
-    {
-      "id": "2042130-hhad",
-      "groupId": "2042130",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "阿贾克斯 vs 亚特兰大",
-      "league": "欧协联",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四011",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.75,
-        "draw": 3.75,
-        "lose": 1.68
-      }
-    },
-    {
-      "id": "2042131-hhad",
-      "groupId": "2042131",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "摩纳哥 vs 弗赖堡",
-      "league": "欧协联",
-      "kickoff": "2026-10-23 03:00:00",
-      "matchNo": "周四012",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.9,
-        "draw": 3.65,
-        "lose": 1.67
-      }
-    },
-    {
       "id": "2042129-hhad",
       "groupId": "2042129",
       "poolType": "hhad",
@@ -654,14 +233,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.75,
-        "draw": 3.2,
+        "win": 1.8,
+        "draw": 3.05,
         "lose": 4.08
       },
       "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -869,5 +448,5 @@
       }
     }
   ],
-  "fetchedAt": 1792674161191
+  "fetchedAt": 1792713631248
 }
