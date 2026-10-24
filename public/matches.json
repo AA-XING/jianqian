@@ -1,45 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042185-had",
-      "groupId": "2042185",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "神户胜利 vs 町田泽维",
-      "league": "日职",
-      "kickoff": "2026-10-24 14:00:00",
-      "matchNo": "周六003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.68,
-        "draw": 2.9,
-        "lose": 2.43
-      }
-    },
-    {
-      "id": "2042186-had",
-      "groupId": "2042186",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "鹿岛鹿角 vs 柏太阳神",
-      "league": "日职",
-      "kickoff": "2026-10-24 14:00:00",
-      "matchNo": "周六004",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.89,
-        "draw": 3.5,
-        "lose": 3.18
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042187-had",
       "groupId": "2042187",
       "poolType": "had",
@@ -54,11 +15,6 @@
         "win": 2.25,
         "draw": 3.15,
         "lose": 2.72
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -127,11 +83,6 @@
         "win": 1.31,
         "draw": 4.85,
         "lose": 6.25
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -149,11 +100,6 @@
         "win": 2.8,
         "draw": 2.75,
         "lose": 2.45
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
       }
     },
     {
@@ -222,11 +168,6 @@
         "win": 1.8,
         "draw": 3.57,
         "lose": 3.4
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -329,11 +270,6 @@
         "win": 1.63,
         "draw": 3.5,
         "lose": 4.35
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -351,11 +287,6 @@
         "win": 2.65,
         "draw": 3.1,
         "lose": 2.33
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -373,11 +304,6 @@
         "win": 1.63,
         "draw": 3.85,
         "lose": 3.9
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -429,11 +355,6 @@
         "win": 1.31,
         "draw": 4.3,
         "lose": 7.5
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -1049,45 +970,6 @@
       }
     },
     {
-      "id": "2042185-hhad",
-      "groupId": "2042185",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "神户胜利 vs 町田泽维",
-      "league": "日职",
-      "kickoff": "2026-10-24 14:00:00",
-      "matchNo": "周六003",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 6.2,
-        "draw": 4.4,
-        "lose": 1.35
-      }
-    },
-    {
-      "id": "2042186-hhad",
-      "groupId": "2042186",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "鹿岛鹿角 vs 柏太阳神",
-      "league": "日职",
-      "kickoff": "2026-10-24 14:00:00",
-      "matchNo": "周六004",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 4.15,
-        "draw": 3.41,
-        "lose": 1.68
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042187-hhad",
       "groupId": "2042187",
       "poolType": "hhad",
@@ -1102,11 +984,6 @@
         "win": 5.1,
         "draw": 3.9,
         "lose": 1.48
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -1175,11 +1052,6 @@
         "win": 1.97,
         "draw": 3.85,
         "lose": 2.77
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -1214,11 +1086,6 @@
         "win": 1.81,
         "draw": 4.15,
         "lose": 2.98
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
       }
     },
     {
@@ -1270,11 +1137,6 @@
         "win": 3.5,
         "draw": 3.6,
         "lose": 1.77
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -1394,11 +1256,6 @@
         "win": 3.15,
         "draw": 3.26,
         "lose": 1.98
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -1416,11 +1273,6 @@
         "win": 1.45,
         "draw": 3.9,
         "lose": 5.45
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -1489,11 +1341,6 @@
         "win": 2.04,
         "draw": 3.55,
         "lose": 2.8
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -2126,5 +1973,5 @@
       }
     }
   ],
-  "fetchedAt": 1792821657905
+  "fetchedAt": 1792821945116
 }
