@@ -1,184 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042191-had",
-      "groupId": "2042191",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "科莫 vs 萨索洛",
-      "league": "意甲",
-      "kickoff": "2026-10-24 21:00:00",
-      "matchNo": "周六009",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.31,
-        "draw": 4.9,
-        "lose": 6.2
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042192-had",
-      "groupId": "2042192",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "卡利亚里 vs 博洛尼亚",
-      "league": "意甲",
-      "kickoff": "2026-10-24 21:00:00",
-      "matchNo": "周六010",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3,
-        "draw": 2.7,
-        "lose": 2.35
-      }
-    },
-    {
-      "id": "2042193-had",
-      "groupId": "2042193",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "莱红牛 vs 埃沃斯堡",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六011",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.27,
-        "draw": 5.32,
-        "lose": 6.5
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042194-had",
-      "groupId": "2042194",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "美因茨 vs 不来梅",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六012",
-      "goalLine": 0,
-      "bettingSingle": true,
-      "odds": {
-        "win": 1.59,
-        "draw": 3.85,
-        "lose": 4.15
-      }
-    },
-    {
-      "id": "2042195-had",
-      "groupId": "2042195",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "帕德博恩 vs 汉堡",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六013",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.26,
-        "draw": 3.5,
-        "lose": 2.5
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042196-had",
-      "groupId": "2042196",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "科隆 vs 沙尔克04",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六014",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.8,
-        "draw": 3.57,
-        "lose": 3.4
-      }
-    },
-    {
-      "id": "2042197-had",
-      "groupId": "2042197",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "奥格斯堡 vs 柏林联合",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六015",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.55,
-        "draw": 4.1,
-        "lose": 4.2
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042198-had",
-      "groupId": "2042198",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "阿森纳 vs 埃弗顿",
-      "league": "英超",
-      "kickoff": "2026-10-24 22:00:00",
-      "matchNo": "周六016",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.26,
-        "draw": 4.65,
-        "lose": 8.25
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042199-had",
-      "groupId": "2042199",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "考文垂 vs 富勒姆",
-      "league": "英超",
-      "kickoff": "2026-10-24 22:00:00",
-      "matchNo": "周六017",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.9,
-        "draw": 3.3,
-        "lose": 2.08
-      }
-    },
-    {
       "id": "2042201-had",
       "groupId": "2042201",
       "poolType": "had",
@@ -193,11 +15,6 @@
         "win": 2.28,
         "draw": 3.15,
         "lose": 2.68
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -212,9 +29,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.44,
-        "draw": 4.35,
-        "lose": 4.9
+        "win": 1.4,
+        "draw": 4.5,
+        "lose": 5.2
       },
       "trend": {
         "win": "down",
@@ -234,9 +51,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.6,
+        "win": 1.58,
         "draw": 3.55,
-        "lose": 4.5
+        "lose": 4.65
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -251,9 +73,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.75,
-        "draw": 2.87,
-        "lose": 2.4
+        "win": 2.78,
+        "draw": 2.95,
+        "lose": 2.32
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -268,9 +95,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.71,
-        "draw": 3.75,
-        "lose": 3.6
+        "win": 1.68,
+        "draw": 3.8,
+        "lose": 3.7
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -285,9 +117,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.33,
-        "draw": 4.95,
-        "lose": 5.7
+        "win": 1.32,
+        "draw": 5.05,
+        "lose": 5.75
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -302,9 +139,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.4,
-        "draw": 3.62,
-        "lose": 1.79
+        "win": 3.52,
+        "draw": 3.7,
+        "lose": 1.74
       },
       "trend": {
         "win": "up",
@@ -341,9 +178,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.23,
-        "draw": 3.3,
-        "lose": 2.65
+        "win": 2.43,
+        "draw": 3.15,
+        "lose": 2.5
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -361,11 +203,6 @@
         "win": 1.15,
         "draw": 5.8,
         "lose": 11.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -380,9 +217,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 8.25,
-        "draw": 4.55,
-        "lose": 1.27
+        "win": 8.55,
+        "draw": 4.7,
+        "lose": 1.25
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -398,8 +240,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.75,
-        "draw": 3.5,
-        "lose": 3.67
+        "draw": 3.4,
+        "lose": 3.8
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -947,206 +794,6 @@
       }
     },
     {
-      "id": "2042191-hhad",
-      "groupId": "2042191",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "科莫 vs 萨索洛",
-      "league": "意甲",
-      "kickoff": "2026-10-24 21:00:00",
-      "matchNo": "周六009",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.91,
-        "draw": 4.02,
-        "lose": 2.8
-      },
-      "trend": {
-        "win": null,
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042192-hhad",
-      "groupId": "2042192",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "卡利亚里 vs 博洛尼亚",
-      "league": "意甲",
-      "kickoff": "2026-10-24 21:00:00",
-      "matchNo": "周六010",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.46,
-        "draw": 3.85,
-        "lose": 5.4
-      }
-    },
-    {
-      "id": "2042193-hhad",
-      "groupId": "2042193",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "莱红牛 vs 埃沃斯堡",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六011",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.81,
-        "draw": 4.15,
-        "lose": 2.98
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042194-hhad",
-      "groupId": "2042194",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "美因茨 vs 不来梅",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六012",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.75,
-        "draw": 3.6,
-        "lose": 2.05
-      }
-    },
-    {
-      "id": "2042195-hhad",
-      "groupId": "2042195",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "帕德博恩 vs 汉堡",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六013",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 4.6,
-        "draw": 4.25,
-        "lose": 1.48
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042196-hhad",
-      "groupId": "2042196",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "科隆 vs 沙尔克04",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六014",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.5,
-        "draw": 3.6,
-        "lose": 1.77
-      }
-    },
-    {
-      "id": "2042197-hhad",
-      "groupId": "2042197",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "奥格斯堡 vs 柏林联合",
-      "league": "德甲",
-      "kickoff": "2026-10-24 21:30:00",
-      "matchNo": "周六015",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.66,
-        "draw": 3.55,
-        "lose": 2.12
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042198-hhad",
-      "groupId": "2042198",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "阿森纳 vs 埃弗顿",
-      "league": "英超",
-      "kickoff": "2026-10-24 22:00:00",
-      "matchNo": "周六016",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.97,
-        "draw": 3.4,
-        "lose": 3.05
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042199-hhad",
-      "groupId": "2042199",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "考文垂 vs 富勒姆",
-      "league": "英超",
-      "kickoff": "2026-10-24 22:00:00",
-      "matchNo": "周六017",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.57,
-        "draw": 3.9,
-        "lose": 4.25
-      }
-    },
-    {
-      "id": "2042200-hhad",
-      "groupId": "2042200",
-      "poolType": "hhad",
-      "poolLabel": "让-2",
-      "name": "博德闪耀 vs 瓦勒伦加",
-      "league": "挪超",
-      "kickoff": "2026-10-24 22:00:00",
-      "matchNo": "周六018",
-      "goalLine": -2,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.65,
-        "draw": 4.75,
-        "lose": 3.2
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042201-hhad",
       "groupId": "2042201",
       "poolType": "hhad",
@@ -1159,8 +806,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 4.85,
-        "draw": 4.05,
-        "lose": 1.48
+        "draw": 4.2,
+        "lose": 1.46
+      },
+      "trend": {
+        "win": null,
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -1175,9 +827,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.39,
-        "draw": 3.55,
-        "lose": 2.33
+        "win": 2.32,
+        "draw": 3.45,
+        "lose": 2.45
       },
       "trend": {
         "win": "down",
@@ -1198,8 +850,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 3.06,
-        "draw": 3.18,
-        "lose": 2.05
+        "draw": 3.11,
+        "lose": 2.08
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -1214,9 +871,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.44,
+        "win": 1.45,
         "draw": 3.8,
-        "lose": 5.85
+        "lose": 5.65
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -1232,8 +894,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.88,
-        "draw": 3.95,
-        "lose": 1.89
+        "draw": 3.78,
+        "lose": 1.93
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -1248,9 +915,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.99,
-        "draw": 3.9,
-        "lose": 2.7
+        "win": 1.94,
+        "draw": 4,
+        "lose": 2.75
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -1265,9 +937,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.77,
-        "draw": 3.5,
-        "lose": 3.6
+        "win": 1.82,
+        "draw": 3.4,
+        "lose": 3.5
       },
       "trend": {
         "win": "up",
@@ -1304,9 +976,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.6,
-        "draw": 4.25,
-        "lose": 1.48
+        "win": 5.2,
+        "draw": 4.4,
+        "lose": 1.41
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -1338,9 +1015,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 3,
-        "draw": 3.45,
-        "lose": 1.98
+        "win": 3.1,
+        "draw": 3.4,
+        "lose": 1.95
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -1355,9 +1037,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.3,
-        "draw": 3.5,
+        "win": 3.4,
+        "draw": 3.4,
         "lose": 1.85
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -1922,5 +1609,5 @@
       }
     }
   ],
-  "fetchedAt": 1792843557651
+  "fetchedAt": 1792850712063
 }
