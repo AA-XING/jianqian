@@ -66,11 +66,6 @@
         "win": 1.19,
         "draw": 5.62,
         "lose": 9
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
       }
     },
     {
@@ -139,13 +134,8 @@
         "win": 1.75,
         "draw": 3.47,
         "lose": 3.7
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1792994487488
+  "fetchedAt": 1792994710775
 }
