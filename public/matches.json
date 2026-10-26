@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042241-had",
-      "groupId": "2042241",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "洛杉矶FC vs 洛城银河",
-      "league": "美职",
-      "kickoff": "2026-10-26 09:00:00",
-      "matchNo": "周日029",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.43,
-        "draw": 4.35,
-        "lose": 5
-      }
-    },
-    {
       "id": "2042242-had",
       "groupId": "2042242",
       "poolType": "had",
@@ -63,9 +46,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.8,
+        "win": 1.76,
         "draw": 3.22,
-        "lose": 3.8
+        "lose": 4
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -80,26 +68,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.23,
-        "draw": 5.1,
-        "lose": 8.35
-      }
-    },
-    {
-      "id": "2042241-hhad",
-      "groupId": "2042241",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "洛杉矶FC vs 洛城银河",
-      "league": "美职",
-      "kickoff": "2026-10-26 09:00:00",
-      "matchNo": "周日029",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.32,
-        "draw": 3.6,
-        "lose": 2.38
+        "win": 1.2,
+        "draw": 5.4,
+        "lose": 9
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -148,9 +124,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.65,
-        "draw": 3.4,
-        "lose": 1.78
+        "win": 3.58,
+        "draw": 3.33,
+        "lose": 1.82
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -165,11 +146,16 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.82,
-        "draw": 3.55,
-        "lose": 3.35
+        "win": 1.75,
+        "draw": 3.57,
+        "lose": 3.6
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1792972847547
+  "fetchedAt": 1792983680257
 }
