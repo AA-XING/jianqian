@@ -30,7 +30,6 @@ import { ref } from 'vue'
 
 const props = defineProps({
   result: { type: Object, required: true },
-  copyText: { type: String, default: '' },
   parlayItems: { type: Array, default: () => [] },
   rows: { type: Array, default: () => [] }
 })
@@ -45,10 +44,26 @@ async function handlePush() {
   if (saving.value || pushed.value) return
   saving.value = true
 
+  // ★ 精简 result：只保留已推界面显示用的字段
+  const slimResult = {
+    expect: props.result?.expect,
+    result: {
+      M: props.result?.result?.M,
+      D: props.result?.result?.D
+    },
+    details: (props.result?.details || []).map(d => ({
+      index: d.index,
+      bet: d.bet,
+      combo: d.combo,              // 完整保留（ResultPanel 显示用）
+      adjustedProfit: d.adjustedProfit,
+      adjustedRate: d.adjustedRate
+    })),
+    errorMsg: props.result?.errorMsg || null
+  }
+
   const payload = {
     remark: remark.value.trim(),
-    result: props.result,
-    copyText: props.copyText,
+    result: slimResult,
     parlayItems: props.parlayItems || [],
     comboRows: (props.rows || []).map(r => ({
       matchId: r.matchId,

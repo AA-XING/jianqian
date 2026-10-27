@@ -33,7 +33,6 @@ export async function onRequestPost(context) {
     savedAt: Date.now(),
     remark: (body.remark || '').slice(0, 200),
     result: body.result,
-    copyText: (body.copyText || '').slice(0, 2000),
     parlayItems: body.parlayItems || [],
     comboRows: body.comboRows || [],
     status: 'pushed',

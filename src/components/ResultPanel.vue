@@ -103,7 +103,6 @@
     <PushSaveModal
       v-if="showPushModal"
       :result="data"
-      :copy-text="buildCopyText()"
       :parlay-items="parlayItems"
       :rows="rows"
       @close="showPushModal = false"
