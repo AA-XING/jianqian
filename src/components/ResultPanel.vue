@@ -286,8 +286,18 @@ const adjustedDetails = computed(() => {
   const M = props.data?.result?.M || 1
 
   return props.data.details.map(item => {
-    const adjustedProfit = (item.profit + M) * mult - M
-    const adjustedRate = adjustedProfit / M
+    // ★ 优先用 item.adjustedProfit（新版精简数据），没有才用 profit + 公式（旧数据）
+    let adjustedProfit
+    if (item.adjustedProfit !== undefined && item.adjustedProfit !== null) {
+      adjustedProfit = item.adjustedProfit
+    } else if (item.profit !== undefined) {
+      adjustedProfit = (item.profit + M) * mult - M
+    } else {
+      adjustedProfit = 0
+    }
+
+    const adjustedRate = M !== 0 ? adjustedProfit / M : 0
+
     return {
       ...item,
       adjustedProfit,
