@@ -12,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.54,
-        "draw": 3.95,
-        "lose": 4.4
+        "win": 1.47,
+        "draw": 4.2,
+        "lose": 4.75
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -29,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.2,
-        "draw": 5.4,
-        "lose": 9
+        "win": 1.16,
+        "draw": 5.7,
+        "lose": 11
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -46,9 +56,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.65,
+        "win": 4.75,
         "draw": 3.85,
-        "lose": 1.53
+        "lose": 1.52
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -80,9 +95,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 7.75,
-        "draw": 5.55,
-        "lose": 1.22
+        "win": 8,
+        "draw": 5.65,
+        "lose": 1.21
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -115,8 +135,47 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.85,
-        "draw": 3,
-        "lose": 2.25
+        "draw": 2.91,
+        "lose": 2.3
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
+      }
+    },
+    {
+      "id": "2042308-had",
+      "groupId": "2042308",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "鹿斯巴达 vs 福图纳",
+      "league": "荷兰杯",
+      "kickoff": "2026-10-29 01:45:00",
+      "matchNo": "周三008",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.79,
+        "draw": 3.57,
+        "lose": 3.45
+      }
+    },
+    {
+      "id": "2042309-had",
+      "groupId": "2042309",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "布鲁马波 vs 赫根",
+      "league": "瑞超",
+      "kickoff": "2026-10-29 02:00:00",
+      "matchNo": "周三009",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4.3,
+        "draw": 4.05,
+        "lose": 1.54
       }
     },
     {
@@ -182,9 +241,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.15,
+        "win": 4.28,
         "draw": 3.8,
-        "lose": 1.6
+        "lose": 1.58
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -199,9 +263,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 5.4,
-        "draw": 3.6,
-        "lose": 1.5
+        "win": 5.6,
+        "draw": 3.7,
+        "lose": 1.47
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -214,11 +283,50 @@
       "kickoff": "2026-10-29 04:00:00",
       "matchNo": "周三015",
       "goalLine": 0,
+      "bettingSingle": true,
+      "odds": {
+        "win": 1.98,
+        "draw": 3.74,
+        "lose": 2.8
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
+      }
+    },
+    {
+      "id": "2042316-had",
+      "groupId": "2042316",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "弗鲁米嫩 vs 巴西国际",
+      "league": "巴甲",
+      "kickoff": "2026-10-29 06:30:00",
+      "matchNo": "周三016",
+      "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.06,
-        "draw": 3.7,
-        "lose": 2.68
+        "win": 1.68,
+        "draw": 3.43,
+        "lose": 4.12
+      }
+    },
+    {
+      "id": "2042317-had",
+      "groupId": "2042317",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "迈国际 vs 辛辛那提",
+      "league": "美职",
+      "kickoff": "2026-10-29 07:30:00",
+      "matchNo": "周三017",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.38,
+        "draw": 4.95,
+        "lose": 4.92
       }
     },
     {
@@ -233,9 +341,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.63,
-        "draw": 3.47,
-        "lose": 2.17
+        "win": 2.45,
+        "draw": 3.61,
+        "lose": 2.25
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -250,9 +363,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.68,
-        "draw": 3.9,
-        "lose": 3.6
+        "win": 1.58,
+        "draw": 4.15,
+        "lose": 3.91
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -301,9 +419,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.35,
-        "draw": 3.95,
-        "lose": 1.73
+        "win": 3.38,
+        "draw": 4.08,
+        "lose": 1.7
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -338,6 +461,40 @@
         "win": 1.48,
         "draw": 3.75,
         "lose": 5.35
+      }
+    },
+    {
+      "id": "2042308-hhad",
+      "groupId": "2042308",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "鹿斯巴达 vs 福图纳",
+      "league": "荷兰杯",
+      "kickoff": "2026-10-29 01:45:00",
+      "matchNo": "周三008",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.4,
+        "draw": 3.65,
+        "lose": 1.78
+      }
+    },
+    {
+      "id": "2042309-hhad",
+      "groupId": "2042309",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "布鲁马波 vs 赫根",
+      "league": "瑞超",
+      "kickoff": "2026-10-29 02:00:00",
+      "matchNo": "周三009",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.13,
+        "draw": 3.6,
+        "lose": 2.62
       }
     },
     {
@@ -403,9 +560,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.01,
-        "draw": 3.5,
-        "lose": 2.9
+        "win": 2.08,
+        "draw": 3.45,
+        "lose": 2.79
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -420,9 +582,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.19,
-        "draw": 3.2,
-        "lose": 2.78
+        "win": 2.26,
+        "draw": 3.16,
+        "lose": 2.7
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -437,11 +604,50 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.05,
-        "draw": 4,
-        "lose": 1.58
+        "win": 3.85,
+        "draw": 3.9,
+        "lose": 1.63
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
+      }
+    },
+    {
+      "id": "2042316-hhad",
+      "groupId": "2042316",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "弗鲁米嫩 vs 巴西国际",
+      "league": "巴甲",
+      "kickoff": "2026-10-29 06:30:00",
+      "matchNo": "周三016",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.2,
+        "draw": 3.32,
+        "lose": 1.94
+      }
+    },
+    {
+      "id": "2042317-hhad",
+      "groupId": "2042317",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "迈国际 vs 辛辛那提",
+      "league": "美职",
+      "kickoff": "2026-10-29 07:30:00",
+      "matchNo": "周三017",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.08,
+        "draw": 3.9,
+        "lose": 2.55
       }
     }
   ],
-  "fetchedAt": 1793156710828
+  "fetchedAt": 1793160047897
 }
