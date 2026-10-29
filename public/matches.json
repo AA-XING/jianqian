@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042324-had",
-      "groupId": "2042324",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "上海申花 vs 町田泽维",
-      "league": "亚冠乙",
-      "kickoff": "2026-10-29 20:15:00",
-      "matchNo": "周四001",
-      "goalLine": 0,
-      "bettingSingle": true,
-      "odds": {
-        "win": 4.1,
-        "draw": 3.65,
-        "lose": 1.61
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042318-had",
       "groupId": "2042318",
       "poolType": "had",
@@ -34,9 +12,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.16,
-        "draw": 2.96,
-        "lose": 2.95
+        "win": 2.18,
+        "draw": 2.88,
+        "lose": 3
       },
       "trend": {
         "win": "up",
@@ -59,11 +37,6 @@
         "win": 1.43,
         "draw": 4.5,
         "lose": 4.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -78,9 +51,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.33,
-        "draw": 4.65,
-        "lose": 5.8
+        "win": 1.31,
+        "draw": 4.75,
+        "lose": 6.05
       },
       "trend": {
         "win": "down",
@@ -103,11 +76,6 @@
         "win": 2.14,
         "draw": 3.15,
         "lose": 2.82
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -123,8 +91,8 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.12,
-        "draw": 3.3,
-        "lose": 2.74
+        "draw": 3.2,
+        "lose": 2.82
       },
       "trend": {
         "win": null,
@@ -144,9 +112,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.52,
-        "draw": 2.92,
-        "lose": 2.5
+        "win": 2.46,
+        "draw": 2.85,
+        "lose": 2.62
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -215,11 +188,6 @@
         "win": 9.4,
         "draw": 6.1,
         "lose": 1.15
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -266,7 +234,7 @@
       "kickoff": "2026-10-31 03:30:00",
       "matchNo": "周五007",
       "goalLine": 0,
-      "bettingSingle": true,
+      "bettingSingle": false,
       "odds": {
         "win": 2.95,
         "draw": 3.65,
@@ -305,11 +273,6 @@
         "win": 1.28,
         "draw": 4.85,
         "lose": 6.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -364,28 +327,6 @@
       }
     },
     {
-      "id": "2042324-hhad",
-      "groupId": "2042324",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "上海申花 vs 町田泽维",
-      "league": "亚冠乙",
-      "kickoff": "2026-10-29 20:15:00",
-      "matchNo": "周四001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2,
-        "draw": 3.7,
-        "lose": 2.71
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042318-hhad",
       "groupId": "2042318",
       "poolType": "hhad",
@@ -397,13 +338,13 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.8,
-        "draw": 3.8,
-        "lose": 1.5
+        "win": 4.9,
+        "draw": 3.85,
+        "lose": 1.48
       },
       "trend": {
         "win": "up",
-        "draw": "down",
+        "draw": "up",
         "lose": "down"
       }
     },
@@ -419,14 +360,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.32,
-        "draw": 3.65,
+        "win": 2.36,
+        "draw": 3.56,
         "lose": 2.3
       },
       "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -442,12 +383,12 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.1,
-        "draw": 3.4,
-        "lose": 2.71
+        "draw": 3.3,
+        "lose": 2.78
       },
       "trend": {
-        "win": "down",
-        "draw": null,
+        "win": null,
+        "draw": "down",
         "lose": "up"
       }
     },
@@ -466,11 +407,6 @@
         "win": 4.7,
         "draw": 3.85,
         "lose": 1.5
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -488,11 +424,6 @@
         "win": 4.28,
         "draw": 4.1,
         "lose": 1.51
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
       }
     },
     {
@@ -507,9 +438,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.37,
-        "draw": 4.2,
-        "lose": 5.85
+        "win": 1.35,
+        "draw": 4.25,
+        "lose": 6.15
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -578,11 +514,6 @@
         "win": 2.08,
         "draw": 4.15,
         "lose": 2.4
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -668,11 +599,6 @@
         "win": 1.95,
         "draw": 3.55,
         "lose": 2.9
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -727,5 +653,5 @@
       }
     }
   ],
-  "fetchedAt": 1793275523194
+  "fetchedAt": 1793282712804
 }
