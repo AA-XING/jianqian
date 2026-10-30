@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042323-had",
-      "groupId": "2042323",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "格雷米奥 vs 巴竞技",
-      "league": "巴甲",
-      "kickoff": "2026-10-30 08:30:00",
-      "matchNo": "周四007",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.46,
-        "draw": 2.85,
-        "lose": 2.62
-      }
-    },
-    {
       "id": "2042355-had",
       "groupId": "2042355",
       "poolType": "had",
@@ -29,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.47,
+        "win": 2.55,
         "draw": 3.15,
-        "lose": 2.4
+        "lose": 2.33
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -131,9 +119,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.95,
+        "win": 2.86,
         "draw": 3.65,
-        "lose": 1.9
+        "lose": 1.94
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -216,26 +209,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.7,
-        "draw": 3.35,
+        "win": 1.72,
+        "draw": 3.28,
         "lose": 3.95
-      }
-    },
-    {
-      "id": "2042323-hhad",
-      "groupId": "2042323",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "格雷米奥 vs 巴竞技",
-      "league": "巴甲",
-      "kickoff": "2026-10-30 08:30:00",
-      "matchNo": "周四007",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.35,
-        "draw": 4.25,
-        "lose": 6.15
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -250,9 +231,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.41,
-        "draw": 4.05,
-        "lose": 5.45
+        "win": 1.44,
+        "draw": 4,
+        "lose": 5.12
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -352,9 +338,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.65,
-        "draw": 3.85,
-        "lose": 3.65
+        "win": 1.62,
+        "draw": 3.92,
+        "lose": 3.75
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -437,11 +428,16 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.2,
-        "draw": 3.4,
-        "lose": 1.88
+        "win": 3.35,
+        "draw": 3.33,
+        "lose": 1.85
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     }
   ],
-  "fetchedAt": 1793318408555
+  "fetchedAt": 1793329279455
 }
