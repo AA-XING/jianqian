@@ -1,218 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042356-had",
-      "groupId": "2042356",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "科特布斯 vs 波鸿",
-      "league": "德乙",
-      "kickoff": "2026-10-31 01:30:00",
-      "matchNo": "周五002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.12,
-        "draw": 3.6,
-        "lose": 1.85
-      }
-    },
-    {
-      "id": "2042357-had",
-      "groupId": "2042357",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "尼斯 vs 雷恩",
-      "league": "法甲",
-      "kickoff": "2026-10-31 02:00:00",
-      "matchNo": "周五003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.57,
-        "draw": 3.45,
-        "lose": 2.17
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042358-had",
-      "groupId": "2042358",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "勒阿弗尔 vs 巴黎圣曼",
-      "league": "法甲",
-      "kickoff": "2026-10-31 02:00:00",
-      "matchNo": "周五004",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 9.4,
-        "draw": 6.1,
-        "lose": 1.15
-      }
-    },
-    {
-      "id": "2042359-had",
-      "groupId": "2042359",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "博德闪耀 vs 维京",
-      "league": "挪超",
-      "kickoff": "2026-10-31 02:00:00",
-      "matchNo": "周五005",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.37,
-        "draw": 4.95,
-        "lose": 4.81
-      }
-    },
-    {
-      "id": "2042360-had",
-      "groupId": "2042360",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "福伦丹 vs 格拉夫",
-      "league": "荷乙",
-      "kickoff": "2026-10-31 03:00:00",
-      "matchNo": "周五006",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.53,
-        "draw": 4.8,
-        "lose": 3.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042361-had",
-      "groupId": "2042361",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "埃沃斯堡 vs 美因茨",
-      "league": "德甲",
-      "kickoff": "2026-10-31 03:30:00",
-      "matchNo": "周五007",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.22,
-        "draw": 3.7,
-        "lose": 1.79
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042362-had",
-      "groupId": "2042362",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "谢菲联 vs 雷克斯",
-      "league": "英冠",
-      "kickoff": "2026-10-31 04:00:00",
-      "matchNo": "周五008",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2,
-        "draw": 3.08,
-        "lose": 3.18
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042363-had",
-      "groupId": "2042363",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "比利亚雷 vs 西班牙人",
-      "league": "西甲",
-      "kickoff": "2026-10-31 04:00:00",
-      "matchNo": "周五009",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.22,
-        "draw": 5.35,
-        "lose": 7.5
-      }
-    },
-    {
-      "id": "2042364-had",
-      "groupId": "2042364",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "里尔 vs 朗斯",
-      "league": "法甲",
-      "kickoff": "2026-10-31 04:05:00",
-      "matchNo": "周五010",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.18,
-        "draw": 3.08,
-        "lose": 2.81
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042365-had",
-      "groupId": "2042365",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "卡萨皮亚 vs 里斯本",
-      "league": "葡超",
-      "kickoff": "2026-10-31 04:15:00",
-      "matchNo": "周五011",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 11.5,
-        "draw": 6,
-        "lose": 1.13
-      }
-    },
-    {
-      "id": "2042366-had",
-      "groupId": "2042366",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "科林蒂安 vs 米拉索尔",
-      "league": "巴甲",
-      "kickoff": "2026-10-31 07:00:00",
-      "matchNo": "周五012",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.7,
-        "draw": 3.15,
-        "lose": 4.28
-      }
-    },
-    {
       "id": "2042385-had",
       "groupId": "2042385",
       "poolType": "had",
@@ -227,11 +15,6 @@
         "win": 3.58,
         "draw": 3.35,
         "lose": 1.78
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -351,11 +134,6 @@
         "win": 1.55,
         "draw": 3.65,
         "lose": 4.55
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -373,11 +151,6 @@
         "win": 1.64,
         "draw": 4.2,
         "lose": 3.43
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -942,228 +715,6 @@
       }
     },
     {
-      "id": "2042356-hhad",
-      "groupId": "2042356",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "科特布斯 vs 波鸿",
-      "league": "德乙",
-      "kickoff": "2026-10-31 01:30:00",
-      "matchNo": "周五002",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.69,
-        "draw": 3.55,
-        "lose": 3.76
-      }
-    },
-    {
-      "id": "2042357-hhad",
-      "groupId": "2042357",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "尼斯 vs 雷恩",
-      "league": "法甲",
-      "kickoff": "2026-10-31 02:00:00",
-      "matchNo": "周五003",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.49,
-        "draw": 4.05,
-        "lose": 4.52
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042358-hhad",
-      "groupId": "2042358",
-      "poolType": "hhad",
-      "poolLabel": "让2",
-      "name": "勒阿弗尔 vs 巴黎圣曼",
-      "league": "法甲",
-      "kickoff": "2026-10-31 02:00:00",
-      "matchNo": "周五004",
-      "goalLine": 2,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.08,
-        "draw": 4,
-        "lose": 2.45
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
-      }
-    },
-    {
-      "id": "2042359-hhad",
-      "groupId": "2042359",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "博德闪耀 vs 维京",
-      "league": "挪超",
-      "kickoff": "2026-10-31 02:00:00",
-      "matchNo": "周五005",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.17,
-        "draw": 3.65,
-        "lose": 2.47
-      }
-    },
-    {
-      "id": "2042360-hhad",
-      "groupId": "2042360",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "福伦丹 vs 格拉夫",
-      "league": "荷乙",
-      "kickoff": "2026-10-31 03:00:00",
-      "matchNo": "周五006",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.45,
-        "draw": 4,
-        "lose": 2.08
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042361-hhad",
-      "groupId": "2042361",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "埃沃斯堡 vs 美因茨",
-      "league": "德甲",
-      "kickoff": "2026-10-31 03:30:00",
-      "matchNo": "周五007",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.75,
-        "draw": 3.5,
-        "lose": 3.55
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042362-hhad",
-      "groupId": "2042362",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "谢菲联 vs 雷克斯",
-      "league": "英冠",
-      "kickoff": "2026-10-31 04:00:00",
-      "matchNo": "周五008",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 4.4,
-        "draw": 3.48,
-        "lose": 1.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042363-hhad",
-      "groupId": "2042363",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "比利亚雷 vs 西班牙人",
-      "league": "西甲",
-      "kickoff": "2026-10-31 04:00:00",
-      "matchNo": "周五009",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.75,
-        "draw": 3.95,
-        "lose": 3.18
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
-      }
-    },
-    {
-      "id": "2042364-hhad",
-      "groupId": "2042364",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "里尔 vs 朗斯",
-      "league": "法甲",
-      "kickoff": "2026-10-31 04:05:00",
-      "matchNo": "周五010",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 5,
-        "draw": 3.8,
-        "lose": 1.48
-      }
-    },
-    {
-      "id": "2042365-hhad",
-      "groupId": "2042365",
-      "poolType": "hhad",
-      "poolLabel": "让2",
-      "name": "卡萨皮亚 vs 里斯本",
-      "league": "葡超",
-      "kickoff": "2026-10-31 04:15:00",
-      "matchNo": "周五011",
-      "goalLine": 2,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.14,
-        "draw": 3.5,
-        "lose": 2.59
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042366-hhad",
-      "groupId": "2042366",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "科林蒂安 vs 米拉索尔",
-      "league": "巴甲",
-      "kickoff": "2026-10-31 07:00:00",
-      "matchNo": "周五012",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.55,
-        "draw": 3.07,
-        "lose": 1.88
-      }
-    },
-    {
       "id": "2042385-hhad",
       "groupId": "2042385",
       "poolType": "hhad",
@@ -1178,11 +729,6 @@
         "win": 1.75,
         "draw": 3.48,
         "lose": 3.56
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -1302,11 +848,6 @@
         "win": 2.83,
         "draw": 3.35,
         "lose": 2.05
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -1324,11 +865,6 @@
         "win": 2.76,
         "draw": 3.95,
         "lose": 1.91
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -1910,5 +1446,5 @@
       }
     }
   ],
-  "fetchedAt": 1793369111915
+  "fetchedAt": 1793404860042
 }
