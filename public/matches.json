@@ -1,123 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042420-had",
-      "groupId": "2042420",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "赫塔费 vs 塞维利亚",
-      "league": "西甲",
-      "kickoff": "2026-11-01 21:00:00",
-      "matchNo": "周日008",
-      "goalLine": 0,
-      "bettingSingle": true,
-      "odds": {
-        "win": 3.35,
-        "draw": 2.85,
-        "lose": 2.04
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042421-had",
-      "groupId": "2042421",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "马尔默 vs 哈马比",
-      "league": "瑞超",
-      "kickoff": "2026-11-01 21:00:00",
-      "matchNo": "周日009",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 5,
-        "draw": 4.35,
-        "lose": 1.41
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042422-had",
-      "groupId": "2042422",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "SBV精英 vs 特温特",
-      "league": "荷甲",
-      "kickoff": "2026-11-01 21:30:00",
-      "matchNo": "周日010",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 5.9,
-        "draw": 4.7,
-        "lose": 1.32
-      }
-    },
-    {
-      "id": "2042423-had",
-      "groupId": "2042423",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "布兰 vs 莫尔德",
-      "league": "挪超",
-      "kickoff": "2026-11-01 21:30:00",
-      "matchNo": "周日011",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.61,
-        "draw": 4.2,
-        "lose": 1.93
-      }
-    },
-    {
-      "id": "2042424-had",
-      "groupId": "2042424",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "弗洛西诺 vs 都灵",
-      "league": "意甲",
-      "kickoff": "2026-11-01 22:00:00",
-      "matchNo": "周日012",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.67,
-        "draw": 4.13,
-        "lose": 3.35
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042425-had",
-      "groupId": "2042425",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "拉齐奥 vs 卡利亚里",
-      "league": "意甲",
-      "kickoff": "2026-11-01 22:00:00",
-      "matchNo": "周日013",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.26,
-        "draw": 4.7,
-        "lose": 7.5
-      }
-    },
-    {
       "id": "2042426-had",
       "groupId": "2042426",
       "poolType": "had",
@@ -129,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.5,
-        "draw": 3.26,
-        "lose": 2.31
+        "win": 2.52,
+        "draw": 3.16,
+        "lose": 2.35
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -164,8 +52,8 @@
       "bettingSingle": true,
       "odds": {
         "win": 2.75,
-        "draw": 3,
-        "lose": 2.26
+        "draw": 2.95,
+        "lose": 2.29
       },
       "trend": {
         "win": null,
@@ -188,11 +76,6 @@
         "win": 1.31,
         "draw": 4.9,
         "lose": 5.8
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -207,9 +90,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.12,
-        "draw": 2.75,
+        "win": 3.18,
+        "draw": 2.7,
         "lose": 2.2
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -227,11 +115,6 @@
         "win": 2.23,
         "draw": 2.9,
         "lose": 2.9
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -246,9 +129,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.63,
-        "draw": 3.43,
-        "lose": 4.26
+        "win": 1.6,
+        "draw": 3.48,
+        "lose": 4.4
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -264,13 +152,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.25,
-        "draw": 3.13,
-        "lose": 2.66
+        "draw": 3.04,
+        "lose": 2.73
       },
       "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -288,11 +176,6 @@
         "win": 1.6,
         "draw": 3.82,
         "lose": 3.95
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -308,12 +191,12 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.88,
-        "draw": 3.45,
-        "lose": 3.15
+        "draw": 3.3,
+        "lose": 3.28
       },
       "trend": {
-        "win": "down",
-        "draw": null,
+        "win": null,
+        "draw": "down",
         "lose": "up"
       }
     },
@@ -332,11 +215,6 @@
         "win": 2.55,
         "draw": 2.6,
         "lose": 2.76
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -351,9 +229,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.8,
-        "draw": 3.92,
-        "lose": 1.9
+        "win": 2.87,
+        "draw": 4,
+        "lose": 1.85
       },
       "trend": {
         "win": "up",
@@ -498,123 +376,6 @@
       }
     },
     {
-      "id": "2042420-hhad",
-      "groupId": "2042420",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "赫塔费 vs 塞维利亚",
-      "league": "西甲",
-      "kickoff": "2026-11-01 21:00:00",
-      "matchNo": "周日008",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.56,
-        "draw": 3.5,
-        "lose": 4.7
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042421-hhad",
-      "groupId": "2042421",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "马尔默 vs 哈马比",
-      "league": "瑞超",
-      "kickoff": "2026-11-01 21:00:00",
-      "matchNo": "周日009",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.35,
-        "draw": 3.6,
-        "lose": 2.3
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042422-hhad",
-      "groupId": "2042422",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "SBV精英 vs 特温特",
-      "league": "荷甲",
-      "kickoff": "2026-11-01 21:30:00",
-      "matchNo": "周日010",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.65,
-        "draw": 3.85,
-        "lose": 1.99
-      }
-    },
-    {
-      "id": "2042423-hhad",
-      "groupId": "2042423",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "布兰 vs 莫尔德",
-      "league": "挪超",
-      "kickoff": "2026-11-01 21:30:00",
-      "matchNo": "周日011",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.63,
-        "draw": 4.2,
-        "lose": 3.48
-      }
-    },
-    {
-      "id": "2042424-hhad",
-      "groupId": "2042424",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "弗洛西诺 vs 都灵",
-      "league": "意甲",
-      "kickoff": "2026-11-01 22:00:00",
-      "matchNo": "周日012",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.87,
-        "draw": 3.9,
-        "lose": 1.87
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042425-hhad",
-      "groupId": "2042425",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "拉齐奥 vs 卡利亚里",
-      "league": "意甲",
-      "kickoff": "2026-11-01 22:00:00",
-      "matchNo": "周日013",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.95,
-        "draw": 3.5,
-        "lose": 2.93
-      }
-    },
-    {
       "id": "2042426-hhad",
       "groupId": "2042426",
       "poolType": "hhad",
@@ -626,9 +387,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.44,
-        "draw": 4.15,
-        "lose": 4.9
+        "win": 1.41,
+        "draw": 4.28,
+        "lose": 5.1
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -660,9 +426,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.47,
+        "win": 1.46,
         "draw": 3.85,
-        "lose": 5.01
+        "lose": 5.13
       },
       "trend": {
         "win": "down",
@@ -685,11 +451,6 @@
         "win": 1.97,
         "draw": 3.8,
         "lose": 2.71
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -738,9 +499,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.28,
-        "draw": 3.16,
-        "lose": 1.93
+        "win": 3.26,
+        "draw": 3.08,
+        "lose": 1.97
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -758,11 +524,6 @@
         "win": 5,
         "draw": 4,
         "lose": 1.45
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -780,11 +541,6 @@
         "win": 2.86,
         "draw": 3.55,
         "lose": 1.97
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -802,11 +558,6 @@
         "win": 3.7,
         "draw": 3.75,
         "lose": 1.66
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -824,11 +575,6 @@
         "win": 6.2,
         "draw": 4.21,
         "lose": 1.35
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -843,9 +589,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.65,
-        "draw": 4,
-        "lose": 3.54
+        "win": 1.69,
+        "draw": 3.9,
+        "lose": 3.45
       },
       "trend": {
         "win": "up",
@@ -1007,5 +753,5 @@
       }
     }
   ],
-  "fetchedAt": 1793534739755
+  "fetchedAt": 1793541955613
 }
