@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042495-had",
-      "groupId": "2042495",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "纽喷气机 vs 上海海港",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-03 15:45:00",
-      "matchNo": "周二001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.95,
-        "draw": 4.15,
-        "lose": 1.55
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
       "id": "2042496-had",
       "groupId": "2042496",
       "poolType": "had",
@@ -34,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.35,
-        "draw": 4.4,
-        "lose": 5.85
+        "win": 1.31,
+        "draw": 4.5,
+        "lose": 6.5
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -51,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 3.63,
-        "draw": 3.88,
-        "lose": 1.65
+        "win": 3.72,
+        "draw": 3.95,
+        "lose": 1.62
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -68,9 +56,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.04,
-        "draw": 3.95,
-        "lose": 2.53
+        "win": 1.94,
+        "draw": 4,
+        "lose": 2.68
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -85,9 +78,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 2.48,
+        "win": 2.54,
         "draw": 3.75,
-        "lose": 2.13
+        "lose": 2.09
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -102,9 +100,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.22,
-        "draw": 5.6,
-        "lose": 7.1
+        "win": 1.2,
+        "draw": 5.75,
+        "lose": 7.6
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -136,9 +139,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.25,
+        "win": 2.21,
         "draw": 3.96,
-        "lose": 2.26
+        "lose": 2.3
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -170,9 +178,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.4,
-        "draw": 4.7,
-        "lose": 1.43
+        "win": 4.55,
+        "draw": 4.75,
+        "lose": 1.41
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -363,28 +376,6 @@
       }
     },
     {
-      "id": "2042495-hhad",
-      "groupId": "2042495",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "纽喷气机 vs 上海海港",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-03 15:45:00",
-      "matchNo": "周二001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.05,
-        "draw": 3.75,
-        "lose": 2.6
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
       "id": "2042496-hhad",
       "groupId": "2042496",
       "poolType": "hhad",
@@ -396,9 +387,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.18,
-        "draw": 3.45,
-        "lose": 2.56
+        "win": 2.13,
+        "draw": 3.3,
+        "lose": 2.73
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -413,9 +409,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.94,
-        "draw": 3.65,
+        "win": 1.97,
+        "draw": 3.55,
         "lose": 2.86
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -430,9 +431,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.85,
-        "draw": 4.12,
-        "lose": 1.57
+        "win": 3.57,
+        "draw": 4,
+        "lose": 1.64
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -447,9 +453,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.51,
-        "draw": 4.25,
-        "lose": 4.13
+        "win": 1.53,
+        "draw": 4.2,
+        "lose": 4.05
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -464,9 +475,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.71,
-        "draw": 4.1,
-        "lose": 3.22
+        "win": 1.66,
+        "draw": 4.2,
+        "lose": 3.35
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -498,9 +514,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.36,
-        "draw": 4.35,
-        "lose": 1.47
+        "win": 4.32,
+        "draw": 4.3,
+        "lose": 1.48
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -532,9 +553,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.3,
-        "draw": 3.95,
-        "lose": 2.22
+        "win": 2.35,
+        "draw": 4,
+        "lose": 2.16
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -725,5 +751,5 @@
       }
     }
   ],
-  "fetchedAt": 1793685933850
+  "fetchedAt": 1793693150953
 }
