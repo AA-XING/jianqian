@@ -12,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.35,
-        "draw": 3.95,
-        "lose": 1.7
+        "win": 3.5,
+        "draw": 4.05,
+        "lose": 1.65
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -29,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.46,
-        "draw": 3.93,
-        "lose": 5
+        "win": 1.41,
+        "draw": 4.1,
+        "lose": 5.4
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -46,9 +56,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 3.65,
-        "draw": 3.85,
-        "lose": 1.65
+        "win": 3.67,
+        "draw": 3.95,
+        "lose": 1.63
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -80,9 +95,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 2.48,
-        "draw": 3.78,
-        "lose": 2.12
+        "win": 2.52,
+        "draw": 3.85,
+        "lose": 2.07
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -97,9 +117,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.28,
-        "draw": 5.1,
-        "lose": 6.15
+        "win": 1.26,
+        "draw": 5.25,
+        "lose": 6.45
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -114,9 +139,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.8,
-        "draw": 4.05,
-        "lose": 1.59
+        "win": 3.94,
+        "draw": 4.1,
+        "lose": 1.56
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -131,9 +161,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.18,
-        "draw": 3.7,
-        "lose": 2.44
+        "win": 2.25,
+        "draw": 3.96,
+        "lose": 2.26
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -148,9 +183,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.14,
-        "draw": 6.75,
-        "lose": 8.75
+        "win": 1.13,
+        "draw": 7,
+        "lose": 9
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -182,9 +222,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.58,
-        "draw": 4.05,
-        "lose": 3.85
+        "win": 1.53,
+        "draw": 4.15,
+        "lose": 4.1
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -233,9 +278,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.7,
-        "draw": 4.3,
-        "lose": 1.44
+        "win": 5,
+        "draw": 4.45,
+        "lose": 1.4
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -352,9 +402,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 9.7,
-        "draw": 5.5,
-        "lose": 1.17
+        "win": 10.25,
+        "draw": 5.8,
+        "lose": 1.15
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -369,9 +424,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.83,
-        "draw": 3.8,
-        "lose": 3.03
+        "win": 1.9,
+        "draw": 3.76,
+        "lose": 2.88
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -386,9 +446,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.4,
+        "win": 2.27,
         "draw": 3.5,
-        "lose": 2.29
+        "lose": 2.42
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -403,9 +468,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.91,
+        "win": 1.94,
         "draw": 3.7,
-        "lose": 2.9
+        "lose": 2.83
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -437,9 +507,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.51,
-        "draw": 4.25,
-        "lose": 4.15
+        "win": 1.54,
+        "draw": 4.2,
+        "lose": 3.97
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -454,9 +529,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.88,
-        "draw": 3.9,
-        "lose": 2.85
+        "win": 1.83,
+        "draw": 3.95,
+        "lose": 2.95
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -471,9 +551,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2,
-        "draw": 3.82,
-        "lose": 2.65
+        "win": 2.04,
+        "draw": 3.75,
+        "lose": 2.62
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -488,9 +573,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.3,
-        "draw": 4.25,
-        "lose": 1.49
+        "win": 4.36,
+        "draw": 4.35,
+        "lose": 1.47
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -505,9 +595,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.2,
+        "win": 2.14,
         "draw": 4.4,
-        "lose": 2.19
+        "lose": 2.25
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -539,9 +634,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.66,
+        "win": 2.53,
         "draw": 3.8,
-        "lose": 2
+        "lose": 2.08
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -590,9 +690,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.34,
+        "win": 2.46,
         "draw": 3.6,
-        "lose": 2.3
+        "lose": 2.2
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -709,11 +814,16 @@
       "goalLine": 2,
       "bettingSingle": false,
       "odds": {
-        "win": 1.9,
+        "win": 1.96,
         "draw": 3.9,
-        "lose": 2.8
+        "lose": 2.68
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     }
   ],
-  "fetchedAt": 1793675429797
+  "fetchedAt": 1793678473927
 }
