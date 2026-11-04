@@ -29,9 +29,31 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.62,
-        "draw": 3.55,
-        "lose": 1.72
+        "win": 3.8,
+        "draw": 3.65,
+        "lose": 1.66
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
+      }
+    },
+    {
+      "id": "2042508-had",
+      "groupId": "2042508",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "雷恩 vs 奥林匹亚",
+      "league": "欧罗巴",
+      "kickoff": "2026-11-04 23:30:00",
+      "matchNo": "周三003",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.2,
+        "draw": 3.28,
+        "lose": 2.63
       }
     },
     {
@@ -49,11 +71,6 @@
         "win": 5.75,
         "draw": 4.7,
         "lose": 1.33
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -71,11 +88,6 @@
         "win": 5.25,
         "draw": 4.8,
         "lose": 1.35
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -122,7 +134,7 @@
       "kickoff": "2026-11-05 04:00:00",
       "matchNo": "周三008",
       "goalLine": 0,
-      "bettingSingle": false,
+      "bettingSingle": true,
       "odds": {
         "win": 1.6,
         "draw": 3.95,
@@ -144,11 +156,6 @@
         "win": 1.25,
         "draw": 5.25,
         "lose": 6.7
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -183,11 +190,40 @@
         "win": 11,
         "draw": 6.1,
         "lose": 1.13
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
+      }
+    },
+    {
+      "id": "2042517-had",
+      "groupId": "2042517",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "布城 vs 伍尔弗",
+      "league": "英冠",
+      "kickoff": "2026-11-05 04:00:00",
+      "matchNo": "周三012",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.24,
+        "draw": 3.18,
+        "lose": 1.94
+      }
+    },
+    {
+      "id": "2042529-had",
+      "groupId": "2042529",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "帕梅拉斯 vs 里莫",
+      "league": "巴甲",
+      "kickoff": "2026-11-06 06:30:00",
+      "matchNo": "周四013",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.11,
+        "draw": 6,
+        "lose": 14
       }
     },
     {
@@ -219,9 +255,31 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.83,
+        "win": 1.88,
         "draw": 3.55,
-        "lose": 3.21
+        "lose": 3.07
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
+      }
+    },
+    {
+      "id": "2042508-hhad",
+      "groupId": "2042508",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "雷恩 vs 奥林匹亚",
+      "league": "欧罗巴",
+      "kickoff": "2026-11-04 23:30:00",
+      "matchNo": "周三003",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4.65,
+        "draw": 3.9,
+        "lose": 1.5
       }
     },
     {
@@ -239,11 +297,6 @@
         "win": 2.67,
         "draw": 3.75,
         "lose": 2.01
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -261,11 +314,6 @@
         "win": 2.57,
         "draw": 4,
         "lose": 2
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -334,11 +382,6 @@
         "win": 1.78,
         "draw": 4.05,
         "lose": 3.03
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -373,13 +416,42 @@
         "win": 2.1,
         "draw": 3.9,
         "lose": 2.46
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
+      }
+    },
+    {
+      "id": "2042517-hhad",
+      "groupId": "2042517",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "布城 vs 伍尔弗",
+      "league": "英冠",
+      "kickoff": "2026-11-05 04:00:00",
+      "matchNo": "周三012",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.65,
+        "draw": 3.62,
+        "lose": 3.9
+      }
+    },
+    {
+      "id": "2042529-hhad",
+      "groupId": "2042529",
+      "poolType": "hhad",
+      "poolLabel": "让-2",
+      "name": "帕梅拉斯 vs 里莫",
+      "league": "巴甲",
+      "kickoff": "2026-11-06 06:30:00",
+      "matchNo": "周四013",
+      "goalLine": -2,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.6,
+        "draw": 3.65,
+        "lose": 2.08
       }
     }
   ],
-  "fetchedAt": 1793761237851
+  "fetchedAt": 1793761542276
 }
