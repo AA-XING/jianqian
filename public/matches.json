@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042506-had",
-      "groupId": "2042506",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "浦项制铁 vs 大阪钢巴",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-04 18:00:00",
-      "matchNo": "周三001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.58,
-        "draw": 3.5,
-        "lose": 1.74
-      }
-    },
-    {
       "id": "2042507-had",
       "groupId": "2042507",
       "poolType": "had",
@@ -29,9 +12,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.55,
-        "draw": 4.1,
-        "lose": 1.48
+        "win": 4.75,
+        "draw": 4.35,
+        "lose": 1.43
       },
       "trend": {
         "win": "up",
@@ -54,11 +37,6 @@
         "win": 2.05,
         "draw": 3.4,
         "lose": 2.8
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -91,8 +69,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 5.25,
-        "draw": 4.8,
-        "lose": 1.35
+        "draw": 4.93,
+        "lose": 1.34
+      },
+      "trend": {
+        "win": null,
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -107,9 +90,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.72,
-        "draw": 3.6,
-        "lose": 3.57
+        "win": 1.69,
+        "draw": 3.65,
+        "lose": 3.65
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -124,9 +112,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.89,
-        "draw": 4.02,
-        "lose": 2.77
+        "win": 1.88,
+        "draw": 4.1,
+        "lose": 2.75
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -141,9 +134,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.57,
-        "draw": 3.75,
-        "lose": 4.24
+        "win": 1.55,
+        "draw": 3.7,
+        "lose": 4.46
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -209,9 +207,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.35,
-        "draw": 3.18,
-        "lose": 1.9
+        "win": 3.6,
+        "draw": 3.25,
+        "lose": 1.81
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -232,23 +235,6 @@
       }
     },
     {
-      "id": "2042506-hhad",
-      "groupId": "2042506",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "浦项制铁 vs 大阪钢巴",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-04 18:00:00",
-      "matchNo": "周三001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.83,
-        "draw": 3.45,
-        "lose": 3.3
-      }
-    },
-    {
       "id": "2042507-hhad",
       "groupId": "2042507",
       "poolType": "hhad",
@@ -260,13 +246,13 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.18,
-        "draw": 3.59,
-        "lose": 2.5
+        "win": 2.3,
+        "draw": 3.45,
+        "lose": 2.41
       },
       "trend": {
         "win": "up",
-        "draw": null,
+        "draw": "down",
         "lose": "down"
       }
     },
@@ -285,11 +271,6 @@
         "win": 4.2,
         "draw": 3.85,
         "lose": 1.56
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -321,9 +302,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.57,
-        "draw": 4,
-        "lose": 2
+        "win": 2.61,
+        "draw": 4.1,
+        "lose": 1.95
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -338,9 +324,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.33,
-        "draw": 3.45,
-        "lose": 1.82
+        "win": 3.28,
+        "draw": 3.3,
+        "lose": 1.88
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -372,9 +363,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.68,
-        "draw": 3.6,
-        "lose": 2.05
+        "win": 2.65,
+        "draw": 3.5,
+        "lose": 2.1
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -440,9 +436,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.68,
-        "draw": 3.56,
-        "lose": 3.8
+        "win": 1.72,
+        "draw": 3.3,
+        "lose": 3.92
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -463,5 +464,5 @@
       }
     }
   ],
-  "fetchedAt": 1793779511000
+  "fetchedAt": 1793786751099
 }
