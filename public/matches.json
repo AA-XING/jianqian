@@ -1,40 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042584-had",
-      "groupId": "2042584",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "柏太阳神 vs 川崎前锋",
-      "league": "日职",
-      "kickoff": "2026-11-07 15:00:00",
-      "matchNo": "周六003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.7,
-        "draw": 4.05,
-        "lose": 3.3
-      }
-    },
-    {
-      "id": "2042585-had",
-      "groupId": "2042585",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "金泉尚武 vs 安养FC",
-      "league": "韩职",
-      "kickoff": "2026-11-07 15:30:00",
-      "matchNo": "周六004",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.45,
-        "draw": 2.64,
-        "lose": 2.84
-      }
-    },
-    {
       "id": "2042586-had",
       "groupId": "2042586",
       "poolType": "had",
@@ -46,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.02,
-        "draw": 3.75,
-        "lose": 2.65
+        "win": 1.91,
+        "draw": 3.8,
+        "lose": 2.84
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -114,9 +85,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.57,
-        "draw": 3.6,
-        "lose": 4.45
+        "win": 1.53,
+        "draw": 3.7,
+        "lose": 4.65
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -134,11 +110,6 @@
         "win": 2.66,
         "draw": 3.7,
         "lose": 2.03
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -204,9 +175,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 7.9,
-        "draw": 6.65,
-        "lose": 1.16
+        "win": 8.25,
+        "draw": 6.75,
+        "lose": 1.15
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -306,9 +282,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.65,
-        "draw": 3.3,
-        "lose": 1.61
+        "win": 4.8,
+        "draw": 3.45,
+        "lose": 1.56
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -323,9 +304,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.9,
-        "draw": 4.25,
-        "lose": 1.43
+        "win": 4.75,
+        "draw": 4.18,
+        "lose": 1.45
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -340,9 +326,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.51,
-        "draw": 4.35,
-        "lose": 4.05
+        "win": 1.58,
+        "draw": 4.2,
+        "lose": 3.72
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -377,11 +368,6 @@
         "win": 4.4,
         "draw": 3.8,
         "lose": 1.54
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -413,9 +399,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.16,
-        "draw": 6,
-        "lose": 9
+        "win": 1.15,
+        "draw": 6.15,
+        "lose": 9.3
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -963,40 +954,6 @@
       }
     },
     {
-      "id": "2042584-hhad",
-      "groupId": "2042584",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "柏太阳神 vs 川崎前锋",
-      "league": "日职",
-      "kickoff": "2026-11-07 15:00:00",
-      "matchNo": "周六003",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.13,
-        "draw": 3.65,
-        "lose": 1.83
-      }
-    },
-    {
-      "id": "2042585-hhad",
-      "groupId": "2042585",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "金泉尚武 vs 安养FC",
-      "league": "韩职",
-      "kickoff": "2026-11-07 15:30:00",
-      "matchNo": "周六004",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 5.5,
-        "draw": 4.3,
-        "lose": 1.38
-      }
-    },
-    {
       "id": "2042586-hhad",
       "groupId": "2042586",
       "poolType": "hhad",
@@ -1008,9 +965,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.9,
+        "win": 3.57,
         "draw": 4,
-        "lose": 1.58
+        "lose": 1.64
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -1076,9 +1038,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3,
-        "draw": 3.2,
-        "lose": 2.03
+        "win": 2.93,
+        "draw": 3.15,
+        "lose": 2.08
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -1096,11 +1063,6 @@
         "win": 1.56,
         "draw": 4.05,
         "lose": 3.98
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -1149,9 +1111,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.53,
+        "win": 2.65,
         "draw": 4.1,
-        "lose": 2
+        "lose": 1.93
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -1166,9 +1133,14 @@
       "goalLine": 2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.14,
+        "win": 2.21,
         "draw": 4.4,
-        "lose": 2.25
+        "lose": 2.18
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -1285,9 +1257,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.95,
-        "draw": 3.2,
-        "lose": 3.18
+        "win": 2.05,
+        "draw": 3.15,
+        "lose": 3
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -1302,9 +1279,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.32,
+        "win": 2.25,
         "draw": 3.7,
-        "lose": 2.28
+        "lose": 2.36
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -1319,9 +1301,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.44,
+        "win": 2.62,
         "draw": 3.88,
-        "lose": 2.12
+        "lose": 2
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -1356,11 +1343,6 @@
         "win": 2.1,
         "draw": 3.5,
         "lose": 2.65
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -1392,9 +1374,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.59,
-        "draw": 4.1,
-        "lose": 3.75
+        "win": 1.53,
+        "draw": 4.3,
+        "lose": 3.95
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -1942,5 +1929,5 @@
       }
     }
   ],
-  "fetchedAt": 1794031554678
+  "fetchedAt": 1794038724393
 }
