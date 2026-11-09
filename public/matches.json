@@ -13,8 +13,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.2,
-        "draw": 3.38,
-        "lose": 2.57
+        "draw": 3.3,
+        "lose": 2.62
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -80,9 +85,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.55,
-        "draw": 3.95,
+        "win": 4.7,
+        "draw": 3.85,
         "lose": 1.5
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -137,5 +147,5 @@
       }
     }
   ],
-  "fetchedAt": 1794218717677
+  "fetchedAt": 1794225929396
 }
