@@ -32,11 +32,74 @@
         "win": 4.05,
         "draw": 3.92,
         "lose": 1.57
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
+      }
+    },
+    {
+      "id": "2042686-had",
+      "groupId": "2042686",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "横滨水手 vs 鹿岛鹿角",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:00:00",
+      "matchNo": "周三001",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.85,
+        "draw": 3.35,
+        "lose": 2.04
+      }
+    },
+    {
+      "id": "2042687-had",
+      "groupId": "2042687",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "神户胜利 vs 町田泽维",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:00:00",
+      "matchNo": "周三002",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.25,
+        "draw": 3.12,
+        "lose": 2.68
+      }
+    },
+    {
+      "id": "2042688-had",
+      "groupId": "2042688",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "川崎前锋 vs 柏太阳神",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:00:00",
+      "matchNo": "周三003",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.45,
+        "draw": 3.6,
+        "lose": 2.21
+      }
+    },
+    {
+      "id": "2042689-had",
+      "groupId": "2042689",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "浦和红钻 vs 大阪樱花",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:30:00",
+      "matchNo": "周三004",
+      "goalLine": 0,
+      "bettingSingle": true,
+      "odds": {
+        "win": 1.79,
+        "draw": 3.6,
+        "lose": 3.3
       }
     },
     {
@@ -105,11 +168,74 @@
         "win": 2.02,
         "draw": 3.67,
         "lose": 2.69
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
+      }
+    },
+    {
+      "id": "2042686-hhad",
+      "groupId": "2042686",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "横滨水手 vs 鹿岛鹿角",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:00:00",
+      "matchNo": "周三001",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.57,
+        "draw": 3.75,
+        "lose": 4.25
+      }
+    },
+    {
+      "id": "2042687-hhad",
+      "groupId": "2042687",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "神户胜利 vs 町田泽维",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:00:00",
+      "matchNo": "周三002",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 5.1,
+        "draw": 3.8,
+        "lose": 1.47
+      }
+    },
+    {
+      "id": "2042688-hhad",
+      "groupId": "2042688",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "川崎前锋 vs 柏太阳神",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:00:00",
+      "matchNo": "周三003",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.48,
+        "draw": 4.2,
+        "lose": 4.45
+      }
+    },
+    {
+      "id": "2042689-hhad",
+      "groupId": "2042689",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "浦和红钻 vs 大阪樱花",
+      "league": "日联赛杯",
+      "kickoff": "2026-11-11 18:30:00",
+      "matchNo": "周三004",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.37,
+        "draw": 3.65,
+        "lose": 1.76
       }
     },
     {
@@ -147,5 +273,5 @@
       }
     }
   ],
-  "fetchedAt": 1794279675451
+  "fetchedAt": 1794279931707
 }
