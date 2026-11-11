@@ -12,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.85,
-        "draw": 3.35,
-        "lose": 2.04
+        "win": 3.01,
+        "draw": 3.25,
+        "lose": 2
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -46,9 +51,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.45,
-        "draw": 3.6,
-        "lose": 2.21
+        "win": 2.62,
+        "draw": 3.55,
+        "lose": 2.1
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -97,9 +107,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.75,
-        "draw": 3.72,
-        "lose": 3.35
+        "win": 1.71,
+        "draw": 3.78,
+        "lose": 3.45
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -114,9 +129,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.58,
-        "draw": 3.65,
+        "win": 1.6,
+        "draw": 3.55,
         "lose": 4.3
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -148,9 +168,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.49,
-        "draw": 4.1,
-        "lose": 4.45
+        "win": 1.52,
+        "draw": 3.97,
+        "lose": 4.35
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -199,11 +224,16 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.22,
-        "draw": 3.58,
-        "lose": 1.82
+        "win": 3.15,
+        "draw": 3.52,
+        "lose": 1.86
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1794355244842
+  "fetchedAt": 1794366062639
 }
