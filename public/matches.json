@@ -1,45 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042684-had",
-      "groupId": "2042684",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "伯顿 vs 诺茨郡",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-11 03:00:00",
-      "matchNo": "周二001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.25,
-        "draw": 3.1,
-        "lose": 2.69
-      }
-    },
-    {
-      "id": "2042685-had",
-      "groupId": "2042685",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "布罗姆利 vs 米尔顿",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-11 03:30:00",
-      "matchNo": "周二002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.82,
-        "draw": 3.9,
-        "lose": 1.61
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042686-had",
       "groupId": "2042686",
       "poolType": "had",
@@ -142,50 +103,6 @@
       }
     },
     {
-      "id": "2042684-hhad",
-      "groupId": "2042684",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "伯顿 vs 诺茨郡",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-11 03:00:00",
-      "matchNo": "周二001",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 5.25,
-        "draw": 3.72,
-        "lose": 1.47
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042685-hhad",
-      "groupId": "2042685",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "布罗姆利 vs 米尔顿",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-11 03:30:00",
-      "matchNo": "周二002",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.95,
-        "draw": 3.45,
-        "lose": 2.98
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042686-hhad",
       "groupId": "2042686",
       "poolType": "hhad",
@@ -200,11 +117,6 @@
         "win": 1.58,
         "draw": 3.65,
         "lose": 4.3
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -239,11 +151,6 @@
         "win": 1.49,
         "draw": 4.1,
         "lose": 4.45
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
       }
     },
     {
@@ -278,11 +185,6 @@
         "win": 2.12,
         "draw": 3.65,
         "lose": 2.54
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -303,5 +205,5 @@
       }
     }
   ],
-  "fetchedAt": 1794319526498
+  "fetchedAt": 1794355244842
 }
