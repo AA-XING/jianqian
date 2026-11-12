@@ -1,45 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042690-had",
-      "groupId": "2042690",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "谢周三 vs 阿克宁顿",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-12 03:00:00",
-      "matchNo": "周三005",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.4,
-        "draw": 4.22,
-        "lose": 5.3
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042691-had",
-      "groupId": "2042691",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "巴恩斯利 vs 奥德汉姆",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-12 03:00:00",
-      "matchNo": "周三006",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.51,
-        "draw": 4.5,
-        "lose": 3.92
-      }
-    },
-    {
       "id": "2042692-had",
       "groupId": "2042692",
       "poolType": "had",
@@ -122,55 +83,6 @@
         "win": 1.15,
         "draw": 5.75,
         "lose": 10.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042690-hhad",
-      "groupId": "2042690",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "谢周三 vs 阿克宁顿",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-12 03:00:00",
-      "matchNo": "周三005",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.31,
-        "draw": 3.35,
-        "lose": 2.45
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042691-hhad",
-      "groupId": "2042691",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "巴恩斯利 vs 奥德汉姆",
-      "league": "英锦标赛",
-      "kickoff": "2026-11-12 03:00:00",
-      "matchNo": "周三006",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.69,
-        "draw": 3.35,
-        "lose": 2.13
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -256,11 +168,6 @@
         "win": 2.66,
         "draw": 3.8,
         "lose": 2
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -281,5 +188,5 @@
       }
     }
   ],
-  "fetchedAt": 1794405926701
+  "fetchedAt": 1794441644911
 }
