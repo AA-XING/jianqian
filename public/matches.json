@@ -12,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 3.83,
-        "draw": 4.14,
-        "lose": 1.57
+        "win": 3.75,
+        "draw": 4.05,
+        "lose": 1.6
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -29,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.49,
-        "draw": 2.95,
-        "lose": 2.51
+        "win": 2.55,
+        "draw": 2.9,
+        "lose": 2.49
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -46,9 +56,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.91,
-        "draw": 2.93,
-        "lose": 3.64
+        "win": 1.95,
+        "draw": 2.9,
+        "lose": 3.55
       },
       "trend": {
         "win": "up",
@@ -68,9 +78,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.15,
-        "draw": 5.6,
-        "lose": 11
+        "win": 1.14,
+        "draw": 5.75,
+        "lose": 11.3
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -85,9 +100,150 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.11,
-        "draw": 6.3,
-        "lose": 12.5
+        "win": 1.12,
+        "draw": 6.25,
+        "lose": 11.5
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
+      }
+    },
+    {
+      "id": "2042727-had",
+      "groupId": "2042727",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "摩尔多瓦 vs 哈萨克",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 01:00:00",
+      "matchNo": "周五002",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.31,
+        "draw": 2.84,
+        "lose": 2.82
+      }
+    },
+    {
+      "id": "2042728-had",
+      "groupId": "2042728",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "保加利亚 vs 冰岛",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五003",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4,
+        "draw": 3.25,
+        "lose": 1.72
+      }
+    },
+    {
+      "id": "2042729-had",
+      "groupId": "2042729",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "苏格兰 vs 北马其顿",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五004",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.1,
+        "draw": 6.1,
+        "lose": 15
+      }
+    },
+    {
+      "id": "2042730-had",
+      "groupId": "2042730",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "塞尔维亚 vs 德国",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五005",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 9,
+        "draw": 5.55,
+        "lose": 1.18
+      }
+    },
+    {
+      "id": "2042731-had",
+      "groupId": "2042731",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "卢森堡 vs 爱沙尼亚",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五006",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.89,
+        "draw": 2.94,
+        "lose": 3.7
+      }
+    },
+    {
+      "id": "2042732-had",
+      "groupId": "2042732",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "斯洛伐克 vs 法罗群岛",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五007",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.21,
+        "draw": 4.7,
+        "lose": 10
+      }
+    },
+    {
+      "id": "2042733-had",
+      "groupId": "2042733",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "斯洛文尼 vs 瑞士",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五008",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 5.2,
+        "draw": 3.41,
+        "lose": 1.53
+      }
+    },
+    {
+      "id": "2042734-had",
+      "groupId": "2042734",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "荷兰 vs 希腊",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五009",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.37,
+        "draw": 4.25,
+        "lose": 5.75
       }
     },
     {
@@ -102,9 +258,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.06,
+        "win": 2,
         "draw": 3.75,
-        "lose": 2.58
+        "lose": 2.68
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -119,9 +280,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 5.85,
-        "draw": 4.2,
-        "lose": 1.37
+        "win": 6,
+        "draw": 4.32,
+        "lose": 1.35
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -136,13 +302,13 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.82,
+        "win": 5.1,
         "draw": 3.1,
-        "lose": 1.64
+        "lose": 1.61
       },
       "trend": {
         "win": "up",
-        "draw": "down",
+        "draw": null,
         "lose": "down"
       }
     },
@@ -159,8 +325,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.66,
-        "draw": 3.6,
-        "lose": 3.85
+        "draw": 3.52,
+        "lose": 3.95
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -175,9 +346,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.2,
-        "draw": 3.85,
-        "lose": 2.35
+        "win": 2.3,
+        "draw": 4.1,
+        "lose": 2.17
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -192,11 +368,152 @@
       "goalLine": 2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.37,
-        "draw": 3.83,
-        "lose": 2.19
+        "win": 2.2,
+        "draw": 3.75,
+        "lose": 2.39
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
+      }
+    },
+    {
+      "id": "2042727-hhad",
+      "groupId": "2042727",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "摩尔多瓦 vs 哈萨克",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 01:00:00",
+      "matchNo": "周五002",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 5.6,
+        "draw": 3.7,
+        "lose": 1.45
+      }
+    },
+    {
+      "id": "2042728-hhad",
+      "groupId": "2042728",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "保加利亚 vs 冰岛",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五003",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.85,
+        "draw": 3.3,
+        "lose": 3.38
+      }
+    },
+    {
+      "id": "2042729-hhad",
+      "groupId": "2042729",
+      "poolType": "hhad",
+      "poolLabel": "让-2",
+      "name": "苏格兰 vs 北马其顿",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五004",
+      "goalLine": -2,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.64,
+        "draw": 3.52,
+        "lose": 2.1
+      }
+    },
+    {
+      "id": "2042730-hhad",
+      "groupId": "2042730",
+      "poolType": "hhad",
+      "poolLabel": "让2",
+      "name": "塞尔维亚 vs 德国",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五005",
+      "goalLine": 2,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.97,
+        "draw": 3.95,
+        "lose": 2.64
+      }
+    },
+    {
+      "id": "2042731-hhad",
+      "groupId": "2042731",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "卢森堡 vs 爱沙尼亚",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五006",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4.18,
+        "draw": 3.28,
+        "lose": 1.68
+      }
+    },
+    {
+      "id": "2042732-hhad",
+      "groupId": "2042732",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "斯洛伐克 vs 法罗群岛",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五007",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.82,
+        "draw": 3.43,
+        "lose": 3.35
+      }
+    },
+    {
+      "id": "2042733-hhad",
+      "groupId": "2042733",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "斯洛文尼 vs 瑞士",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五008",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.14,
+        "draw": 3.2,
+        "lose": 2.78
+      }
+    },
+    {
+      "id": "2042734-hhad",
+      "groupId": "2042734",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "荷兰 vs 希腊",
+      "league": "欧国联",
+      "kickoff": "2026-11-14 03:45:00",
+      "matchNo": "周五009",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.16,
+        "draw": 3.52,
+        "lose": 2.55
       }
     }
   ],
-  "fetchedAt": 1794463508603
+  "fetchedAt": 1794470731926
 }
