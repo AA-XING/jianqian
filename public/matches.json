@@ -10,16 +10,11 @@
       "kickoff": "2026-11-13 01:00:00",
       "matchNo": "周四001",
       "goalLine": 0,
-      "bettingSingle": false,
+      "bettingSingle": true,
       "odds": {
         "win": 3.75,
         "draw": 3.98,
         "lose": 1.61
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -37,11 +32,6 @@
         "win": 2.12,
         "draw": 3.15,
         "lose": 2.86
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -59,11 +49,6 @@
         "win": 1.78,
         "draw": 3.08,
         "lose": 3.95
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -81,11 +66,6 @@
         "win": 1.17,
         "draw": 5.3,
         "lose": 10.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -103,11 +83,6 @@
         "win": 1.12,
         "draw": 6,
         "lose": 12.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -125,11 +100,6 @@
         "win": 2,
         "draw": 3.75,
         "lose": 2.68
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -147,11 +117,6 @@
         "win": 4.65,
         "draw": 3.7,
         "lose": 1.53
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -169,11 +134,6 @@
         "win": 3.92,
         "draw": 3.2,
         "lose": 1.75
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -191,11 +151,6 @@
         "win": 1.72,
         "draw": 3.45,
         "lose": 3.74
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -213,11 +168,6 @@
         "win": 2.37,
         "draw": 3.8,
         "lose": 2.2
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -238,5 +188,5 @@
       }
     }
   ],
-  "fetchedAt": 1794452442693
+  "fetchedAt": 1794452737408
 }
