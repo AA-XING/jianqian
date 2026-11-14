@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042736-had",
-      "groupId": "2042736",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "哥伦比亚 vs 智利",
-      "league": "国际赛",
-      "kickoff": "2026-11-14 08:00:00",
-      "matchNo": "周五011",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.23,
-        "draw": 4.65,
-        "lose": 9
-      }
-    },
-    {
       "id": "2042751-had",
       "groupId": "2042751",
       "poolType": "had",
@@ -29,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.35,
-        "draw": 3.5,
-        "lose": 1.8
+        "win": 3.5,
+        "draw": 3.58,
+        "lose": 1.74
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -46,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.51,
-        "draw": 4.1,
-        "lose": 4.3
+        "win": 1.47,
+        "draw": 4.25,
+        "lose": 4.46
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -63,9 +56,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.42,
-        "draw": 4.25,
-        "lose": 5
+        "win": 1.37,
+        "draw": 4.4,
+        "lose": 5.5
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -80,9 +78,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.87,
+        "win": 1.83,
         "draw": 3.7,
-        "lose": 2.99
+        "lose": 3.1
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -148,9 +151,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.68,
-        "draw": 3.75,
-        "lose": 3.6
+        "win": 1.63,
+        "draw": 3.8,
+        "lose": 3.8
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -182,9 +190,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.91,
-        "draw": 3.7,
-        "lose": 2.9
+        "win": 1.86,
+        "draw": 3.75,
+        "lose": 2.98
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -205,23 +218,6 @@
       }
     },
     {
-      "id": "2042736-hhad",
-      "groupId": "2042736",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "哥伦比亚 vs 智利",
-      "league": "国际赛",
-      "kickoff": "2026-11-14 08:00:00",
-      "matchNo": "周五011",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.84,
-        "draw": 3.48,
-        "lose": 3.24
-      }
-    },
-    {
       "id": "2042751-hhad",
       "groupId": "2042751",
       "poolType": "hhad",
@@ -233,9 +229,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.75,
-        "draw": 3.6,
-        "lose": 3.45
+        "win": 1.8,
+        "draw": 3.5,
+        "lose": 3.35
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -250,9 +251,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.45,
-        "draw": 3.67,
-        "lose": 2.18
+        "win": 2.41,
+        "draw": 3.58,
+        "lose": 2.25
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -267,9 +273,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.3,
-        "draw": 3.5,
-        "lose": 2.39
+        "win": 2.25,
+        "draw": 3.39,
+        "lose": 2.5
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -284,9 +295,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.62,
-        "draw": 3.65,
-        "lose": 1.7
+        "win": 3.5,
+        "draw": 3.58,
+        "lose": 1.74
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -352,9 +368,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.05,
-        "draw": 3.6,
-        "lose": 1.88
+        "win": 2.96,
+        "draw": 3.5,
+        "lose": 1.94
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -386,9 +407,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.65,
-        "draw": 3.85,
-        "lose": 1.65
+        "win": 3.56,
+        "draw": 3.8,
+        "lose": 1.68
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -409,5 +435,5 @@
       }
     }
   ],
-  "fetchedAt": 1794614447769
+  "fetchedAt": 1794625265006
 }
