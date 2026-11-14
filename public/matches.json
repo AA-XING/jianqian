@@ -1,50 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042751-had",
-      "groupId": "2042751",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "湘南海洋 vs 横滨FC",
-      "league": "日乙",
-      "kickoff": "2026-11-14 13:00:00",
-      "matchNo": "周六001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.9,
-        "draw": 3.82,
-        "lose": 1.61
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042752-had",
-      "groupId": "2042752",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "大宫松鼠 vs 山形山神",
-      "league": "日乙",
-      "kickoff": "2026-11-14 13:00:00",
-      "matchNo": "周六002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.34,
-        "draw": 4.73,
-        "lose": 5.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042753-had",
       "groupId": "2042753",
       "poolType": "had",
@@ -59,11 +15,6 @@
         "win": 3.75,
         "draw": 3.7,
         "lose": 1.66
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
       }
     },
     {
@@ -79,8 +30,8 @@
       "bettingSingle": true,
       "odds": {
         "win": 1.42,
-        "draw": 3.9,
-        "lose": 5.6
+        "draw": 4,
+        "lose": 5.4
       },
       "trend": {
         "win": null,
@@ -117,13 +68,13 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 2.75,
-        "draw": 2.9,
-        "lose": 2.32
+        "win": 2.78,
+        "draw": 2.95,
+        "lose": 2.27
       },
       "trend": {
         "win": "up",
-        "draw": null,
+        "draw": "up",
         "lose": "down"
       }
     },
@@ -139,9 +90,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.16,
-        "draw": 5.8,
-        "lose": 9.75
+        "win": 1.14,
+        "draw": 6,
+        "lose": 10.5
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -157,8 +113,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.83,
-        "draw": 3.7,
-        "lose": 3.1
+        "draw": 3.6,
+        "lose": 3.17
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -173,9 +134,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.71,
-        "draw": 4,
-        "lose": 3.28
+        "win": 1.75,
+        "draw": 3.95,
+        "lose": 3.18
       },
       "trend": {
         "win": "up",
@@ -215,11 +176,6 @@
         "win": 1.4,
         "draw": 4,
         "lose": 5.7
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -234,9 +190,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.34,
-        "draw": 4.4,
-        "lose": 6.05
+        "win": 1.31,
+        "draw": 4.6,
+        "lose": 6.3
       },
       "trend": {
         "win": "down",
@@ -259,11 +215,6 @@
         "win": 3.91,
         "draw": 3.65,
         "lose": 1.64
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -403,50 +354,6 @@
       }
     },
     {
-      "id": "2042751-hhad",
-      "groupId": "2042751",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "湘南海洋 vs 横滨FC",
-      "league": "日乙",
-      "kickoff": "2026-11-14 13:00:00",
-      "matchNo": "周六001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.96,
-        "draw": 3.1,
-        "lose": 3.26
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042752-hhad",
-      "groupId": "2042752",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "大宫松鼠 vs 山形山神",
-      "league": "日乙",
-      "kickoff": "2026-11-14 13:00:00",
-      "matchNo": "周六002",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.28,
-        "draw": 3.2,
-        "lose": 2.58
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042753-hhad",
       "groupId": "2042753",
       "poolType": "hhad",
@@ -461,11 +368,6 @@
         "win": 1.9,
         "draw": 3.4,
         "lose": 3.15
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -483,11 +385,6 @@
         "win": 2.41,
         "draw": 3.25,
         "lose": 2.4
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -519,9 +416,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.45,
-        "draw": 3.75,
-        "lose": 5.45
+        "win": 1.47,
+        "draw": 3.7,
+        "lose": 5.3
       },
       "trend": {
         "win": "up",
@@ -541,9 +438,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.55,
-        "draw": 3.95,
-        "lose": 2.03
+        "win": 2.44,
+        "draw": 3.78,
+        "lose": 2.15
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -575,9 +477,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.98,
+        "win": 3.2,
         "draw": 3.8,
-        "lose": 1.85
+        "lose": 1.78
       },
       "trend": {
         "win": "up",
@@ -617,11 +519,6 @@
         "win": 2.46,
         "draw": 3.2,
         "lose": 2.38
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -636,9 +533,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.17,
-        "draw": 3.45,
-        "lose": 2.58
+        "win": 2.13,
+        "draw": 3.35,
+        "lose": 2.7
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -656,11 +558,6 @@
         "win": 1.95,
         "draw": 3.38,
         "lose": 3.02
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -800,5 +697,5 @@
       }
     }
   ],
-  "fetchedAt": 1794628849664
+  "fetchedAt": 1794632471103
 }
