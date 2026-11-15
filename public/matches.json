@@ -15,11 +15,6 @@
         "win": 1.67,
         "draw": 3.95,
         "lose": 3.48
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -54,11 +49,6 @@
         "win": 2.95,
         "draw": 3.02,
         "lose": 2.13
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -110,11 +100,6 @@
         "win": 1.67,
         "draw": 3.7,
         "lose": 3.7
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -135,50 +120,6 @@
       }
     },
     {
-      "id": "2042768-hhad",
-      "groupId": "2042768",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "鹿岛鹿角 vs 横滨水手",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 14:00:00",
-      "matchNo": "周日002",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.13,
-        "draw": 3.28,
-        "lose": 1.94
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042769-hhad",
-      "groupId": "2042769",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "大阪樱花 vs 浦和红钻",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 14:00:00",
-      "matchNo": "周日003",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.45,
-        "draw": 4.1,
-        "lose": 4.85
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042770-hhad",
       "groupId": "2042770",
       "poolType": "hhad",
@@ -193,11 +134,6 @@
         "win": 3.3,
         "draw": 3.31,
         "lose": 1.87
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -232,11 +168,6 @@
         "win": 1.53,
         "draw": 3.5,
         "lose": 5
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -305,11 +236,6 @@
         "win": 3.21,
         "draw": 3.29,
         "lose": 1.91
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -330,5 +256,5 @@
       }
     }
   ],
-  "fetchedAt": 1794722459286
+  "fetchedAt": 1794722746468
 }
