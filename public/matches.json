@@ -1,45 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042768-had",
-      "groupId": "2042768",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "鹿岛鹿角 vs 横滨水手",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 14:00:00",
-      "matchNo": "周日002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.64,
-        "draw": 3.8,
-        "lose": 3.75
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042769-had",
-      "groupId": "2042769",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "大阪樱花 vs 浦和红钻",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 14:00:00",
-      "matchNo": "周日003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.55,
-        "draw": 3.4,
-        "lose": 2.21
-      }
-    },
-    {
       "id": "2042770-had",
       "groupId": "2042770",
       "poolType": "had",
@@ -51,14 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.64,
-        "draw": 4,
-        "lose": 3.57
+        "win": 1.67,
+        "draw": 3.95,
+        "lose": 3.48
       },
       "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": null
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -90,13 +51,13 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.83,
+        "win": 2.95,
         "draw": 3.02,
-        "lose": 2.2
+        "lose": 2.13
       },
       "trend": {
         "win": "up",
-        "draw": "up",
+        "draw": null,
         "lose": "down"
       }
     },
@@ -115,11 +76,6 @@
         "win": 2.91,
         "draw": 3.22,
         "lose": 2.06
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -151,9 +107,9 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.64,
-        "draw": 3.75,
-        "lose": 3.8
+        "win": 1.67,
+        "draw": 3.7,
+        "lose": 3.7
       },
       "trend": {
         "win": "up",
@@ -176,11 +132,6 @@
         "win": 1.9,
         "draw": 3.55,
         "lose": 3.02
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -195,14 +146,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.15,
-        "draw": 3.32,
-        "lose": 1.92
+        "win": 3.13,
+        "draw": 3.28,
+        "lose": 1.94
       },
       "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -217,9 +168,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.49,
-        "draw": 3.98,
-        "lose": 4.6
+        "win": 1.45,
+        "draw": 4.1,
+        "lose": 4.85
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -234,13 +190,13 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.19,
+        "win": 3.3,
         "draw": 3.31,
-        "lose": 1.91
+        "lose": 1.87
       },
       "trend": {
         "win": "up",
-        "draw": "down",
+        "draw": null,
         "lose": "down"
       }
     },
@@ -273,9 +229,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.5,
-        "draw": 3.6,
-        "lose": 5.12
+        "win": 1.53,
+        "draw": 3.5,
+        "lose": 5
       },
       "trend": {
         "win": "up",
@@ -298,11 +254,6 @@
         "win": 1.57,
         "draw": 3.6,
         "lose": 4.45
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -351,13 +302,13 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.07,
+        "win": 3.21,
         "draw": 3.29,
-        "lose": 1.96
+        "lose": 1.91
       },
       "trend": {
         "win": "up",
-        "draw": "down",
+        "draw": null,
         "lose": "down"
       }
     },
@@ -376,13 +327,8 @@
         "win": 3.75,
         "draw": 3.75,
         "lose": 1.65
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     }
   ],
-  "fetchedAt": 1794718879186
+  "fetchedAt": 1794722459286
 }
