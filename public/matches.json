@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042767-had",
-      "groupId": "2042767",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "町田泽维 vs 神户胜利",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 13:00:00",
-      "matchNo": "周日001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.02,
-        "draw": 3.08,
-        "lose": 3.13
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042768-had",
       "groupId": "2042768",
       "poolType": "had",
@@ -34,14 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.48,
-        "draw": 4.06,
-        "lose": 4.6
+        "win": 1.64,
+        "draw": 3.8,
+        "lose": 3.75
       },
       "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -59,11 +37,6 @@
         "win": 2.55,
         "draw": 3.4,
         "lose": 2.21
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -78,14 +51,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.65,
-        "draw": 3.95,
+        "win": 1.64,
+        "draw": 4,
         "lose": 3.57
       },
       "trend": {
         "win": "down",
         "draw": "up",
-        "lose": "up"
+        "lose": null
       }
     },
     {
@@ -103,11 +76,6 @@
         "win": 2.91,
         "draw": 3.38,
         "lose": 2
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -122,9 +90,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.72,
-        "draw": 3,
-        "lose": 2.28
+        "win": 2.83,
+        "draw": 3.02,
+        "lose": 2.2
       },
       "trend": {
         "win": "up",
@@ -144,9 +112,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.85,
-        "draw": 3.18,
-        "lose": 2.11
+        "win": 2.91,
+        "draw": 3.22,
+        "lose": 2.06
       },
       "trend": {
         "win": "up",
@@ -183,9 +151,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.61,
-        "draw": 3.83,
-        "lose": 3.88
+        "win": 1.64,
+        "draw": 3.75,
+        "lose": 3.8
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -200,36 +173,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.86,
+        "win": 1.9,
         "draw": 3.55,
-        "lose": 3.12
+        "lose": 3.02
       },
       "trend": {
         "win": "up",
         "draw": null,
         "lose": "down"
-      }
-    },
-    {
-      "id": "2042767-hhad",
-      "groupId": "2042767",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "町田泽维 vs 神户胜利",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 13:00:00",
-      "matchNo": "周日001",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 4.38,
-        "draw": 3.5,
-        "lose": 1.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -244,14 +195,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.59,
-        "draw": 3.24,
-        "lose": 2.25
+        "win": 3.15,
+        "draw": 3.32,
+        "lose": 1.92
       },
       "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -269,11 +220,6 @@
         "win": 1.49,
         "draw": 3.98,
         "lose": 4.6
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -288,14 +234,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.08,
-        "draw": 3.37,
-        "lose": 1.93
+        "win": 3.19,
+        "draw": 3.31,
+        "lose": 1.91
       },
       "trend": {
-        "win": "down",
+        "win": "up",
         "draw": "down",
-        "lose": "up"
+        "lose": "down"
       }
     },
     {
@@ -313,11 +259,6 @@
         "win": 1.61,
         "draw": 3.65,
         "lose": 4.1
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -332,9 +273,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.46,
-        "draw": 3.75,
-        "lose": 5.35
+        "win": 1.5,
+        "draw": 3.6,
+        "lose": 5.12
       },
       "trend": {
         "win": "up",
@@ -354,9 +295,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.54,
-        "draw": 3.65,
-        "lose": 4.65
+        "win": 1.57,
+        "draw": 3.6,
+        "lose": 4.45
       },
       "trend": {
         "win": "up",
@@ -410,9 +351,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.86,
-        "draw": 3.45,
-        "lose": 2
+        "win": 3.07,
+        "draw": 3.29,
+        "lose": 1.96
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -427,9 +373,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.56,
-        "draw": 3.65,
-        "lose": 1.71
+        "win": 3.75,
+        "draw": 3.75,
+        "lose": 1.65
       },
       "trend": {
         "win": "up",
@@ -438,5 +384,5 @@
       }
     }
   ],
-  "fetchedAt": 1794715247014
+  "fetchedAt": 1794718879186
 }
