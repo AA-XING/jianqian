@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042770-had",
-      "groupId": "2042770",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "柏太阳神 vs 川崎前锋",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 16:00:00",
-      "matchNo": "周日004",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.67,
-        "draw": 3.95,
-        "lose": 3.48
-      }
-    },
-    {
       "id": "2042771-had",
       "groupId": "2042771",
       "poolType": "had",
@@ -29,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.91,
-        "draw": 3.38,
+        "win": 2.97,
+        "draw": 3.3,
         "lose": 2
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -46,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.95,
+        "win": 3.05,
         "draw": 3.02,
-        "lose": 2.13
+        "lose": 2.08
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -63,9 +56,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.91,
-        "draw": 3.22,
-        "lose": 2.06
+        "win": 3,
+        "draw": 3.35,
+        "lose": 1.97
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -97,9 +95,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.67,
-        "draw": 3.7,
-        "lose": 3.7
+        "win": 1.77,
+        "draw": 3.55,
+        "lose": 3.42
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -114,26 +117,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.9,
-        "draw": 3.55,
-        "lose": 3.02
-      }
-    },
-    {
-      "id": "2042770-hhad",
-      "groupId": "2042770",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "柏太阳神 vs 川崎前锋",
-      "league": "日联赛杯",
-      "kickoff": "2026-11-15 16:00:00",
-      "matchNo": "周日004",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.3,
-        "draw": 3.31,
-        "lose": 1.87
+        "win": 1.98,
+        "draw": 3.5,
+        "lose": 2.87
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -165,9 +156,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.53,
-        "draw": 3.5,
-        "lose": 5
+        "win": 1.56,
+        "draw": 3.45,
+        "lose": 4.8
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -182,9 +178,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.57,
-        "draw": 3.6,
-        "lose": 4.45
+        "win": 1.6,
+        "draw": 3.55,
+        "lose": 4.3
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -233,9 +234,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.21,
-        "draw": 3.29,
-        "lose": 1.91
+        "win": 3.68,
+        "draw": 3.3,
+        "lose": 1.77
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -250,11 +256,16 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.75,
-        "draw": 3.75,
-        "lose": 1.65
+        "win": 4,
+        "draw": 3.85,
+        "lose": 1.59
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     }
   ],
-  "fetchedAt": 1794722746468
+  "fetchedAt": 1794729941971
 }
