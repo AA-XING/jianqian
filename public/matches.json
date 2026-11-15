@@ -1,72 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042771-had",
-      "groupId": "2042771",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "马斯特里 vs 维迪斯",
-      "league": "荷乙",
-      "kickoff": "2026-11-15 21:30:00",
-      "matchNo": "周日005",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.97,
-        "draw": 3.3,
-        "lose": 2
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
-      }
-    },
-    {
-      "id": "2042772-had",
-      "groupId": "2042772",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "拉脱维亚 vs 亚美尼亚",
-      "league": "欧国联",
-      "kickoff": "2026-11-15 22:00:00",
-      "matchNo": "周日006",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.25,
-        "draw": 3.02,
-        "lose": 2
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042773-had",
-      "groupId": "2042773",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "塞浦路斯 vs 黑山",
-      "league": "欧国联",
-      "kickoff": "2026-11-15 22:00:00",
-      "matchNo": "周日007",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.3,
-        "draw": 3.52,
-        "lose": 1.81
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
       "id": "2042774-had",
       "groupId": "2042774",
       "poolType": "had",
@@ -78,9 +12,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.31,
-        "draw": 4.45,
-        "lose": 6.6
+        "win": 1.29,
+        "draw": 4.55,
+        "lose": 6.9
       },
       "trend": {
         "win": "down",
@@ -101,12 +35,12 @@
       "bettingSingle": true,
       "odds": {
         "win": 1.81,
-        "draw": 3.45,
-        "lose": 3.37
+        "draw": 3.4,
+        "lose": 3.42
       },
       "trend": {
-        "win": "down",
-        "draw": null,
+        "win": null,
+        "draw": "down",
         "lose": "up"
       }
     },
@@ -122,80 +56,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 2.16,
+        "win": 2.1,
         "draw": 3.38,
-        "lose": 2.63
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042771-hhad",
-      "groupId": "2042771",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "马斯特里 vs 维迪斯",
-      "league": "荷乙",
-      "kickoff": "2026-11-15 21:30:00",
-      "matchNo": "周日005",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.59,
-        "draw": 3.6,
-        "lose": 4.3
+        "lose": 2.72
       },
       "trend": {
         "win": "down",
-        "draw": "up",
+        "draw": null,
         "lose": "up"
-      }
-    },
-    {
-      "id": "2042772-hhad",
-      "groupId": "2042772",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "拉脱维亚 vs 亚美尼亚",
-      "league": "欧国联",
-      "kickoff": "2026-11-15 22:00:00",
-      "matchNo": "周日006",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.6,
-        "draw": 3.32,
-        "lose": 4.7
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
-      }
-    },
-    {
-      "id": "2042773-hhad",
-      "groupId": "2042773",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "塞浦路斯 vs 黑山",
-      "league": "欧国联",
-      "kickoff": "2026-11-15 22:00:00",
-      "matchNo": "周日007",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.72,
-        "draw": 3.4,
-        "lose": 3.8
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
       }
     },
     {
@@ -213,11 +81,6 @@
         "win": 2.44,
         "draw": 4.55,
         "lose": 1.96
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -232,12 +95,12 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.19,
-        "draw": 3.2,
-        "lose": 2.7
+        "win": 2.18,
+        "draw": 3.1,
+        "lose": 2.79
       },
       "trend": {
-        "win": null,
+        "win": "down",
         "draw": "down",
         "lose": "up"
       }
@@ -254,12 +117,12 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.85,
-        "draw": 3.35,
-        "lose": 1.72
+        "win": 3.94,
+        "draw": 3.25,
+        "lose": 1.73
       },
       "trend": {
-        "win": "down",
+        "win": "up",
         "draw": "down",
         "lose": "up"
       }
@@ -276,16 +139,16 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.6,
-        "draw": 4,
-        "lose": 1.49
+        "win": 4.4,
+        "draw": 3.95,
+        "lose": 1.52
       },
       "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1794744330933
+  "fetchedAt": 1794751527412
 }
