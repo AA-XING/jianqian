@@ -12,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.32,
-        "draw": 3.1,
-        "lose": 2.6
+        "win": 2.24,
+        "draw": 3.05,
+        "lose": 2.74
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -29,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.59,
-        "draw": 3.85,
-        "lose": 4
+        "win": 1.55,
+        "draw": 3.9,
+        "lose": 4.2
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -63,9 +73,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.86,
-        "draw": 3.75,
-        "lose": 2.98
+        "win": 1.81,
+        "draw": 3.8,
+        "lose": 3.09
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -97,9 +112,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 5.55,
-        "draw": 3.85,
-        "lose": 1.43
+        "win": 5.32,
+        "draw": 3.75,
+        "lose": 1.46
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -114,9 +134,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.94,
+        "win": 2.71,
         "draw": 3.4,
-        "lose": 1.98
+        "lose": 2.1
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -148,9 +173,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.56,
-        "draw": 3.8,
-        "lose": 1.68
+        "win": 3.32,
+        "draw": 3.7,
+        "lose": 1.76
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -171,5 +201,5 @@
       }
     }
   ],
-  "fetchedAt": 1794700818647
+  "fetchedAt": 1794711636791
 }
