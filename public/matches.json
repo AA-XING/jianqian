@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042829-had",
-      "groupId": "2042829",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "中国 vs 巴林",
-      "league": "国际赛",
-      "kickoff": "2026-11-17 20:00:00",
-      "matchNo": "周二002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.69,
-        "draw": 3.25,
-        "lose": 4.18
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042830-had",
       "groupId": "2042830",
       "poolType": "had",
@@ -34,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.41,
-        "draw": 4.2,
-        "lose": 5.2
+        "win": 1.4,
+        "draw": 4.25,
+        "lose": 5.26
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -51,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.66,
-        "draw": 3.6,
-        "lose": 3.85
+        "win": 1.7,
+        "draw": 3.55,
+        "lose": 3.72
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -71,11 +59,6 @@
         "win": 2.2,
         "draw": 3.61,
         "lose": 2.45
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -93,11 +76,6 @@
         "win": 2.38,
         "draw": 3.78,
         "lose": 2.2
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -115,11 +93,6 @@
         "win": 7.15,
         "draw": 5.17,
         "lose": 1.24
-      },
-      "trend": {
-        "win": null,
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -137,11 +110,6 @@
         "win": 1.65,
         "draw": 3.1,
         "lose": 4.75
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -173,31 +141,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.05,
+        "win": 4.15,
         "draw": 2.94,
-        "lose": 1.81
-      }
-    },
-    {
-      "id": "2042829-hhad",
-      "groupId": "2042829",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "中国 vs 巴林",
-      "league": "国际赛",
-      "kickoff": "2026-11-17 20:00:00",
-      "matchNo": "周二002",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.75,
-        "draw": 2.93,
-        "lose": 1.88
+        "lose": 1.79
       },
       "trend": {
         "win": "up",
-        "draw": "down",
-        "lose": "up"
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -213,8 +164,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.44,
-        "draw": 3.27,
-        "lose": 2.36
+        "draw": 3.2,
+        "lose": 2.4
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -229,9 +185,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.03,
+        "win": 3.14,
         "draw": 3.6,
-        "lose": 1.88
+        "lose": 1.84
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -249,11 +210,6 @@
         "win": 4.52,
         "draw": 4.2,
         "lose": 1.47
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -271,11 +227,6 @@
         "win": 1.47,
         "draw": 4.23,
         "lose": 4.5
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -293,11 +244,6 @@
         "win": 3.11,
         "draw": 3.6,
         "lose": 1.85
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -315,11 +261,6 @@
         "win": 3.7,
         "draw": 2.92,
         "lose": 1.9
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -351,11 +292,16 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.72,
-        "draw": 3.3,
+        "win": 1.74,
+        "draw": 3.23,
         "lose": 3.92
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     }
   ],
-  "fetchedAt": 1794909924541
+  "fetchedAt": 1794917123153
 }
