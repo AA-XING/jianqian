@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042830-had",
-      "groupId": "2042830",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "日本 vs 巴拉圭",
-      "league": "国际赛",
-      "kickoff": "2026-11-17 21:10:00",
-      "matchNo": "周二003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.4,
-        "draw": 4.25,
-        "lose": 5.26
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042831-had",
       "groupId": "2042831",
       "poolType": "had",
@@ -34,9 +12,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.7,
-        "draw": 3.55,
-        "lose": 3.72
+        "win": 1.73,
+        "draw": 3.52,
+        "lose": 3.6
       },
       "trend": {
         "win": "up",
@@ -73,9 +51,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.38,
-        "draw": 3.78,
-        "lose": 2.2
+        "win": 2.49,
+        "draw": 3.9,
+        "lose": 2.08
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -144,33 +127,6 @@
         "win": 4.15,
         "draw": 2.94,
         "lose": 1.79
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042830-hhad",
-      "groupId": "2042830",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "日本 vs 巴拉圭",
-      "league": "国际赛",
-      "kickoff": "2026-11-17 21:10:00",
-      "matchNo": "周二003",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.44,
-        "draw": 3.2,
-        "lose": 2.4
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -185,13 +141,13 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.14,
-        "draw": 3.6,
-        "lose": 1.84
+        "win": 3.25,
+        "draw": 3.62,
+        "lose": 1.8
       },
       "trend": {
         "win": "up",
-        "draw": null,
+        "draw": "up",
         "lose": "down"
       }
     },
@@ -224,9 +180,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.47,
-        "draw": 4.23,
-        "lose": 4.5
+        "win": 1.53,
+        "draw": 4.1,
+        "lose": 4.15
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -275,9 +236,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.6,
-        "draw": 3.2,
+        "win": 3.82,
+        "draw": 3.05,
         "lose": 1.82
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -295,13 +261,8 @@
         "win": 1.74,
         "draw": 3.23,
         "lose": 3.92
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
       }
     }
   ],
-  "fetchedAt": 1794917123153
+  "fetchedAt": 1794924346623
 }
