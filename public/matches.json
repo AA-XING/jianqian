@@ -135,7 +135,143 @@
         "draw": 3.5,
         "lose": 3.35
       }
+    },
+    {
+      "id": "2042838-hhad",
+      "groupId": "2042838",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "科里蒂巴 vs 桑托斯",
+      "league": "巴甲",
+      "kickoff": "2026-11-19 06:30:00",
+      "matchNo": "周三001",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.66,
+        "draw": 3.55,
+        "lose": 3.92
+      }
+    },
+    {
+      "id": "2042839-hhad",
+      "groupId": "2042839",
+      "poolType": "hhad",
+      "poolLabel": "让-2",
+      "name": "弗拉门戈 vs 巴竞技",
+      "league": "巴甲",
+      "kickoff": "2026-11-19 07:30:00",
+      "matchNo": "周三002",
+      "goalLine": -2,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.52,
+        "draw": 3.75,
+        "lose": 2.1
+      }
+    },
+    {
+      "id": "2042840-hhad",
+      "groupId": "2042840",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "科林蒂安 vs 博塔弗戈",
+      "league": "巴甲",
+      "kickoff": "2026-11-19 08:30:00",
+      "matchNo": "周三003",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.55,
+        "draw": 3.25,
+        "lose": 1.82
+      }
+    },
+    {
+      "id": "2042841-hhad",
+      "groupId": "2042841",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "格雷米奥 vs 巴伊亚",
+      "league": "巴甲",
+      "kickoff": "2026-11-19 08:30:00",
+      "matchNo": "周三004",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4.4,
+        "draw": 3.88,
+        "lose": 1.53
+      }
+    },
+    {
+      "id": "2042842-hhad",
+      "groupId": "2042842",
+      "poolType": "hhad",
+      "poolLabel": "让1",
+      "name": "维多利亚 vs 布拉干RB",
+      "league": "巴甲",
+      "kickoff": "2026-11-20 06:30:00",
+      "matchNo": "周四001",
+      "goalLine": 1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.41,
+        "draw": 4,
+        "lose": 5.55
+      }
+    },
+    {
+      "id": "2042843-hhad",
+      "groupId": "2042843",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "圣保罗 vs 弗鲁米嫩",
+      "league": "巴甲",
+      "kickoff": "2026-11-20 08:30:00",
+      "matchNo": "周四002",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 5.15,
+        "draw": 3.72,
+        "lose": 1.48
+      }
+    },
+    {
+      "id": "2042844-hhad",
+      "groupId": "2042844",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "奥兰多 vs 辛辛那提",
+      "league": "美职",
+      "kickoff": "2026-11-20 08:30:00",
+      "matchNo": "周四003",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4.55,
+        "draw": 4.35,
+        "lose": 1.45
+      }
+    },
+    {
+      "id": "2042845-hhad",
+      "groupId": "2042845",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "西雅图 vs 盐湖城",
+      "league": "美职",
+      "kickoff": "2026-11-20 11:00:00",
+      "matchNo": "周四004",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.45,
+        "draw": 3.65,
+        "lose": 1.74
+      }
     }
   ],
-  "fetchedAt": 1794970846350
+  "fetchedAt": 1794971135071
 }
