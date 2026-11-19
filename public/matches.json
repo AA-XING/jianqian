@@ -13,11 +13,11 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.72,
-        "draw": 3.15,
-        "lose": 2.2
+        "draw": 3.2,
+        "lose": 2.18
       },
       "trend": {
-        "win": "up",
+        "win": null,
         "draw": "up",
         "lose": "down"
       }
@@ -34,9 +34,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.35,
-        "draw": 3.02,
-        "lose": 2.61
+        "win": 2.37,
+        "draw": 3.05,
+        "lose": 2.57
       },
       "trend": {
         "win": "up",
@@ -56,13 +56,13 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.3,
+        "win": 2.25,
         "draw": 3.47,
-        "lose": 2.4
+        "lose": 2.46
       },
       "trend": {
         "win": "down",
-        "draw": "down",
+        "draw": null,
         "lose": "up"
       }
     },
@@ -78,14 +78,133 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.76,
-        "draw": 3.55,
-        "lose": 3.45
+        "win": 1.74,
+        "draw": 3.58,
+        "lose": 3.5
       },
       "trend": {
         "win": "down",
         "draw": "up",
         "lose": "up"
+      }
+    },
+    {
+      "id": "2042879-had",
+      "groupId": "2042879",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "西悉尼 vs 阿德莱德",
+      "league": "澳超",
+      "kickoff": "2026-11-20 16:40:00",
+      "matchNo": "周五001",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.54,
+        "draw": 4,
+        "lose": 4.16
+      }
+    },
+    {
+      "id": "2042880-had",
+      "groupId": "2042880",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "柏太阳神 vs 千叶市原",
+      "league": "日职",
+      "kickoff": "2026-11-20 18:00:00",
+      "matchNo": "周五002",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.39,
+        "draw": 4.32,
+        "lose": 5.3
+      }
+    },
+    {
+      "id": "2042881-had",
+      "groupId": "2042881",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "鹿岛鹿角 vs 清水鼓动",
+      "league": "日职",
+      "kickoff": "2026-11-20 18:00:00",
+      "matchNo": "周五003",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.41,
+        "draw": 4,
+        "lose": 5.55
+      }
+    },
+    {
+      "id": "2042882-had",
+      "groupId": "2042882",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "比勒费 vs 马格德堡",
+      "league": "德乙",
+      "kickoff": "2026-11-21 01:30:00",
+      "matchNo": "周五004",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.02,
+        "draw": 3.45,
+        "lose": 2.82
+      }
+    },
+    {
+      "id": "2042883-had",
+      "groupId": "2042883",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "登博思 vs 芬洛",
+      "league": "荷乙",
+      "kickoff": "2026-11-21 03:00:00",
+      "matchNo": "周五005",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.77,
+        "draw": 3.98,
+        "lose": 3.1
+      }
+    },
+    {
+      "id": "2042885-had",
+      "groupId": "2042885",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "特鲁瓦 vs 勒阿弗尔",
+      "league": "法甲",
+      "kickoff": "2026-11-21 03:45:00",
+      "matchNo": "周五007",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.93,
+        "draw": 3.25,
+        "lose": 3.19
+      }
+    },
+    {
+      "id": "2042886-had",
+      "groupId": "2042886",
+      "poolType": "had",
+      "poolLabel": "胜平负",
+      "name": "毕尔巴鄂 vs 西班牙人",
+      "league": "西甲",
+      "kickoff": "2026-11-21 04:00:00",
+      "matchNo": "周五008",
+      "goalLine": 0,
+      "bettingSingle": false,
+      "odds": {
+        "win": 1.37,
+        "draw": 4,
+        "lose": 6.25
       }
     },
     {
@@ -101,12 +220,12 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.5,
-        "draw": 3.85,
-        "lose": 4.7
+        "draw": 3.9,
+        "lose": 4.62
       },
       "trend": {
-        "win": "up",
-        "draw": null,
+        "win": null,
+        "draw": "up",
         "lose": "down"
       }
     },
@@ -142,11 +261,6 @@
         "win": 4.77,
         "draw": 4.16,
         "lose": 1.45
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -161,16 +275,152 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.47,
-        "draw": 3.38,
-        "lose": 1.8
+        "win": 3.45,
+        "draw": 3.3,
+        "lose": 1.83
       },
       "trend": {
         "win": "down",
         "draw": "down",
         "lose": "up"
       }
+    },
+    {
+      "id": "2042879-hhad",
+      "groupId": "2042879",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "西悉尼 vs 阿德莱德",
+      "league": "澳超",
+      "kickoff": "2026-11-20 16:40:00",
+      "matchNo": "周五001",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.6,
+        "draw": 3.6,
+        "lose": 2.1
+      }
+    },
+    {
+      "id": "2042880-hhad",
+      "groupId": "2042880",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "柏太阳神 vs 千叶市原",
+      "league": "日职",
+      "kickoff": "2026-11-20 18:00:00",
+      "matchNo": "周五002",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.25,
+        "draw": 3.55,
+        "lose": 2.42
+      }
+    },
+    {
+      "id": "2042881-hhad",
+      "groupId": "2042881",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "鹿岛鹿角 vs 清水鼓动",
+      "league": "日职",
+      "kickoff": "2026-11-20 18:00:00",
+      "matchNo": "周五003",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.39,
+        "draw": 3.35,
+        "lose": 2.37
+      }
+    },
+    {
+      "id": "2042882-hhad",
+      "groupId": "2042882",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "比勒费 vs 马格德堡",
+      "league": "德乙",
+      "kickoff": "2026-11-21 01:30:00",
+      "matchNo": "周五004",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 4.06,
+        "draw": 3.9,
+        "lose": 1.57
+      }
+    },
+    {
+      "id": "2042883-hhad",
+      "groupId": "2042883",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "登博思 vs 芬洛",
+      "league": "荷乙",
+      "kickoff": "2026-11-21 03:00:00",
+      "matchNo": "周五005",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.12,
+        "draw": 3.95,
+        "lose": 1.77
+      }
+    },
+    {
+      "id": "2042884-hhad",
+      "groupId": "2042884",
+      "poolType": "hhad",
+      "poolLabel": "让-3",
+      "name": "拜仁 vs 科隆",
+      "league": "德甲",
+      "kickoff": "2026-11-21 03:30:00",
+      "matchNo": "周五006",
+      "goalLine": -3,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.07,
+        "draw": 4.71,
+        "lose": 2.25
+      }
+    },
+    {
+      "id": "2042885-hhad",
+      "groupId": "2042885",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "特鲁瓦 vs 勒阿弗尔",
+      "league": "法甲",
+      "kickoff": "2026-11-21 03:45:00",
+      "matchNo": "周五007",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 3.97,
+        "draw": 3.6,
+        "lose": 1.64
+      }
+    },
+    {
+      "id": "2042886-hhad",
+      "groupId": "2042886",
+      "poolType": "hhad",
+      "poolLabel": "让-1",
+      "name": "毕尔巴鄂 vs 西班牙人",
+      "league": "西甲",
+      "kickoff": "2026-11-21 04:00:00",
+      "matchNo": "周五008",
+      "goalLine": -1,
+      "bettingSingle": false,
+      "odds": {
+        "win": 2.28,
+        "draw": 3.25,
+        "lose": 2.55
+      }
     }
   ],
-  "fetchedAt": 1795064462258
+  "fetchedAt": 1795068079012
 }
