@@ -1,40 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042840-had",
-      "groupId": "2042840",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "科林蒂安 vs 博塔弗戈",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 08:30:00",
-      "matchNo": "周三003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.6,
-        "draw": 3.45,
-        "lose": 4.45
-      }
-    },
-    {
-      "id": "2042841-had",
-      "groupId": "2042841",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "格雷米奥 vs 巴伊亚",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 08:30:00",
-      "matchNo": "周三004",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.23,
-        "draw": 3,
-        "lose": 2.8
-      }
-    },
-    {
       "id": "2042842-had",
       "groupId": "2042842",
       "poolType": "had",
@@ -46,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.53,
-        "draw": 3.1,
-        "lose": 2.37
+        "win": 2.65,
+        "draw": 3.02,
+        "lose": 2.32
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -80,9 +51,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.32,
-        "draw": 3.6,
-        "lose": 2.32
+        "win": 2.34,
+        "draw": 3.51,
+        "lose": 2.34
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -103,40 +79,6 @@
       }
     },
     {
-      "id": "2042840-hhad",
-      "groupId": "2042840",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "科林蒂安 vs 博塔弗戈",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 08:30:00",
-      "matchNo": "周三003",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.6,
-        "draw": 2.83,
-        "lose": 1.97
-      }
-    },
-    {
-      "id": "2042841-hhad",
-      "groupId": "2042841",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "格雷米奥 vs 巴伊亚",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 08:30:00",
-      "matchNo": "周三004",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 5.2,
-        "draw": 3.75,
-        "lose": 1.47
-      }
-    },
-    {
       "id": "2042842-hhad",
       "groupId": "2042842",
       "poolType": "hhad",
@@ -148,9 +90,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.43,
+        "win": 1.45,
         "draw": 3.9,
-        "lose": 5.45
+        "lose": 5.16
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -182,9 +129,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.55,
+        "win": 4.65,
         "draw": 4.35,
-        "lose": 1.45
+        "lose": 1.44
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -199,11 +151,16 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.45,
-        "draw": 3.55,
-        "lose": 1.76
+        "win": 3.52,
+        "draw": 3.45,
+        "lose": 1.77
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1795046426730
+  "fetchedAt": 1795057256309
 }
