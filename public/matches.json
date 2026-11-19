@@ -1,45 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042838-had",
-      "groupId": "2042838",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "科里蒂巴 vs 桑托斯",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 06:30:00",
-      "matchNo": "周三001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.78,
-        "draw": 3.5,
-        "lose": 1.7
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
-      }
-    },
-    {
-      "id": "2042839-had",
-      "groupId": "2042839",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "弗拉门戈 vs 巴竞技",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 07:30:00",
-      "matchNo": "周三002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.1,
-        "draw": 6.3,
-        "lose": 14
-      }
-    },
-    {
       "id": "2042840-had",
       "groupId": "2042840",
       "poolType": "had",
@@ -142,45 +103,6 @@
       }
     },
     {
-      "id": "2042838-hhad",
-      "groupId": "2042838",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "科里蒂巴 vs 桑托斯",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 06:30:00",
-      "matchNo": "周三001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.83,
-        "draw": 2.96,
-        "lose": 3.92
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
-      }
-    },
-    {
-      "id": "2042839-hhad",
-      "groupId": "2042839",
-      "poolType": "hhad",
-      "poolLabel": "让-2",
-      "name": "弗拉门戈 vs 巴竞技",
-      "league": "巴甲",
-      "kickoff": "2026-11-19 07:30:00",
-      "matchNo": "周三002",
-      "goalLine": -2,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.5,
-        "draw": 3.4,
-        "lose": 2.25
-      }
-    },
-    {
       "id": "2042840-hhad",
       "groupId": "2042840",
       "poolType": "hhad",
@@ -280,13 +202,8 @@
         "win": 3.45,
         "draw": 3.55,
         "lose": 1.76
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     }
   ],
-  "fetchedAt": 1795010752142
+  "fetchedAt": 1795046426730
 }
