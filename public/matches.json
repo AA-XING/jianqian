@@ -15,11 +15,6 @@
         "win": 2.72,
         "draw": 3.2,
         "lose": 2.18
-      },
-      "trend": {
-        "win": null,
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -37,11 +32,6 @@
         "win": 2.37,
         "draw": 3.05,
         "lose": 2.57
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -59,11 +49,6 @@
         "win": 2.25,
         "draw": 3.47,
         "lose": 2.46
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -81,11 +66,6 @@
         "win": 1.74,
         "draw": 3.58,
         "lose": 3.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -222,11 +202,6 @@
         "win": 1.5,
         "draw": 3.9,
         "lose": 4.62
-      },
-      "trend": {
-        "win": null,
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -278,11 +253,6 @@
         "win": 3.45,
         "draw": 3.3,
         "lose": 1.83
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -422,5 +392,5 @@
       }
     }
   ],
-  "fetchedAt": 1795068079012
+  "fetchedAt": 1795068339451
 }
