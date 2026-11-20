@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042842-had",
-      "groupId": "2042842",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "维多利亚 vs 布拉干RB",
-      "league": "巴甲",
-      "kickoff": "2026-11-20 06:30:00",
-      "matchNo": "周四001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.7,
-        "draw": 3.1,
-        "lose": 2.24
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042843-had",
       "groupId": "2042843",
       "poolType": "had",
@@ -37,11 +15,6 @@
         "win": 2.5,
         "draw": 2.8,
         "lose": 2.62
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -59,11 +32,6 @@
         "win": 2.3,
         "draw": 3.15,
         "lose": 2.58
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": null
       }
     },
     {
@@ -115,11 +83,6 @@
         "win": 1.35,
         "draw": 4.45,
         "lose": 5.75
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -137,11 +100,6 @@
         "win": 1.37,
         "draw": 4.2,
         "lose": 5.85
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -213,28 +171,6 @@
       }
     },
     {
-      "id": "2042842-hhad",
-      "groupId": "2042842",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "维多利亚 vs 布拉干RB",
-      "league": "巴甲",
-      "kickoff": "2026-11-20 06:30:00",
-      "matchNo": "周四001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.48,
-        "draw": 3.9,
-        "lose": 4.85
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042843-hhad",
       "groupId": "2042843",
       "poolType": "hhad",
@@ -266,11 +202,6 @@
         "win": 4.82,
         "draw": 4.3,
         "lose": 1.43
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -322,11 +253,6 @@
         "win": 2.1,
         "draw": 3.6,
         "lose": 2.6
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -344,11 +270,6 @@
         "win": 2.22,
         "draw": 3.35,
         "lose": 2.56
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -400,11 +321,6 @@
         "win": 2,
         "draw": 4.71,
         "lose": 2.34
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -442,5 +358,5 @@
       }
     }
   ],
-  "fetchedAt": 1795097125221
+  "fetchedAt": 1795132816077
 }
