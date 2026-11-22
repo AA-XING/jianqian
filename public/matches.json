@@ -12,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.21,
-        "draw": 5.05,
-        "lose": 8.75
+        "win": 1.22,
+        "draw": 4.95,
+        "lose": 8.5
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -29,9 +34,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.78,
-        "draw": 3.35,
-        "lose": 3.6
+        "win": 1.76,
+        "draw": 3.25,
+        "lose": 3.8
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -97,9 +107,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.66,
-        "draw": 3.7,
-        "lose": 2.03
+        "win": 2.7,
+        "draw": 3.75,
+        "lose": 1.99
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -114,9 +129,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.1,
-        "draw": 3.95,
-        "lose": 1.78
+        "win": 3.3,
+        "draw": 4.05,
+        "lose": 1.7
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -131,9 +151,14 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 1.57,
+        "win": 1.59,
         "draw": 4.17,
-        "lose": 3.8
+        "lose": 3.7
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -199,9 +224,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.7,
-        "draw": 4.4,
-        "lose": 1.43
+        "win": 4.95,
+        "draw": 4.5,
+        "lose": 1.4
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -386,9 +416,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.79,
-        "draw": 3.6,
-        "lose": 3.3
+        "win": 1.85,
+        "draw": 3.52,
+        "lose": 3.18
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -404,8 +439,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 3.35,
-        "draw": 3.6,
-        "lose": 1.78
+        "draw": 3.47,
+        "lose": 1.81
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -420,9 +460,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 1.95,
-        "draw": 4.5,
-        "lose": 2.47
+        "win": 1.9,
+        "draw": 4.4,
+        "lose": 2.6
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -488,9 +533,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.56,
-        "draw": 4.07,
-        "lose": 3.95
+        "win": 1.59,
+        "draw": 4,
+        "lose": 3.85
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -505,9 +555,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.78,
-        "draw": 3.65,
-        "lose": 3.3
+        "win": 1.84,
+        "draw": 3.55,
+        "lose": 3.18
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -590,9 +645,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.32,
-        "draw": 3.65,
-        "lose": 2.3
+        "win": 2.4,
+        "draw": 3.6,
+        "lose": 2.25
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -766,5 +826,5 @@
       }
     }
   ],
-  "fetchedAt": 1795327510017
+  "fetchedAt": 1795334755115
 }
