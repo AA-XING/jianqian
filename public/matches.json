@@ -163,7 +163,7 @@
       "kickoff": "2026-11-23 00:30:00",
       "matchNo": "周日012",
       "goalLine": 0,
-      "bettingSingle": false,
+      "bettingSingle": true,
       "odds": {
         "win": 1.6,
         "draw": 4.1,
@@ -185,11 +185,6 @@
         "win": 1.46,
         "draw": 4.15,
         "lose": 4.7
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -241,11 +236,6 @@
         "win": 4.7,
         "draw": 4.4,
         "lose": 1.43
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -620,11 +610,6 @@
         "win": 2.4,
         "draw": 3.54,
         "lose": 2.27
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -676,11 +661,6 @@
         "win": 2.32,
         "draw": 3.65,
         "lose": 2.3
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -854,5 +834,5 @@
       }
     }
   ],
-  "fetchedAt": 1795316469601
+  "fetchedAt": 1795316717326
 }
