@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042994-had",
-      "groupId": "2042994",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "大田市民 vs 北京国安",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-24 18:00:00",
-      "matchNo": "周二002",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.31,
-        "draw": 4.5,
-        "lose": 6.5
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
-      }
-    },
-    {
       "id": "2042995-had",
       "groupId": "2042995",
       "poolType": "had",
@@ -51,13 +29,13 @@
       "goalLine": 0,
       "bettingSingle": true,
       "odds": {
-        "win": 2.81,
-        "draw": 3.8,
-        "lose": 1.92
+        "win": 2.88,
+        "draw": 3.85,
+        "lose": 1.88
       },
       "trend": {
         "win": "up",
-        "draw": null,
+        "draw": "up",
         "lose": "down"
       }
     },
@@ -73,9 +51,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.29,
-        "draw": 5.3,
-        "lose": 5.7
+        "win": 1.27,
+        "draw": 5.45,
+        "lose": 5.95
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -90,9 +73,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.13,
-        "draw": 6.5,
-        "lose": 9.9
+        "win": 1.12,
+        "draw": 6.7,
+        "lose": 10.25
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -110,11 +98,6 @@
         "win": 1.2,
         "draw": 6.05,
         "lose": 7.1
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -132,11 +115,6 @@
         "win": 1.27,
         "draw": 4.7,
         "lose": 7.2
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -185,9 +163,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3,
-        "draw": 3.5,
-        "lose": 1.92
+        "win": 3.1,
+        "draw": 3.55,
+        "lose": 1.87
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -273,11 +256,6 @@
         "win": 1.28,
         "draw": 5.3,
         "lose": 5.9
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -292,9 +270,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 4.05,
-        "draw": 4.45,
-        "lose": 1.5
+        "win": 4.18,
+        "draw": 4.55,
+        "lose": 1.47
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -312,11 +295,6 @@
         "win": 1.28,
         "draw": 5.25,
         "lose": 5.95
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -334,28 +312,6 @@
         "win": 4.85,
         "draw": 4.1,
         "lose": 1.45
-      }
-    },
-    {
-      "id": "2042994-hhad",
-      "groupId": "2042994",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "大田市民 vs 北京国安",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-24 18:00:00",
-      "matchNo": "周二002",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.07,
-        "draw": 3.4,
-        "lose": 2.76
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -387,9 +343,9 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.63,
-        "draw": 3.92,
-        "lose": 3.7
+        "win": 1.66,
+        "draw": 3.8,
+        "lose": 3.65
       },
       "trend": {
         "win": "up",
@@ -409,9 +365,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.89,
-        "draw": 3.9,
-        "lose": 2.83
+        "win": 1.85,
+        "draw": 3.97,
+        "lose": 2.88
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -426,9 +387,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.18,
+        "win": 2.12,
         "draw": 4.3,
-        "lose": 2.23
+        "lose": 2.3
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -446,11 +412,6 @@
         "win": 1.63,
         "draw": 4.35,
         "lose": 3.38
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -468,11 +429,6 @@
         "win": 2.09,
         "draw": 3.15,
         "lose": 2.91
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -488,8 +444,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 2.38,
-        "draw": 4.05,
-        "lose": 2.12
+        "draw": 3.93,
+        "lose": 2.15
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -521,9 +482,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.65,
-        "draw": 3.8,
-        "lose": 3.7
+        "win": 1.68,
+        "draw": 3.7,
+        "lose": 3.65
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -626,11 +592,6 @@
         "win": 1.82,
         "draw": 4,
         "lose": 2.94
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -682,11 +643,6 @@
         "win": 1.86,
         "draw": 4,
         "lose": 2.84
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -704,13 +660,8 @@
         "win": 2.29,
         "draw": 3.65,
         "lose": 2.33
-      },
-      "trend": {
-        "win": null,
-        "draw": "up",
-        "lose": "down"
       }
     }
   ],
-  "fetchedAt": 1795507537327
+  "fetchedAt": 1795514734843
 }
