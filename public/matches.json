@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2042995-had",
-      "groupId": "2042995",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "上海海港 vs 布里兰",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-24 20:15:00",
-      "matchNo": "周二003",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.7,
-        "draw": 3.75,
-        "lose": 3.52
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
-      }
-    },
-    {
       "id": "2042996-had",
       "groupId": "2042996",
       "poolType": "had",
@@ -32,11 +10,16 @@
       "kickoff": "2026-11-25 01:45:00",
       "matchNo": "周二004",
       "goalLine": 0,
-      "bettingSingle": true,
+      "bettingSingle": false,
       "odds": {
-        "win": 2.88,
-        "draw": 3.85,
-        "lose": 1.88
+        "win": 2.85,
+        "draw": 3.66,
+        "lose": 1.94
+      },
+      "trend": {
+        "win": "down",
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -51,9 +34,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.24,
-        "draw": 5.65,
-        "lose": 6.4
+        "win": 1.23,
+        "draw": 5.7,
+        "lose": 6.65
       },
       "trend": {
         "win": "down",
@@ -76,11 +59,6 @@
         "win": 1.13,
         "draw": 6.5,
         "lose": 9.9
-      },
-      "trend": {
-        "win": "up",
-        "draw": "down",
-        "lose": "down"
       }
     },
     {
@@ -95,9 +73,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.18,
-        "draw": 6.3,
-        "lose": 7.5
+        "win": 1.17,
+        "draw": 6.32,
+        "lose": 7.9
       },
       "trend": {
         "win": "down",
@@ -171,11 +149,6 @@
         "win": 3.25,
         "draw": 3.75,
         "lose": 1.77
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -239,11 +212,16 @@
       "kickoff": "2026-11-26 04:00:00",
       "matchNo": "周三005",
       "goalLine": 0,
-      "bettingSingle": true,
+      "bettingSingle": false,
       "odds": {
-        "win": 2.37,
-        "draw": 3.55,
-        "lose": 2.3
+        "win": 2.34,
+        "draw": 3.65,
+        "lose": 2.28
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -315,28 +293,6 @@
       }
     },
     {
-      "id": "2042995-hhad",
-      "groupId": "2042995",
-      "poolType": "hhad",
-      "poolLabel": "让-1",
-      "name": "上海海港 vs 布里兰",
-      "league": "亚冠精英",
-      "kickoff": "2026-11-24 20:15:00",
-      "matchNo": "周二003",
-      "goalLine": -1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 3.22,
-        "draw": 3.5,
-        "lose": 1.84
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
-      }
-    },
-    {
       "id": "2042996-hhad",
       "groupId": "2042996",
       "poolType": "hhad",
@@ -348,9 +304,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.66,
-        "draw": 3.8,
-        "lose": 3.65
+        "win": 1.62,
+        "draw": 3.82,
+        "lose": 3.85
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -365,9 +326,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.74,
-        "draw": 4.1,
-        "lose": 3.12
+        "win": 1.7,
+        "draw": 4.15,
+        "lose": 3.22
       },
       "trend": {
         "win": "down",
@@ -387,14 +348,14 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.18,
-        "draw": 4.3,
+        "win": 2.22,
+        "draw": 4.15,
         "lose": 2.23
       },
       "trend": {
         "win": "up",
-        "draw": null,
-        "lose": "down"
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -409,9 +370,9 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.58,
-        "draw": 4.46,
-        "lose": 3.54
+        "win": 1.55,
+        "draw": 4.56,
+        "lose": 3.63
       },
       "trend": {
         "win": "down",
@@ -431,14 +392,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.09,
-        "draw": 3.09,
+        "win": 2.15,
+        "draw": 2.97,
         "lose": 2.96
       },
       "trend": {
-        "win": null,
+        "win": "up",
         "draw": "down",
-        "lose": "up"
+        "lose": null
       }
     },
     {
@@ -453,12 +414,12 @@
       "goalLine": -2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.4,
-        "draw": 3.85,
-        "lose": 2.16
+        "win": 2.34,
+        "draw": 3.75,
+        "lose": 2.25
       },
       "trend": {
-        "win": "up",
+        "win": "down",
         "draw": "down",
         "lose": "up"
       }
@@ -475,8 +436,8 @@
       "goalLine": 2,
       "bettingSingle": false,
       "odds": {
-        "win": 2.23,
-        "draw": 4.05,
+        "win": 2.28,
+        "draw": 3.9,
         "lose": 2.25
       },
       "trend": {
@@ -498,13 +459,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.76,
-        "draw": 3.45,
-        "lose": 3.55
+        "draw": 3.35,
+        "lose": 3.66
       },
       "trend": {
-        "win": "up",
+        "win": null,
         "draw": "down",
-        "lose": "down"
+        "lose": "up"
       }
     },
     {
@@ -587,9 +548,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.43,
+        "win": 1.44,
         "draw": 4.3,
-        "lose": 4.82
+        "lose": 4.7
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -678,5 +644,5 @@
       }
     }
   ],
-  "fetchedAt": 1795521909758
+  "fetchedAt": 1795529143971
 }
