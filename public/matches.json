@@ -1,28 +1,6 @@
 {
   "matches": [
     {
-      "id": "2043055-had",
-      "groupId": "2043055",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "麦克阿瑟 vs 墨尔本城",
-      "league": "澳超",
-      "kickoff": "2026-11-27 16:40:00",
-      "matchNo": "周五001",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.68,
-        "draw": 3.45,
-        "lose": 2.1
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
       "id": "2043056-had",
       "groupId": "2043056",
       "poolType": "had",
@@ -34,9 +12,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.98,
-        "draw": 3.85,
+        "win": 2.01,
+        "draw": 3.75,
         "lose": 2.67
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -51,9 +34,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.2,
-        "draw": 5.6,
-        "lose": 7.9
+        "win": 1.18,
+        "draw": 6,
+        "lose": 8
       },
       "trend": {
         "win": "down",
@@ -73,9 +56,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.35,
-        "draw": 3.6,
+        "win": 2.39,
+        "draw": 3.5,
         "lose": 2.3
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": null
       }
     },
     {
@@ -110,11 +98,6 @@
         "win": 3.32,
         "draw": 3.15,
         "lose": 1.92
-      },
-      "trend": {
-        "win": "down",
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -129,9 +112,9 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.55,
-        "draw": 3.35,
-        "lose": 1.79
+        "win": 3.7,
+        "draw": 3.45,
+        "lose": 1.73
       },
       "trend": {
         "win": "up",
@@ -151,9 +134,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 2.48,
+        "win": 2.44,
         "draw": 3.2,
-        "lose": 2.36
+        "lose": 2.4
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -171,11 +159,6 @@
         "win": 3,
         "draw": 3.2,
         "lose": 2.03
-      },
-      "trend": {
-        "win": null,
-        "draw": "down",
-        "lose": "up"
       }
     },
     {
@@ -191,8 +174,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 1.89,
-        "draw": 3.7,
-        "lose": 2.95
+        "draw": 3.62,
+        "lose": 3
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -414,11 +402,6 @@
         "win": 3.3,
         "draw": 3.35,
         "lose": 1.86
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
       }
     },
     {
@@ -677,28 +660,6 @@
       }
     },
     {
-      "id": "2043055-hhad",
-      "groupId": "2043055",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "麦克阿瑟 vs 墨尔本城",
-      "league": "澳超",
-      "kickoff": "2026-11-27 16:40:00",
-      "matchNo": "周五001",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.52,
-        "draw": 4.1,
-        "lose": 4.2
-      },
-      "trend": {
-        "win": "up",
-        "draw": "up",
-        "lose": "down"
-      }
-    },
-    {
       "id": "2043056-hhad",
       "groupId": "2043056",
       "poolType": "hhad",
@@ -710,9 +671,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.8,
-        "draw": 4.05,
-        "lose": 1.59
+        "win": 3.9,
+        "draw": 4.07,
+        "lose": 1.57
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -727,13 +693,13 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.74,
-        "draw": 3.75,
-        "lose": 3.35
+        "win": 1.65,
+        "draw": 3.9,
+        "lose": 3.62
       },
       "trend": {
         "win": "down",
-        "draw": null,
+        "draw": "up",
         "lose": "up"
       }
     },
@@ -749,9 +715,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.44,
-        "draw": 4.55,
+        "win": 1.43,
+        "draw": 4.65,
         "lose": 4.45
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": null
       }
     },
     {
@@ -786,11 +757,6 @@
         "win": 1.64,
         "draw": 3.55,
         "lose": 4.05
-      },
-      "trend": {
-        "win": "down",
-        "draw": "up",
-        "lose": "up"
       }
     },
     {
@@ -805,8 +771,8 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.76,
-        "draw": 3.36,
+        "win": 1.8,
+        "draw": 3.23,
         "lose": 3.65
       },
       "trend": {
@@ -827,9 +793,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 5.6,
+        "win": 5.4,
         "draw": 4.25,
-        "lose": 1.38
+        "lose": 1.39
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -847,11 +818,6 @@
         "win": 1.57,
         "draw": 3.97,
         "lose": 4
-      },
-      "trend": {
-        "win": "down",
-        "draw": null,
-        "lose": "up"
       }
     },
     {
@@ -867,8 +833,13 @@
       "bettingSingle": false,
       "odds": {
         "win": 3.7,
-        "draw": 3.7,
-        "lose": 1.67
+        "draw": 3.65,
+        "lose": 1.68
+      },
+      "trend": {
+        "win": null,
+        "draw": "down",
+        "lose": "up"
       }
     },
     {
@@ -1090,11 +1061,6 @@
         "win": 1.69,
         "draw": 3.6,
         "lose": 3.7
-      },
-      "trend": {
-        "win": "up",
-        "draw": null,
-        "lose": "down"
       }
     },
     {
@@ -1370,5 +1336,5 @@
       }
     }
   ],
-  "fetchedAt": 1795766743197
+  "fetchedAt": 1795773919791
 }
