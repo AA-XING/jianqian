@@ -1,23 +1,6 @@
 {
   "matches": [
     {
-      "id": "2043065-had",
-      "groupId": "2043065",
-      "poolType": "had",
-      "poolLabel": "胜平负",
-      "name": "哥伦布 vs 迈国际",
-      "league": "美职",
-      "kickoff": "2026-11-28 09:00:00",
-      "matchNo": "周五011",
-      "goalLine": 0,
-      "bettingSingle": false,
-      "odds": {
-        "win": 2.52,
-        "draw": 3.75,
-        "lose": 2.1
-      }
-    },
-    {
       "id": "2043087-had",
       "groupId": "2043087",
       "poolType": "had",
@@ -97,9 +80,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.38,
-        "draw": 4.55,
-        "lose": 5.15
+        "win": 1.36,
+        "draw": 4.65,
+        "lose": 5.3
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -165,9 +153,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.87,
+        "win": 1.93,
         "draw": 3.55,
-        "lose": 3.1
+        "lose": 2.95
+      },
+      "trend": {
+        "win": "up",
+        "draw": null,
+        "lose": "down"
       }
     },
     {
@@ -182,9 +175,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.37,
-        "draw": 4.15,
-        "lose": 5.95
+        "win": 1.35,
+        "draw": 4.25,
+        "lose": 6.15
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -301,9 +299,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 3.65,
-        "draw": 3.13,
-        "lose": 1.83
+        "win": 3.78,
+        "draw": 3.3,
+        "lose": 1.75
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -335,9 +338,14 @@
       "goalLine": 0,
       "bettingSingle": false,
       "odds": {
-        "win": 1.95,
+        "win": 1.92,
         "draw": 2.55,
-        "lose": 4.28
+        "lose": 4.42
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -477,23 +485,6 @@
       }
     },
     {
-      "id": "2043065-hhad",
-      "groupId": "2043065",
-      "poolType": "hhad",
-      "poolLabel": "让1",
-      "name": "哥伦布 vs 迈国际",
-      "league": "美职",
-      "kickoff": "2026-11-28 09:00:00",
-      "matchNo": "周五011",
-      "goalLine": 1,
-      "bettingSingle": false,
-      "odds": {
-        "win": 1.55,
-        "draw": 4.15,
-        "lose": 3.95
-      }
-    },
-    {
       "id": "2043087-hhad",
       "groupId": "2043087",
       "poolType": "hhad",
@@ -573,9 +564,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.07,
+        "win": 2.04,
         "draw": 3.85,
-        "lose": 2.52
+        "lose": 2.57
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -641,9 +637,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 3.55,
-        "draw": 3.77,
-        "lose": 1.69
+        "win": 3.7,
+        "draw": 3.8,
+        "lose": 1.65
+      },
+      "trend": {
+        "win": "up",
+        "draw": "up",
+        "lose": "down"
       }
     },
     {
@@ -658,9 +659,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 2.21,
-        "draw": 3.4,
-        "lose": 2.55
+        "win": 2.15,
+        "draw": 3.42,
+        "lose": 2.62
+      },
+      "trend": {
+        "win": "down",
+        "draw": "up",
+        "lose": "up"
       }
     },
     {
@@ -777,9 +783,14 @@
       "goalLine": 1,
       "bettingSingle": false,
       "odds": {
-        "win": 1.72,
-        "draw": 3.4,
-        "lose": 3.8
+        "win": 1.78,
+        "draw": 3.35,
+        "lose": 3.58
+      },
+      "trend": {
+        "win": "up",
+        "draw": "down",
+        "lose": "down"
       }
     },
     {
@@ -811,9 +822,14 @@
       "goalLine": -1,
       "bettingSingle": false,
       "odds": {
-        "win": 4.45,
+        "win": 4.28,
         "draw": 3.3,
-        "lose": 1.64
+        "lose": 1.66
+      },
+      "trend": {
+        "win": "down",
+        "draw": null,
+        "lose": "up"
       }
     },
     {
@@ -970,5 +986,5 @@
       }
     }
   ],
-  "fetchedAt": 1795824027069
+  "fetchedAt": 1795834868797
 }
